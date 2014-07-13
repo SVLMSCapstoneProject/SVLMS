@@ -15,7 +15,6 @@ namespace SVLMS.Loaning.Model
         public string minimumShare { get; set; }
         public string hasCertificate { get; set; }
         public string status { get; set; }
-        public string memberTypeName { get; set; }
 
         public void insertMemberType()
         {
@@ -113,19 +112,6 @@ namespace SVLMS.Loaning.Model
                 }
             }
             return check;
-        }
-
-        public void MemberTypeName()
-        {
-            DataAccessLayer dal = new DataAccessLayer(ConfigurationManager.ConnectionStrings["coopdbConnectionString"].ConnectionString);
-            string sql = "select COUNT(*) from vw_memberType where memberTypeName = @1";
-            Dictionary<string, object> parameters = new Dictionary<string, object>();
-            parameters.Add("@1", typeName);
-            SqlDataReader reader = dal.executeReader(sql, parameters);
-            if (reader.Read())
-            {
-                memberTypeName = reader[0].ToString();
-            }
         }
     }
 }

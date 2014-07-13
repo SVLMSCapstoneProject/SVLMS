@@ -206,7 +206,7 @@ namespace SVLMS.Savings.View
 
         public void unStatus()
         {
-            statusPanel.BackColor = Color.White;
+            statusPanel.BackColor = Color.CornflowerBlue;
         }
 
         public int status()
@@ -235,6 +235,11 @@ namespace SVLMS.Savings.View
         public void setTextSearchEvent(EventHandler e)
         {
             txtSearch.TextChanged += e;
+        }
+
+        private void txtNoOfDays_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsDigit(e.KeyChar) || char.IsControl(e.KeyChar) || e.KeyChar == (char)Keys.Back);
         }
 
         private void txtMinimumBracket_KeyPress(object sender, KeyPressEventArgs e)
@@ -271,12 +276,6 @@ namespace SVLMS.Savings.View
             {
                 e.Handled = true;
             }
-        }
-
-        private void txtNoOfDays_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-                e.Handled = true;
         }
     }
 }

@@ -1,0 +1,21 @@
+Manage Savings Account / manage account holders change the name into comaker members in the datagrid with only one column
+
+termination change the label operation into termination/closing
+
+Create Time Deposit / ON maturity add  Renew Principal and withdraw interest / Renew the interest amount and withdraw principal 
+
+kapag select all kapag unselect all di nabubura... ung nakaselect
+
+loan app sa ammortization lagay sa baba ung amortization info
+loan app panu gagawin sa operationh kung itatab or combo box or change label lang
+
+icon enlargment if mouse hover..
+
+Savings transaction & time deposit withdrawal dagdag check information
+
+database dagdag column na int sa loan table at time deposit table at column na type: savings,time deposit,loan sa check table para ma reuse ung checktable
+
+loan payment view amortization / amortsched view lahat ng amortsched  may remarks column para sa remaining amount at sa penalty na magsasabi ng paid na o diba at filter na lng ng combobox ung mga di pa nababayaran
+
+loan payment\payment change mode of payment:transfer from savings into Payment Through Savings
+

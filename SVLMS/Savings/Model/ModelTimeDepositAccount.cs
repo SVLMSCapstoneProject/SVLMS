@@ -167,5 +167,26 @@ namespace SVLMS.Savings.Model
 
             return check;
         }
+
+        public DataSet getApplicableRates()
+        {
+            DataAccessLayer dal = new DataAccessLayer(ConfigurationManager.ConnectionStrings["coopdbConnectionString"].ConnectionString);
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+            string sql = "select A.minimumRange as 'From', A.maximumRange as 'To', B.interestRate as 'Interest' from TimeDepositRates A inner join TimeDepositInterest B on (A.timeRateID = B.timeRateID) where @1 between A.minimumRange and A.maximumRange and A.daysNo = @2 and A.status = 1 and B.isCurrent = 1 order by A.minimumRange";
+            parameters.Add("@1",initialDeposit);
+            parameters.Add("@2",termDays);
+            DataSet ds = dal.executeDataSet(sql, parameters);
+            return ds;
+        }
+
+        public DataSet getAllApplicableRates()
+        {
+            DataAccessLayer dal = new DataAccessLayer(ConfigurationManager.ConnectionStrings["coopdbConnectionString"].ConnectionString);
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+            string sql = "select A.minimumRange as 'From', A.maximumRange as 'To', B.interestRate as 'Interest' from TimeDepositRates A inner join TimeDepositInterest B on (A.timeRateID = B.timeRateID) where A.daysNo = @2 and A.status = 1 and B.isCurrent = 1 order by A.minimumRange";
+            parameters.Add("@2", termDays);
+            DataSet ds = dal.executeDataSet(sql, parameters);
+            return ds;
+        }
     }
 }

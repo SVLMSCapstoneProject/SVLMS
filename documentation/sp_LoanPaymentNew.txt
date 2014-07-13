@@ -1,0 +1,185 @@
+CREATE PROCEDURE sp_TransactionLoanPayment          
+ 	--parameters          
+  	@paymentAmount decimal(19,4),          
+  	@noOfPeriod int,                
+  	@userID int,      
+  	@accountNo char(7),          
+  	@loanNo char(7),  
+  	@savingsAccountNo char(10),  
+  	@change decimal(19,4) OUTPUT  
+AS          
+BEGIN          
+  	--Local variable          
+  	declare @nextPaymentID int          
+  	declare @shareAmount decimal(19,4)                 
+  	declare @interestAmount decimal(19,4)          
+  	declare @total decimal(19,4)          
+  	declare @currentBalance decimal(19,4)          
+  	declare @penaltyAmount decimal(19,4)    
+  	declare @penaltyFined decimal(19,4)        
+  	declare @ctr int          
+  	declare @principal decimal(19,4)          
+  	declare @principalPayment decimal(19,4)          
+  	declare @penaltyPayment decimal(19,4)   
+  	declare @shareID int    
+    
+  	--To be inserted  
+  	declare @loanPrincipalPayment decimal(19,4)  
+  	declare @loanPenaltyPayment decimal(19,4)  
+  	declare @isPaid int  
+         
+  	select @nextPaymentID = ISNULL(MAX(paymentID),0) from LoanPayment          
+  	select @nextPaymentID = @nextPaymentID + 1          
+  	select @ctr = 0          
+           
+  	select * into #tempTable from func_GetAmortizationToBePaid(@loanNo,@noOfPeriod)          
+          
+  	insert into LoanPayment(paymentID,paymentAmount,paymentDatetime,accountNo,userID)          
+  	values (@nextPaymentID,@paymentAmount,CURRENT_TIMESTAMP,@accountNo,@userID)          
+           
+  	--IF LEN(@savingsAccountNo) != 0  
+  	--BEGIN  
+  		--exec sp_TransactionSavingsAccount 'W',@paymentAmount,'',@savingsAccountNo,@userID,'Withdrawal for Payment of Loan'  
+  	--END  
+    
+  	WHILE (select COUNT(*) from #tempTable) > 0           
+  	BEGIN          
+        	select @isPaid = 0             
+     		select top 1 @interestAmount = interest, @shareAmount = shareCapital, @penaltyFined = PenaltyFined,@ctr = amortID, @principal = baseAmount,@penaltyAmount = penalty,@total = (baseAmount+interest+shareCapital), @currentBalance = balanceAmount   
+     		from #tempTable    
+              
+        	IF @paymentAmount >= (@currentBalance + @penaltyAmount)  
+        	BEGIN  
+    			IF @currentBalance <= (@penaltyFined+@penaltyAmount)  
+    			BEGIN  
+     				select @loanPenaltyPayment = @currentBalance + @penaltyAmount   
+    			END  
+  
+    			ELSE  
+    			BEGIN  
+     				select @loanPenaltyPayment = @penaltyAmount  
+    			END  
+      
+    			IF @shareAmount != 0  
+    			BEGIN  
+     				select @shareID = shareID from ShareCapital where accountNo = @accountNo    
+        			exec sp_TransactionShare @shareID,'D',@shareAmount,'Capital buildup from Loan Payment',@userID   
+       			END  
+  
+    			select @paymentAmount = @paymentAmount - (@currentBalance + @penaltyAmount)  
+    			select @loanPrincipalPayment = @principal  
+    			select @principal = 0  
+    			select @penaltyFined = 0  
+    			select @currentBalance = 0  
+    			select @isPaid = 1  
+        	END  
+        
+        	ELSE  
+        	BEGIN  
+    			select @penaltyFined = @penaltyFined + @penaltyAmount  
+    			--select @currentBalance = @currentBalance + @penaltyFined  
+  
+    			IF @paymentAmount >= @penaltyFined  
+    			BEGIN  
+     				select @currentBalance = @currentBalance - @penaltyFined  
+     				select @paymentAmount = @paymentAmount - @penaltyFined  
+     				select @loanPenaltyPayment = @penaltyFined  
+     				select @penaltyAmount = 0  
+     				select @penaltyFined = 0  
+    			END  
+      
+    			ELSE  
+    			BEGIN  
+     				select @loanPenaltyPayment = @paymentAmount  
+     				select @penaltyFined = @penaltyFined - @paymentAmount  
+     				select @currentBalance = @currentBalance - @paymentAmount  
+     				select @paymentAmount = 0  
+    			END  
+       
+    			IF @paymentAmount != 0  
+    			BEGIN  
+     				IF @paymentAmount >= @principal  
+     				BEGIN  
+      					select @currentBalance = @currentBalance - @principal  
+      					select @loanPrincipalPayment = @principal  
+      					select @paymentAmount = @paymentAmount - @principal  
+      					select @principal = 0  
+    				END  
+       
+     				ELSE  
+     				BEGIN  
+      					select @principal = @principal - @paymentAmount  
+      					select @currentBalance = @currentBalance - @paymentAmount  
+      					select @loanPrincipalPayment = @paymentAmount  
+      					select @loanPenaltyPayment = 0  
+      					select @paymentAmount = 0   
+     				END  
+    			END  
+  
+    			--IF @paymentAmount >= @principal  
+    			--BEGIN  
+    				-- select @currentBalance = @currentBalance - @principal  
+    				-- select @loanPrincipalPayment = @principal  
+    				-- select @paymentAmount = @paymentAmount - @principal  
+    				-- select @principal = 0  
+  
+      
+    				-- IF @paymentAmount >= @penaltyFined  
+    				-- BEGIN  
+    					--  select @currentBalance = @currentBalance - @paymentAmount  
+    					--  --select @paymentAmount = @paymentAmount - @penaltyFined  
+    					--  select @loanPenaltyPayment = @penaltyFined  
+    					--  select @penaltyAmount = 0  
+    					--  select @paymentAmount = 0  
+    					--  select @penaltyFined = 0  
+    				-- END  
+      
+    				-- ELSE  
+    				-- BEGIN  
+
+    			    		--  select @loanPenaltyPayment = @paymentAmount  
+    			    		--  select @penaltyFined = @penaltyFined - @paymentAmount  
+    					--  select @currentBalance = @currentBalance - @paymentAmount  
+    					--  select @paymentAmount = 0  
+    				-- END  
+    			--END  
+     
+   			--ELSE  
+    			--BEGIN  
+    				-- select @principal = @principal - @paymentAmount  
+    				-- select @currentBalance = @currentBalance - @paymentAmount  
+    				-- select @loanPrincipalPayment = @paymentAmount  
+    				-- select @loanPenaltyPayment = 0  
+    				-- select @paymentAmount = 0  
+    			--END  
+        	END       
+  
+        	IF @currentBalance < 0.01  
+        	BEGIN  
+         		select @principal = 0  
+    			select @penaltyFined = 0  
+    			select @currentBalance = 0  
+    			select @isPaid = 1  
+         		select @currentBalance = 0  
+         		select @isPaid = 1  
+        	END  
+            
+        	--Update amortization  
+        	update Amortization set baseAmount = @principal, balanceAmount = @currentBalance, isPaid = @isPaid, penalty = @penaltyFined  
+        	where amortID = @ctr  
+        
+        	--Insert amortization paid  
+        	insert into AmortizationPaid(paymentID,amortID,loanPrincipalPayment,loanPenaltyPayment)  
+        	values (@nextPaymentID,@ctr,@loanPrincipalPayment,@loanPenaltyPayment)  
+        
+        	IF @paymentAmount = 0      
+        	BEGIN      
+    			BREAK      
+        	END     
+  
+        	--Delete processed row from the temp table  
+    		delete #tempTable where amortID = @ctr          
+  	END          
+        select @change = @paymentAmount  
+   	drop table #tempTable          
+END 

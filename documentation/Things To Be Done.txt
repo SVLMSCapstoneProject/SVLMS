@@ -1,0 +1,36 @@
+Things to be done:
+
+Time Deposit -> Kung ililipat ba yung bracket and days into 1 table nalang
+	     -> Magdagdag ng maintenance na time deposit type with following attributes:
+		 a. Time deposit name
+		 b. Maturity grace period
+		 c. 
+
+Loan Rates -> kung tatanggalin ba yung savings rate
+
+Member Registration -> Dapat ba ang specimen signature ay ilagay sa module 
+			na to?
+
+Member Termination -> yung termination at closing of accounts, dapat 
+			macheck kung yung isang account ay joint account.
+
+Savings Transaction -> Maglagay ng current Balance sa table ng transaction
+		    -> include comment on savings Transaction stored proc
+
+Time Deposit Transaction -> Maglagay ng renewal instruction
+
+Loan Application -> Dapat bawal ang simultaneous na loan application
+
+Loan Approval -> Dapat pa bang tanggalin ang module na ito?
+
+Loan Payment -> Ayusin ang stored proc, at datatypes, nagkakaerror sa 
+		rounding off.
+		Magdagdag ng Payment through savings account.
+		Dapat ba na ang joint accounts ay madamay bilang pambayad
+		sa savings account?
+
+
+
+
+
+

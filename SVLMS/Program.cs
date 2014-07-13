@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using SVLMS.Savings.View_new;
-                                    
+
 namespace SVLMS
 {
     static class Program
@@ -16,8 +15,7 @@ namespace SVLMS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new ViewLoginForm());
-            Application.Run(new ViewRegisterMember());
+            Application.Run(new LoginForm());
         }
     }
 }

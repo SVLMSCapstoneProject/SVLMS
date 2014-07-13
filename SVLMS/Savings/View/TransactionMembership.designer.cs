@@ -116,6 +116,8 @@
             this.cboEmploymentStatus = new System.Windows.Forms.ComboBox();
             this.txtEmployerName = new System.Windows.Forms.TextBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.cboGenderFamily = new System.Windows.Forms.ComboBox();
+            this.label48 = new System.Windows.Forms.Label();
             this.btnAddFamily = new System.Windows.Forms.Button();
             this.btnUpdateFamily = new System.Windows.Forms.Button();
             this.chkDependent = new System.Windows.Forms.CheckBox();
@@ -131,8 +133,6 @@
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.cboGenderFamily = new System.Windows.Forms.ComboBox();
-            this.label48 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgMembers)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -1091,6 +1091,29 @@
             this.tabPage1.Text = "Dependent and Family";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // cboGenderFamily
+            // 
+            this.cboGenderFamily.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboGenderFamily.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboGenderFamily.FormattingEnabled = true;
+            this.cboGenderFamily.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
+            this.cboGenderFamily.Location = new System.Drawing.Point(595, 37);
+            this.cboGenderFamily.Name = "cboGenderFamily";
+            this.cboGenderFamily.Size = new System.Drawing.Size(121, 24);
+            this.cboGenderFamily.TabIndex = 67;
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label48.Location = new System.Drawing.Point(501, 40);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(54, 16);
+            this.label48.TabIndex = 68;
+            this.label48.Text = "Gender:";
+            // 
             // btnAddFamily
             // 
             this.btnAddFamily.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1195,7 +1218,7 @@
             this.dgDependent.Location = new System.Drawing.Point(18, 131);
             this.dgDependent.Name = "dgDependent";
             this.dgDependent.RowHeadersVisible = false;
-            this.dgDependent.Size = new System.Drawing.Size(736, 112);
+            this.dgDependent.Size = new System.Drawing.Size(736, 121);
             this.dgDependent.TabIndex = 53;
             this.dgDependent.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgDependent_CellDoubleClick);
             // 
@@ -1248,29 +1271,6 @@
             this.label20.Size = new System.Drawing.Size(200, 29);
             this.label20.TabIndex = 83;
             this.label20.Text = "Register Member";
-            // 
-            // cboGenderFamily
-            // 
-            this.cboGenderFamily.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboGenderFamily.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboGenderFamily.FormattingEnabled = true;
-            this.cboGenderFamily.Items.AddRange(new object[] {
-            "Male",
-            "Female"});
-            this.cboGenderFamily.Location = new System.Drawing.Point(595, 37);
-            this.cboGenderFamily.Name = "cboGenderFamily";
-            this.cboGenderFamily.Size = new System.Drawing.Size(121, 24);
-            this.cboGenderFamily.TabIndex = 67;
-            // 
-            // label48
-            // 
-            this.label48.AutoSize = true;
-            this.label48.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label48.Location = new System.Drawing.Point(501, 40);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(54, 16);
-            this.label48.TabIndex = 68;
-            this.label48.Text = "Gender:";
             // 
             // TransactionMembership
             // 

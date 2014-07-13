@@ -310,7 +310,7 @@ namespace SVLMS.Savings.View
 
         public void unStatus()
         {
-            statusPanel.BackColor = Color.White;
+            statusPanel.BackColor = Color.CornflowerBlue;
         }
 
         public int status()
@@ -330,7 +330,7 @@ namespace SVLMS.Savings.View
 
         public void unPercentage()
         {
-            percentagePanel.BackColor = Color.White;
+            percentagePanel.BackColor = Color.CornflowerBlue;
         }
 
         public int percentage()
@@ -353,19 +353,13 @@ namespace SVLMS.Savings.View
             txtDeductionAmount.BackColor = Color.White;
         }
 
-        private void txtDeductEvery_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtInactivity_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
                 e.Handled = true;
         }
 
-        private void txtInactivity_KeyPress_1(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-                e.Handled = true;
-        }
-
-        private void txtDeductionAmount_KeyPress_1(object sender, KeyPressEventArgs e)
+        private void txtDeductionAmount_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
             {
@@ -375,6 +369,12 @@ namespace SVLMS.Savings.View
             {
                 e.Handled = true;
             }
+        }
+
+        private void txtDeductEvery_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                e.Handled = true;
         }
     }
 }

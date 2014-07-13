@@ -191,21 +191,21 @@ namespace SVLMS.Loaning.Model
             return ds;
         }
 
-        public DataSet SearchByApprovedLoans(int searchType)
+        public DataSet SearchByApprovedLoans(int searchType, string search)
         {
             DataAccessLayer dal = new DataAccessLayer(ConfigurationManager.ConnectionStrings["coopdbConnectionString"].ConnectionString);
             Dictionary<string, object> parameters = new Dictionary<string, object>();
             string sql = "";
             if (searchType == 1)
             {
-                sql = "select A.loanNo as 'Loan No', (B.FName + ' '+ B.LName) as 'Member Name', A.approvedAmount as 'Approved Amount', A.requestedAmount as 'Requested Amount', A.statusDate as 'Approval Date' from Loan A inner join Member B on (A.accountNo = B.accountNo) where status = 2 and isReleased is null and A.loanNo LIKE @1 and B.isTerminated = 0";
-                parameters.Add("@1", "%" + loanNo + "%");
+                sql = "select A.loanNo as 'Loan No', (B.FName + ' '+ B.LName) as 'Member Name', A.approvedAmount as 'Approved Amount', A.requestedAmount as 'Requested Amount', A.statusDate as 'Approval Date',B.accountNo from Loan A inner join Member B on (A.accountNo = B.accountNo) where status = 2 and isReleased is null and A.loanNo LIKE @1 and B.isTerminated = 0";
+                parameters.Add("@1", "%" + search+ "%");
             }
 
             else if (searchType == 2)
             {
-                sql = "select A.loanNo as 'Loan No', (B.FName + ' '+ B.LName) as 'Member Name', A.approvedAmount as 'Approved Amount', A.requestedAmount as 'Requested Amount', A.statusDate as 'Approval Date' from Loan A inner join Member B on (A.accountNo = B.accountNo) where status = 2 and isReleased is null and (B.FName + ' '+ B.LName) LIKE @1 and B.isTerminated = 0";
-                parameters.Add("@1", "%" + memberName + "%");
+                sql = "select A.loanNo as 'Loan No', (B.FName + ' '+ B.LName) as 'Member Name', A.approvedAmount as 'Approved Amount', A.requestedAmount as 'Requested Amount', A.statusDate as 'Approval Date',B.accountNo from Loan A inner join Member B on (A.accountNo = B.accountNo) where status = 2 and isReleased is null and (B.FName + ' '+ B.LName) LIKE @1 and B.isTerminated = 0";
+                parameters.Add("@1", "%" + search + "%");
             }
             DataSet ds = dal.executeDataSet(sql, parameters);
             return ds;

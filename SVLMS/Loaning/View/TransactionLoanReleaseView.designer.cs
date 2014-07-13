@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dtpDateIssued = new System.Windows.Forms.DateTimePicker();
@@ -65,7 +67,9 @@
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.cboSearchBy = new System.Windows.Forms.ComboBox();
-            this.panel1.SuspendLayout();
+            this.txtPreviousLoanBalance = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -74,30 +78,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgApprovedLoans)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.dgApprovedLoans);
-            this.panel1.Controls.Add(this.txtSearch);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.cboSearchBy);
-            this.panel1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(1, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(687, 540);
-            this.panel1.TabIndex = 0;
-            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.groupBox3);
             this.panel2.Controls.Add(this.groupBox1);
             this.panel2.Controls.Add(this.groupBox2);
-            this.panel2.Location = new System.Drawing.Point(18, 230);
+            this.panel2.Location = new System.Drawing.Point(17, 233);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(659, 301);
-            this.panel2.TabIndex = 82;
+            this.panel2.Size = new System.Drawing.Size(700, 327);
+            this.panel2.TabIndex = 88;
             // 
             // groupBox3
             // 
@@ -107,6 +97,7 @@
             this.groupBox3.Controls.Add(this.label14);
             this.groupBox3.Controls.Add(this.txtCheckNo);
             this.groupBox3.Controls.Add(this.label13);
+            this.groupBox3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(11, 181);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(293, 108);
@@ -165,6 +156,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label16);
+            this.groupBox1.Controls.Add(this.txtPreviousLoanBalance);
+            this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.btnPrintVoucher);
             this.groupBox1.Controls.Add(this.dgCharges);
             this.groupBox1.Controls.Add(this.btnRelease);
@@ -176,16 +170,17 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.txtApprovedRelease);
             this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(310, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(333, 277);
+            this.groupBox1.Size = new System.Drawing.Size(376, 296);
             this.groupBox1.TabIndex = 83;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Release Information";
             // 
             // btnPrintVoucher
             // 
-            this.btnPrintVoucher.Location = new System.Drawing.Point(165, 236);
+            this.btnPrintVoucher.Location = new System.Drawing.Point(220, 268);
             this.btnPrintVoucher.Name = "btnPrintVoucher";
             this.btnPrintVoucher.Size = new System.Drawing.Size(102, 23);
             this.btnPrintVoucher.TabIndex = 85;
@@ -200,16 +195,16 @@
             this.dgCharges.AllowUserToResizeRows = false;
             this.dgCharges.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgCharges.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgCharges.Location = new System.Drawing.Point(127, 59);
+            this.dgCharges.Location = new System.Drawing.Point(185, 48);
             this.dgCharges.Name = "dgCharges";
             this.dgCharges.ReadOnly = true;
             this.dgCharges.RowHeadersVisible = false;
-            this.dgCharges.Size = new System.Drawing.Size(191, 114);
+            this.dgCharges.Size = new System.Drawing.Size(185, 114);
             this.dgCharges.TabIndex = 84;
             // 
             // btnRelease
             // 
-            this.btnRelease.Location = new System.Drawing.Point(51, 236);
+            this.btnRelease.Location = new System.Drawing.Point(76, 267);
             this.btnRelease.Name = "btnRelease";
             this.btnRelease.Size = new System.Drawing.Size(102, 23);
             this.btnRelease.TabIndex = 83;
@@ -219,7 +214,7 @@
             // rbtnCheck
             // 
             this.rbtnCheck.AutoSize = true;
-            this.rbtnCheck.Location = new System.Drawing.Point(248, 205);
+            this.rbtnCheck.Location = new System.Drawing.Point(307, 229);
             this.rbtnCheck.Name = "rbtnCheck";
             this.rbtnCheck.Size = new System.Drawing.Size(63, 20);
             this.rbtnCheck.TabIndex = 82;
@@ -230,7 +225,7 @@
             // rbtnCash
             // 
             this.rbtnCash.AutoSize = true;
-            this.rbtnCash.Location = new System.Drawing.Point(186, 205);
+            this.rbtnCash.Location = new System.Drawing.Point(245, 229);
             this.rbtnCash.Name = "rbtnCash";
             this.rbtnCash.Size = new System.Drawing.Size(56, 20);
             this.rbtnCash.TabIndex = 81;
@@ -241,7 +236,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(16, 206);
+            this.label4.Location = new System.Drawing.Point(16, 231);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(109, 16);
             this.label4.TabIndex = 80;
@@ -253,7 +248,7 @@
             this.txtNetAmount.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.txtNetAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNetAmount.ForeColor = System.Drawing.Color.Black;
-            this.txtNetAmount.Location = new System.Drawing.Point(186, 179);
+            this.txtNetAmount.Location = new System.Drawing.Point(238, 196);
             this.txtNetAmount.Name = "txtNetAmount";
             this.txtNetAmount.ReadOnly = true;
             this.txtNetAmount.Size = new System.Drawing.Size(132, 22);
@@ -262,7 +257,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 183);
+            this.label3.Location = new System.Drawing.Point(17, 202);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(80, 16);
             this.label3.TabIndex = 78;
@@ -271,18 +266,18 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(17, 66);
+            this.label5.Location = new System.Drawing.Point(17, 55);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(92, 16);
+            this.label5.Size = new System.Drawing.Size(40, 16);
             this.label5.TabIndex = 76;
-            this.label5.Text = "Less: Charges";
+            this.label5.Text = "Less:";
             // 
             // txtApprovedRelease
             // 
             this.txtApprovedRelease.BackColor = System.Drawing.Color.White;
             this.txtApprovedRelease.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.txtApprovedRelease.ForeColor = System.Drawing.Color.Black;
-            this.txtApprovedRelease.Location = new System.Drawing.Point(186, 32);
+            this.txtApprovedRelease.Location = new System.Drawing.Point(238, 19);
             this.txtApprovedRelease.Name = "txtApprovedRelease";
             this.txtApprovedRelease.ReadOnly = true;
             this.txtApprovedRelease.Size = new System.Drawing.Size(132, 22);
@@ -291,7 +286,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 36);
+            this.label2.Location = new System.Drawing.Point(16, 25);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(113, 16);
             this.label2.TabIndex = 68;
@@ -309,6 +304,7 @@
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.txtLoanNo);
             this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(11, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(293, 163);
@@ -420,10 +416,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(13, 15);
+            this.label1.Location = new System.Drawing.Point(12, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(187, 29);
-            this.label1.TabIndex = 77;
+            this.label1.TabIndex = 87;
             this.label1.Text = "Loan Releasing:";
             // 
             // dgApprovedLoans
@@ -433,54 +429,113 @@
             this.dgApprovedLoans.AllowUserToResizeColumns = false;
             this.dgApprovedLoans.AllowUserToResizeRows = false;
             this.dgApprovedLoans.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgApprovedLoans.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgApprovedLoans.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgApprovedLoans.Location = new System.Drawing.Point(18, 83);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgApprovedLoans.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgApprovedLoans.Location = new System.Drawing.Point(17, 86);
             this.dgApprovedLoans.Name = "dgApprovedLoans";
             this.dgApprovedLoans.ReadOnly = true;
-            this.dgApprovedLoans.Size = new System.Drawing.Size(659, 141);
-            this.dgApprovedLoans.TabIndex = 76;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgApprovedLoans.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgApprovedLoans.Size = new System.Drawing.Size(700, 141);
+            this.dgApprovedLoans.TabIndex = 86;
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(197, 56);
+            this.txtSearch.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.Location = new System.Drawing.Point(196, 59);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(172, 22);
-            this.txtSearch.TabIndex = 74;
-            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            this.txtSearch.TabIndex = 85;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(15, 57);
+            this.label6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(14, 60);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(73, 16);
-            this.label6.TabIndex = 72;
+            this.label6.TabIndex = 83;
             this.label6.Text = "Search By:";
             // 
             // cboSearchBy
             // 
             this.cboSearchBy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboSearchBy.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboSearchBy.FormattingEnabled = true;
             this.cboSearchBy.Items.AddRange(new object[] {
             "Loan No",
             "Member Name"});
-            this.cboSearchBy.Location = new System.Drawing.Point(90, 54);
+            this.cboSearchBy.Location = new System.Drawing.Point(89, 57);
             this.cboSearchBy.Name = "cboSearchBy";
             this.cboSearchBy.Size = new System.Drawing.Size(101, 24);
-            this.cboSearchBy.TabIndex = 73;
+            this.cboSearchBy.TabIndex = 84;
+            // 
+            // txtPreviousLoanBalance
+            // 
+            this.txtPreviousLoanBalance.BackColor = System.Drawing.Color.White;
+            this.txtPreviousLoanBalance.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.txtPreviousLoanBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPreviousLoanBalance.ForeColor = System.Drawing.Color.Black;
+            this.txtPreviousLoanBalance.Location = new System.Drawing.Point(238, 168);
+            this.txtPreviousLoanBalance.Name = "txtPreviousLoanBalance";
+            this.txtPreviousLoanBalance.ReadOnly = true;
+            this.txtPreviousLoanBalance.Size = new System.Drawing.Size(132, 22);
+            this.txtPreviousLoanBalance.TabIndex = 87;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(57, 171);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(144, 16);
+            this.label15.TabIndex = 86;
+            this.label15.Text = "Previous Loan Balance:";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(57, 55);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(60, 16);
+            this.label16.TabIndex = 88;
+            this.label16.Text = "Charges:";
             // 
             // TransactionLoanReleaseView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.ClientSize = new System.Drawing.Size(690, 544);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(721, 564);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.dgApprovedLoans);
+            this.Controls.Add(this.txtSearch);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.cboSearchBy);
             this.Name = "TransactionLoanReleaseView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Loan Release";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
@@ -491,17 +546,12 @@
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgApprovedLoans)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dgApprovedLoans;
-        private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox cboSearchBy;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DateTimePicker dtpDateIssued;
@@ -533,6 +583,15 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtLoanNo;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dgApprovedLoans;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cboSearchBy;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox txtPreviousLoanBalance;
+        private System.Windows.Forms.Label label15;
+
 
     }
 }

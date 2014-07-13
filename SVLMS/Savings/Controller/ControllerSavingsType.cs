@@ -33,7 +33,6 @@ namespace SVLMS.Savings.Controller
             view.setChkWithdrawalEvent(chkNoWithdrawalClicked);
             view.setTxtSearchEvent(txtSearchTextChanged);
             view.setCboFilterEvent(cboFilterIndexChanged);
-            view.setTxtSavingsName(txtSavingsNameLeave);
         }
 
         public void cboFilterIndexChanged(object sender, EventArgs e)
@@ -44,18 +43,6 @@ namespace SVLMS.Savings.Controller
         public void txtSearchTextChanged(object sender, EventArgs e)
         {
             view.setSavingsTypeInfo(model.searchSavingsType(view.getCboFilter(),view.getTxtSearch()));
-        }
-
-        public void txtSavingsNameLeave(object sender, EventArgs e)
-        {
-            int check = SavingsTypeName();
-            if (check == 1)
-            {
-                view.errSavingsTypeName();
-                MessageBox.Show("There's an existing Savings Type Name");
-            }
-            else
-                view.unSavingsTypeName();
         }
 
         public void dgCellClicked(object sender, EventArgs e)
@@ -115,27 +102,27 @@ namespace SVLMS.Savings.Controller
 
         public void btnSaveClicked(object sender, EventArgs e)
         {
-                bool perform = PerformAction();
-                if (perform == true)
+            bool perform = PerformAction();
+            if (perform == true)
+            {
+                if (view.getNoWithdrawalLimit())
                 {
-                    if (view.getNoWithdrawalLimit())
+                    DialogResult dialogResult = MessageBox.Show("Are you sure of not having a withdrawal limit?", "No Withdrawal Limit", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+                    if (dialogResult == DialogResult.Yes)
                     {
-                        DialogResult dialogResult = MessageBox.Show("Are you sure of not having a withdrawal limit?", "No Withdrawal Limit", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
-                        if (dialogResult == DialogResult.Yes)
-                        {
-                            this.setValuesToModel();
-                            view.unWithdrawLimit();
-                            model.insertSavingsType();
-                            MessageBox.Show("The Record is Successfully Inserted");
-                            this.RefreshFields();
-                        }
-                        else if (dialogResult == DialogResult.No)
-                        {
-                            view.errWithdrawLimit();
-                        }
+                        this.setValuesToModel();
+                        view.unWithdrawLimit();
+                        model.insertSavingsType();
+                        MessageBox.Show("The Record is Successfully Inserted");
+                        this.RefreshFields();
                     }
-                    else
+                    else if (dialogResult == DialogResult.No)
                     {
+                        view.errWithdrawLimit();
+                    }
+                }
+                else
+                {
                     DialogResult dialogResult = MessageBox.Show("Are you sure of not having a withdrawal limit?", "No Withdrawal Limit", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
                     if (dialogResult == DialogResult.Yes)
                     {
@@ -322,7 +309,7 @@ namespace SVLMS.Savings.Controller
         {
             this.setValuesToModel();
 
-            string special = "!@#$%^&*(){}/;:><+=_?.,1234567890";
+            string special = "!@#$%^&*(){}/;:><+=_?.,";
             bool pass = true;
             int integer;
             double num;
@@ -330,7 +317,6 @@ namespace SVLMS.Savings.Controller
             int correct = 0;
             int percentage = view.percentage();
             int status = view.status();
-            int check = SavingsTypeName();
             //SavingsTypeName-------------------------------------
             if (string.IsNullOrWhiteSpace(model.savingsName))
             {
@@ -338,52 +324,44 @@ namespace SVLMS.Savings.Controller
             }
             else
             {
-                if (check == 1)
+                char[] spec = special.ToCharArray();
+                char[] str = model.savingsName.ToCharArray();
+                for (int x = 0; x < special.Length; x++)
                 {
-                    view.errSavingsTypeName();
-                    error = true;
-                }
-                else
-                {
-                    char[] spec = special.ToCharArray();
-                    char[] str = model.savingsName.ToCharArray();
-                    for (int x = 0; x < special.Length; x++)
+                    for (int i = 0; i < str.Length; i++)
                     {
-                        for (int i = 0; i < str.Length; i++)
+                        if (str[i] == special[x])
                         {
-                            if (str[i] == special[x])
-                            {
-                                view.errSavingsTypeName();
-                                pass = false;
-                                error = true;
-                                x = special.Length;
-                                i = str.Length;
-                            }
+                            view.errSavingsTypeName();
+                            pass = false;
+                            error = true;
+                            x = special.Length;
+                            i = str.Length;
                         }
                     }
+                }
 
-                    if (pass)
+                if (pass)
+                {
+                    for (int i = 0; i < str.Length - 1; i++)
                     {
-                        for (int i = 0; i < str.Length - 1; i++)
+                        if (char.IsLetter(str[i]) || str[i] == ' ' || str[i] == '-' || str[i] == '\'')
                         {
-                            if (char.IsLetter(str[i]) || str[i] == ' ' || str[i] == '-' || str[i] == '\'')
-                            {
-                                view.unSavingsTypeName();
-                                error = false;
-                            }
-                            else
-                            {
-                                view.errSavingsTypeName();
-                                i = model.savingsName.Length;
-                                error = true;
-                            }
+                            view.unSavingsTypeName();
+                            error = false;
+                        }
+                        else
+                        {
+                            view.errSavingsTypeName();
+                            i = model.savingsName.Length;
+                            error = true;
                         }
                     }
                 }
                 if (error == false)
                 {
-                   view.unSavingsTypeName();
-                   correct++;
+                    view.unSavingsTypeName();
+                    correct++;
                 }
             }
             //AccountHolders------------------------------------------
@@ -574,14 +552,6 @@ namespace SVLMS.Savings.Controller
                 correct++;
             }
             return correct;
-        }
-
-        public int SavingsTypeName()
-        {
-            model.savingsName = view.getName();
-            model.searchSavingsName();
-
-            return Convert.ToInt16(model.checkSavingsName);
         }
     }
 }

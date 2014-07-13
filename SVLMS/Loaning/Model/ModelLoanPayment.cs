@@ -68,7 +68,6 @@ namespace SVLMS.Loaning.Model
                     cmd.Parameters.AddWithValue("@paymentAmount",paymentAmount);
                     cmd.Parameters.AddWithValue("@noOfPeriod",noOfPeriod);
                     cmd.Parameters.AddWithValue("@userID", userID);
-                    cmd.Parameters.AddWithValue("@accountNo",accountNo);
                     cmd.Parameters.AddWithValue("@loanNo",loanNo);
                     cmd.Parameters.AddWithValue("@savingsAccountNo",savingsAccountNo);
                     cmd.Parameters.Add("@change",SqlDbType.Money);

@@ -27,7 +27,7 @@ namespace SVLMS.Loaning.View
 
         public string getTextSearch()
         {
-            return txtSearch.Text;
+            return txtSearchBox.Text;
         }
 
         public void setBtnSaveEvent(EventHandler e)
@@ -57,7 +57,7 @@ namespace SVLMS.Loaning.View
 
         public void setTxtSearchEvent(EventHandler e)
         {
-            txtSearch.TextChanged += e;
+            txtSearchBox.TextChanged += e;
         }
 
         public string amountFormatter(string text)
@@ -92,7 +92,7 @@ namespace SVLMS.Loaning.View
         }
 
         //================= SET & GET ============================
-
+        
 
 
         public void setlistbox(DataSet ds)
@@ -130,37 +130,37 @@ namespace SVLMS.Loaning.View
             return chk;
         }
 
-        public void setchecklistbox(List<int> list)
+        public void setchecklistbox(List<int> list) 
         {
 
-
+            
             int value = 0;
 
             for (int i = 0; i < listLoanTypes.Items.Count; i++)
             {
-
+                
                 DataRowView view = listLoanTypes.Items[i] as DataRowView;
                 value = (int)view["loanTypeID"];
                 if (list.Contains(value))
                 {
                     listLoanTypes.SetItemChecked(i, true);
                 }
-                else
+                else 
                 {
                     listLoanTypes.SetItemChecked(i, false);
-                }
-            }
+                } 
+              }
             chkApplicableAll.Checked = false;
         }
 
-        public List<int> getchecklistselected()
+        public List<int> getchecklistselected() 
         {
             List<int> a = new List<int>();
             foreach (DataRowView checkedItem in listLoanTypes.CheckedItems)
             {
                 a.Add(int.Parse(checkedItem[listLoanTypes.ValueMember].ToString()));
             }
-            return a;
+            return a;   
         }
 
         public String getlistbox()
@@ -181,11 +181,6 @@ namespace SVLMS.Loaning.View
         public void setChargeName(string chargeName)
         {
             txtChargeName.Text = chargeName;
-        }
-
-        public void setChargeID(string chargeID)
-        {
-            txtChargeID.Text = chargeID;
         }
 
         public string getChargeName()
@@ -250,7 +245,7 @@ namespace SVLMS.Loaning.View
 
         public void enableAdd()
         {
-            btnSave.Enabled = true;
+           btnSave.Enabled = true;
         }
 
         public void disableAdd()
@@ -261,7 +256,7 @@ namespace SVLMS.Loaning.View
 
 
         //==================== BTN ===============================
-
+        
 
         public void enableBtnAdd()
         {
@@ -347,7 +342,7 @@ namespace SVLMS.Loaning.View
 
         public void unPercentage()
         {
-            percentagePanel.BackColor = Color.White;
+            percentagePanel.BackColor = Color.CornflowerBlue;
         }
 
         public int percentage()
@@ -365,7 +360,7 @@ namespace SVLMS.Loaning.View
 
         public void unStatus()
         {
-            statusPanel.BackColor = Color.White;
+            statusPanel.BackColor = Color.CornflowerBlue;
         }
 
         public int status()
@@ -374,11 +369,6 @@ namespace SVLMS.Loaning.View
             if (rbtnActive.Checked == false && rbtnInactive.Checked == false)
                 i = 1;
             return i;
-        }
-
-        private void txtChargeName_Validating(object sender, CancelEventArgs e)
-        {
-            setChargeName(txtChargeName.Text.Trim());
         }
 
         private void txtAmount_KeyPress(object sender, KeyPressEventArgs e)
@@ -391,6 +381,11 @@ namespace SVLMS.Loaning.View
             {
                 e.Handled = true;
             }
+        }
+
+        private void txtChargeName_Validating(object sender, CancelEventArgs e)
+        {
+            setChargeName(txtChargeName.Text.Trim());
         }
     }
 
@@ -412,7 +407,7 @@ namespace SVLMS.Loaning.View
                 return chargeID;
             }
         }
-
+            
         public string ChargeName
         {
             get

@@ -28,7 +28,6 @@ namespace SVLMS.Savings.Controller
             view.setBtnClearEvent(btnclearClicked);
             view.setBtnUpdateEvent(btnUpdateClicked);
             view.setCboFilterEvent(CboFilterSelectedIndexChanged);
-            view.enableWhenupdate();
         }
 
         public void CboFilterSelectedIndexChanged(object sender, EventArgs e)
@@ -168,7 +167,7 @@ namespace SVLMS.Savings.Controller
             {
                 if (double.TryParse(model.minimum, out num))
                 {
-                    if (Convert.ToDouble(model.minimum) < 0 && Convert.ToDouble(model.minimum) >= 100)
+                    if (Convert.ToDouble(model.minimum) < 0)
                     {
                         view.errMinTerm();
                     }
@@ -192,7 +191,7 @@ namespace SVLMS.Savings.Controller
             {
                 if (double.TryParse(model.maximum, out num))
                 {
-                    if (Convert.ToDouble(model.maximum) < 0 && Convert.ToDouble(model.maximum) >= 100)
+                    if (Convert.ToDouble(model.maximum) < 0)
                     {
                         view.errMaxTerm();
                     }

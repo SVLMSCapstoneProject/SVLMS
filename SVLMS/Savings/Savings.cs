@@ -111,11 +111,14 @@ namespace SVLMS
 
         private void createSavingsAccountToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TransactionCreateSavingsAccountView view = new TransactionCreateSavingsAccountView();
-            if ((Application.OpenForms["TransactionCreateSavingsAccountView"] as TransactionCreateSavingsAccountView) == null)
-            {
-                ControllerSavingsAccount c = new ControllerSavingsAccount(new ModelSavingsAccount(), view);
-            }
+            //TransactionCreateSavingsAccountView view = new TransactionCreateSavingsAccountView();
+            //if ((Application.OpenForms["TransactionCreateSavingsAccountView"] as TransactionCreateSavingsAccountView) == null)
+            //{
+            //    ControllerSavingsAccount c = new ControllerSavingsAccount(new ModelSavingsAccount(), view);
+            //}
+            //XXXSampleCreate c = new XXXSampleCreate();
+            XXXSavingsWindows c = new XXXSavingsWindows();
+            c.Show();
         }
 
         private void savingsTransactionToolStripMenuItem_Click(object sender, EventArgs e)
@@ -125,6 +128,11 @@ namespace SVLMS
             {
                 ControllerSavingsTransaction c = new ControllerSavingsTransaction(new ModelSavingsTransaction(), view);
             }
+            //TransactionCreateSavingsAccountView view = new TransactionCreateSavingsAccountView();
+            //if ((Application.OpenForms["TransactionCreateSavingsAccountView"] as TransactionCreateSavingsAccountView) == null)
+            //{
+            //    ControllerSavingsAccount c = new ControllerSavingsAccount(new ModelSavingsAccount(), view);
+            //}
         }
 
         private void createTimeDepositToolStripMenuItem_Click(object sender, EventArgs e)

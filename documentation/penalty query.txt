@@ -1,0 +1,64 @@
+select top 1 A.dueDate, A.balanceAmount, 
+	(
+		CAST(DATEDIFF(DAY,A.dueDate,CAST(GETDATE() AS DATE)) AS MONEY)/
+		CAST((C.duration*(select I.daysNo from Indicator I where I.indicatorID = C.durationTime)) AS MONEY)*
+		(
+			CASE WHEN C.isPercentage = 1
+			THEN C.penaltyAmount/100
+			else
+			C.penaltyAmount end
+		)*A.balanceAmount
+	) as penalty
+from Amortization A 
+inner join Loan B on (A.loanNo = B.loanNo)
+inner join LoanPenaltySettings C on (B.penaltyID = C.penaltyID)
+where A.isRestructured = 0 and isPaid = 0 and A.loanNo = '0000001'\
+
+Correct:
+select top 10 A.dueDate, A.balanceAmount, 
+	CASE WHEN DATEDIFF(DAY,A.dueDate, CAST(GETDATE() AS DATE)) > c.gracePeriod*(select I.daysNo from Indicator I where I.indicatorID = C.graceTime)
+	THEN
+	(
+		CAST(DATEDIFF(DAY,A.dueDate,CAST(GETDATE() AS DATE)) AS DECIMAL(10,4))/
+		CAST((C.duration*(select I.daysNo from Indicator I where I.indicatorID = C.durationTime)) AS DECIMAL(10,4))*
+		(
+			CASE WHEN C.isPercentage = 1
+			THEN cast(C.penaltyAmount/100 AS DECIMAL(10,4))
+			else
+			cast(C.penaltyAmount AS DECIMAL(10,4)) end
+		)*cast(A.balanceAmount AS DECIMAL(10,4))
+	)
+	ELSE 0 END as Penalty
+from Amortization A 
+inner join Loan B on (A.loanNo = B.loanNo)
+inner join LoanPenaltySettings C on (B.penaltyID = C.penaltyID)
+where A.isRestructured = 0 and isPaid = 0 and A.loanNo = '0000002'
+
+
+create view vw_DormantAccounts            
+as            
+select C.accountNo as AccountNo, (E.LName + ',' + E.FName +' '+E.MName) as MemberName,B.savingsAccountNo,             
+D.savingsName as SavingsType, B.currentBalance ,MAX(A.transactionDatetime) as LastTransaction           
+from SavingsTransaction A               
+inner join SavingsAccount B on (A.savingsAccountNo = B.savingsAccountNo)              
+inner join MemberAccountHolder C on (B.savingsAccountNo = C.savingsAccountNo)              
+inner join SavingsType D on (B.savingsTypeID = D.savingsTypeID)              
+inner join Member E on (C.accountNo = E.accountNo)              
+where B.isClosed = 0            
+GROUP BY B.savingsAccountNo,B.currentBalance,D.savingsTypeID,D.savingsName, C.accountNo, E.LName,E.FName,E.MName           
+HAVING (DATEDIFF(DAY,MAX(A.transactionDatetime),CURRENT_TIMESTAMP)) >             
+(select (AA.inactivityDuration*B.daysNo) from Dormancy AA         
+inner join Indicator B on (AA.inactivityTime = B.indicatorID)        
+where AA.savingsTypeID = D.savingsTypeID)     
+  
+
+
+
+delete from amortizationPaid
+delete from loanpayment
+delete from amortization
+delete from checkinformation
+delete from chargedfromloans
+delete from comakers
+delete from Collateral
+delete from loan

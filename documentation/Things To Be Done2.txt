@@ -1,0 +1,50 @@
+Things to be fixed:
+
+Important:
+	- CHANGE THE FONT
+	- Commas on all money values
+	- percent sign on all percentage values
+	- Gawin pa bang devexpress?
+
+
+Time Deposit 
+	- Dapat ba magdagdag ng additional table para sa time deposit type?
+	- possible na laman, time deposit name, grace period, lock in period, tax excemption
+
+Member Registration
+	- I-separate yung address fields
+	- i-separate yung mobile and telephone number, sa telephone number, dapat nakahiwalay
+	  kung telefax, local, etc.
+	- Dapat bang nandito yung signature nung member?
+
+Member Termination
+	- Dapat, sa closing of accounts, hindi maisama yung mga nakajoint accounts (member/family)
+
+Manage Savings
+	- Dapat, pagkadrowdown ng mga savings account, by default, lumabas yung signature nung
+	  primary account holder.
+	- Dapat pa bang maglagay kung either or/survival yung joint accounts?
+
+Savings Transaction
+	- sa closing of accounts ba, dapat may constraint din ng maximum withdrawal amount?
+
+Time Deposit Transaction
+	- Maglagay ng batch processing para sa pagcheck ng mga magmature nang time deposit
+
+Share Transaction
+	- Dapat ba may control number to?
+
+Loan Application
+	- Ihiwalay yung computation ng amortization sa ibang tab
+	- Ayusin ang layout ng mga group box, masyadong magkakadikit
+	- Kailangang mawala na ang mga rejected and cancelled loan sa datagrid,
+	  para di maupdate
+
+
+Loan Payment
+	- Dapat ayusin yung table design pagdating sa loan transactions and penalty payment
+	- Lagyan ng Total amount paid at bilang ng amortizations na nabayaran na niya
+
+Loan Modification
+	- Dapat bang another loan no ang ibigay sa mga loans na nireschedule/modified?
+	- Yung mga released loans lang dapat lumabas dun sa datagrid

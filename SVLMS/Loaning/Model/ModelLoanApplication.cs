@@ -29,6 +29,7 @@ namespace SVLMS.Loaning.Model
         public string status { get; set; }
         public string remarks { get; set; }
         public string approvedAmount { get; set; }
+        public string loanEligibility { get; set; }
 
         public string comakerID { get; set; }
 
@@ -83,7 +84,7 @@ namespace SVLMS.Loaning.Model
         {
             DataAccessLayer dal = new DataAccessLayer(ConfigurationManager.ConnectionStrings["coopdbConnectionString"].ConnectionString);
             Dictionary<string, object> parameters = new Dictionary<string, object>();
-            string sql = "select A.loanNo as 'Loan No', B.loanName as 'Loan Type', (C.FName + ' '+ C.LName) as 'Member Name',A.requestedAmount as 'Requested Amount' from Loan A inner join LoanType B on (A.loanTypeID = B.loanTypeID) inner join Member  C on (A.accountNo = C.accountNo) where A.isReleased is null";
+            string sql = "select A.loanNo as 'Loan No', B.loanName as 'Loan Type', (C.FName + ' '+ C.LName) as 'Member Name',A.requestedAmount as 'Requested Amount' from Loan A inner join LoanType B on (A.loanTypeID = B.loanTypeID) inner join Member  C on (A.accountNo = C.accountNo) where A.isReleased is null and A.status in (1,2)";
             DataSet ds = dal.executeDataSet(sql);
             return ds;
         }
@@ -292,7 +293,7 @@ namespace SVLMS.Loaning.Model
             double loanBalance = 0;
             DataAccessLayer dal = new DataAccessLayer(ConfigurationManager.ConnectionStrings["coopdbConnectionString"].ConnectionString);
             Dictionary<string, object> parameters = new Dictionary<string, object>();
-            string sql = "select SUM(C.balanceAmount) from Member A inner join Loan B on (A.accountNo = B.accountNo) inner join Amortization C on (B.loanNo = C.loanNo) where accountNo = @1";
+            string sql = "select ISNULL(SUM(C.balanceAmount),0) from Member A inner join Loan B on (A.accountNo = B.accountNo) inner join Amortization C on (B.loanNo = C.loanNo) where A.accountNo = @1 and C.isRestructured = 0";
             parameters.Add("@1",accountNo);
             SqlDataReader reader = dal.executeReader(sql, parameters);
             if (reader.Read())
@@ -300,6 +301,86 @@ namespace SVLMS.Loaning.Model
                 loanBalance = Convert.ToDouble(reader[0]);
             }
             return loanBalance;
+        }
+
+        public SqlDataReader getPreviousLoan()
+        {
+            DataAccessLayer dal = new DataAccessLayer(ConfigurationManager.ConnectionStrings["coopdbConnectionString"].ConnectionString);
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+            string sql = "select * from Loan A inner join Member B on (A.accountNo = B.accountNo) inner join LoanType C on (A.loanTypeID = C.loanTypeID) where A.loanNo = (select MAX(X.loanNo) from Loan X where X.accountNo = @1 and X.isReleased = 1)";
+            parameters.Add("@1",accountNo);
+            SqlDataReader reader = dal.executeReader(sql, parameters);
+            return reader;
+        }
+
+        public string getMaturityDate()
+        {
+            string maturityDate = "";
+            DataAccessLayer dal = new DataAccessLayer(ConfigurationManager.ConnectionStrings["coopdbConnectionString"].ConnectionString);
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+            string sql = "select MAX(dueDate) from Amortization where loanNo = @1 and isRestructured = 0";
+            parameters.Add("@1",loanNo);
+            SqlDataReader reader = dal.executeReader(sql, parameters);
+            if (reader.Read())
+            {
+                if (reader[0] != DBNull.Value)
+                {
+                    maturityDate = Convert.ToDateTime(reader[0]).ToShortDateString();
+                }
+            }
+            return maturityDate;
+        }
+
+        public bool hasOutstandingLoanApplication()
+        {
+            bool check = false;
+            DataAccessLayer dal = new DataAccessLayer(ConfigurationManager.ConnectionStrings["coopdbConnectionString"].ConnectionString);
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+            string sql = "select * from Loan A inner join Member B on (A.accountNo = B.accountNo) where (A.isReleased IS NULL or A.isReleased = 0) and A.status in (1,2) and B.accountNo = @2";
+            parameters.Add("@2",accountNo);
+            SqlDataReader reader = dal.executeReader(sql, parameters);
+            if (reader.Read())
+            {
+                check = true;
+            }
+            return check;
+        }
+
+        public bool isMemberEligible()
+        {
+            double remainingAmount = 0;
+            double totalAmount = 0;
+            double eligibility = 0;
+            double percentagePaid = 0;
+            bool check = false;
+            DataAccessLayer dal = new DataAccessLayer(ConfigurationManager.ConnectionStrings["coopdbConnectionString"].ConnectionString);
+            //string sql = "select B.loanEligibility, (select SUM(am.balanceAmount) from Amortization am where am.loanNo = A.loanNo) as RemainingAmount, (select SUM(am.totalAmount) from Amortization am where am.loanNo = A.loanNo) as TotalAmount from Loan A inner join LoanType B on (A.loanTypeID = B.loanTypeID) where A.loanNo = @1";
+            string sql = "select B.loanEligibility, (select ISNULL(SUM(am.balanceAmount),0) from Amortization am where am.loanNo = A.loanNo) as RemainingAmount, (select ISNULL(SUM(am.totalAmount),0) from Amortization am where am.loanNo = A.loanNo) as TotalAmount from Loan A inner join LoanType B on (A.loanTypeID = B.loanTypeID) where A.loanNo = @1 and A.isReleased = 1";
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+            parameters.Add("@1",loanNo);
+            SqlDataReader reader = dal.executeReader(sql,parameters);
+            if (reader.Read())
+            {
+                if (reader[0] != DBNull.Value)
+                {
+                    loanEligibility = reader[0].ToString();
+                    eligibility = Convert.ToDouble(reader[0]);
+                    remainingAmount = Convert.ToDouble(reader[1]);
+                    totalAmount = Convert.ToDouble(reader[2]);
+                    percentagePaid = ((totalAmount - remainingAmount) / totalAmount) * 100;
+                }
+            }
+            //System.Windows.Forms.MessageBox.Show(percentagePaid.ToString() +"   "+ eligibility.ToString());
+            if (percentagePaid >= eligibility)
+            {
+                check = true;
+            }
+
+            else
+            {
+                check = false;
+            }
+            return check;
         }
     }
 }

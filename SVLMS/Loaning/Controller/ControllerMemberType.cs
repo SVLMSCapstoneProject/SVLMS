@@ -25,20 +25,7 @@ namespace SVLMS.Loaning.Controller
             view.setBtnUpdateEvent(btnUpdateClicked);
             view.setCboFilterEvent(CboFilterEvent);
             view.setTxtSearchEvent(TextSearchTextChanged);
-            view.settxtTypeName(txtTypeNameLeave);
             this.refreshFields();
-        }
-
-        public void txtTypeNameLeave(object sender, EventArgs e)
-        {
-            int check = MemberTypeName();
-            if (check == 1)
-            {
-                view.errTypeName();
-                MessageBox.Show("There's an existing Member Type Name");                
-            }
-            else
-                view.unTypeName();
         }
 
         public void CboFilterEvent(object sender, EventArgs e)
@@ -186,13 +173,12 @@ namespace SVLMS.Loaning.Controller
             model.hasCertificate = view.getHasCertificate();
             model.status = view.getStatus();
 
-            string special = "!@#$%^&*(){}/;:><+=_?.,1234567890";
+            string special = "!@#$%^&*(){}/;:><+=_?.,";
             bool pass = true;
             bool error = false;
             double num;
             int status = view.status();
             int correct = 0;
-            int check = MemberTypeName();
             //typeName------------------------
             if (string.IsNullOrWhiteSpace(model.typeName))
             {
@@ -200,45 +186,37 @@ namespace SVLMS.Loaning.Controller
             }
             else
             {
-                if (check == 1)
+                char[] spec = special.ToCharArray();
+                char[] str = model.typeName.ToCharArray();
+                for (int x = 0; x < special.Length; x++)
                 {
-                    view.errTypeName();
-                    error = true;
-                }
-                else
-                {
-                    char[] spec = special.ToCharArray();
-                    char[] str = model.typeName.ToCharArray();
-                    for (int x = 0; x < special.Length; x++)
+                    for (int i = 0; i < str.Length; i++)
                     {
-                        for (int i = 0; i < str.Length; i++)
+                        if (str[i] == special[x])
                         {
-                            if (str[i] == special[x])
-                            {
-                                view.errTypeName();
-                                pass = false;
-                                error = true;
-                                x = special.Length;
-                                i = str.Length;
-                            }
+                            view.errTypeName();
+                            pass = false;
+                            error = true;
+                            x = special.Length;
+                            i = str.Length;
                         }
                     }
+                }
 
-                    if (pass)
+                if (pass)
+                {
+                    for (int i = 0; i < str.Length - 1; i++)
                     {
-                        for (int i = 0; i < str.Length - 1; i++)
+                        if (char.IsLetter(str[i]) || str[i] == ' ' || str[i] == '-' || str[i] == '\'')
                         {
-                            if (char.IsLetter(str[i]) || str[i] == ' ' || str[i] == '-' || str[i] == '\'')
-                            {
-                                view.unTypeName();
-                                error = false;
-                            }
-                            else
-                            {
-                                view.errTypeName();
-                                i = model.typeName.Length;
-                                error = true;
-                            }
+                            view.unTypeName();
+                            error = false;
+                        }
+                        else
+                        {
+                            view.errTypeName();
+                            i = model.typeName.Length;
+                            error = true;
                         }
                     }
                 }
@@ -284,14 +262,6 @@ namespace SVLMS.Loaning.Controller
             }
 
             return correct;
-        }
-
-        public int MemberTypeName()
-        {
-            model.typeName = view.getMemberTypeName();
-            model.MemberTypeName();
-
-            return Convert.ToInt16(model.memberTypeName);
         }
     }
 }

@@ -224,12 +224,12 @@ namespace SVLMS.Loaning.View
             string paymentIntervalDays = "0";
             if (cboPaymentInterval.SelectedIndex == 0)
             {
-                paymentIntervalDays = "1";
+                paymentIntervalDays = "7";
             }
 
             if (cboPaymentInterval.SelectedIndex == 1)
             {
-                paymentIntervalDays = "7";
+                paymentIntervalDays = "15";
             }
 
             if (cboPaymentInterval.SelectedIndex == 2)
@@ -241,7 +241,23 @@ namespace SVLMS.Loaning.View
 
         public string getPaymentIntervalIndex()
         {
-            return (cboPaymentInterval.SelectedIndex + 1).ToString();
+            //return (cboPaymentInterval.SelectedIndex + 1).ToString();
+            string index = "";
+            if (cboPaymentInterval.SelectedItem.ToString() == "Weekly")
+            {
+                index = "2";
+            }
+
+            else if (cboPaymentInterval.SelectedItem.ToString() == "Semi-monthly")
+            {
+                index = "5";
+            }
+
+            else
+            {
+                index = "3";
+            }
+            return index;
         }
 
         public void setTermsOfPayment(string text)

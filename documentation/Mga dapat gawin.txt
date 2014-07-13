@@ -1,0 +1,139 @@
+Common:
+	- GAWING MEMBER NO. ANG MGA ACCOUNT NO. NA LABELS! 
+	- Ayusin ang mga tab index
+	- lagyan ng commas ang mga money values sa datagrid.
+	- Maglagay ng filter every maintenance, ifilter yung
+	  active at inactive.
+	- Huwag gawing techie ang error message. 
+	- Wala pang validation lahat ng check informations (Loan Release, Savings Transaction, TIme Deposit Transaction)
+	- Format lahat ng money values, lagyan ng commas.
+	- Bawal dapat maresize.
+	- Maglagay ng Asterisk sa required na field.
+
+
+	- Maglagay ng charges tuwing deposit sa savings account.
+	- tanggalin yung status sa loan rates at penalty.
+	- Pagsamahin yung closing of accounts ng mga savings account.
+	- Pagsamahin yung module ng transaction para sa savings account at share capital
+	- Consider yung status ng loan application, baka pwedeng approved nalang.
+	- Tanggalin yung cash/check voucher.
+	X - Sa Loan Payment, dapat wala nang advance payment, nakadefault na 1 lang ang installment na babayaran
+	- Aging of account receivables.
+	- Loan Clipping sa loan application at payment.
+
+Login Form
+	- Dapat matignan kung meron nga bang existing connection sa database.
+
+Savings Type:
+	- Dapat hindi magkaroon ng parehas na savings type name.
+
+
+Time Deposit Maintenance (Terms and Rates)
+	X - Dapat yung bracket ay non existing sa database, hindi dapat 
+	  mag conflict sa mga dating brackets na active ang status. 
+	X - Hindi makapag insert. 
+	- Dapat magdagdag ng time deposit type.
+
+Pre termination Penalty
+	X - same sa time deposit maintenance, dapat yung percentage ay hindi
+	  mag conflict sa mga dating percentages. 
+
+Member Registration
+	- Wala pang validation yung mga nadagdag na fields sa address.
+	X - Maglagay ng gender sa family.
+
+Member Termination
+	- Maglagay na dapat ng loop para sa closing of accounts.
+	- Huwag isama yung mga naka joint accounts.
+
+Create savings account
+	- dapat kapag underage yung secondary holder, di na muna kailanganin ng account signature.
+
+Create Time Deposit:
+	C - Add a field for current balance of savings account
+	C - add a validation for the maintaining balance of the savings account
+	C - Add a validation for joint accounts specially between members
+	- Maglagay ng tax exemption
+	X - Validation para sa transfering to savings account kapag maturity, 
+	  tignan kung meron o walang savings account yung member.
+
+Time Deposit Transaction
+	- Yung time deposit interest, dapat divided pa by 360, dahil per annum lagi yun
+	X - Tanggalin yung print certificate
+	X - Validation para sa transfering to savings account kapag maturity, 
+	  tignan kung meron o walang savings account yung member.
+
+
+Loan Type:
+	- Dapat di pwedeng magkaparehas ng loan type name.
+	X - Dapat magkaroon ng renewable amount, kunwari, bago makapagloan ng another loan,
+	  kailangang bayad muna ang loan type na ito ng ganitong % o porsyento.
+	- Wala pang validation yung loan eligibility amount.
+
+Loan Rates
+	X - Dapat, hindi pwedeng mag insert ng record na may may existing effectivity
+	  date na. 
+	X - Dapat bawal maglagay ng effectivity date na nakalipas na.
+	- Tanggalin yung status.
+
+Additional Charges
+	X - Dapat, pagka click ng applicable to all, dapat mawala rin yung
+	  nasa check list box
+	- Tanggalin yung status.
+
+Penalty	
+	X - Same sa loan rates, di dapat pwedeng mag insert ng record na may
+	  existing effectivity date.
+	- Tanggalin yung status.
+
+Share Transaction
+	X - Dapat gawing Share Capital Transaction
+	X - Tanggalin na yung amount tendered.
+
+
+Loan Application:
+	X - Maling message lumalabas kapag walang nilagay na value sa 
+	  comakers name address, etc.
+	X - Allowed ang space values sa collateral name and description
+	X - Hindi nakakapag insert ng approved amount, nasa update lang
+	X - Dapat sa compute amortization, makita lahat ng loan types, kahit
+	  hindi pa applicable dun sa member.
+	- Dapat ba ang member ay makapagloan ng dalawang beses simultaneously?
+	X - Yung interval of payments, gawing weekly, semimonthly at monthly
+	- YUng mga comakers, dapat nasa legal age lang ang maaadd.
+	X - Ibahin yung share accumulated na label, gawing share capital.
+	- Baka pwedeng magdagdag ng comaker sa loan app na hindi nakadefine dun sa member registration.
+	- Offsetting ng loan, isama rin.
+	- Hindi naivalidate yung approved amount pagdating sa loan entitlement.	
+	- Pwede ba itong gawing manage loan accounts nalang?
+
+Loan Release
+	- Nagdodoble yung ibang Charges.
+
+
+Loan Payment
+	C - Dapat pa bang ilagay ang payment through savings account?
+	- Table design, lalo sa loan transactions table, dapat narerecord dun ang payment,
+	  ganun din sa penalty.
+	X - Sa loan penalty, kapag fixed ang amount, dapat proportional pa rin sa tagal ng 
+	  di niya pagbabayad.
+	- Sa datagrid, iindicate na kulay green ang mga loans na good standing, at red ang mga not
+	  in good standing.	
+	- Mali ang computation ng penalty
+	- Maling insertion ng data sa penalty paid, nalalagay na sobra ang penalty na binayad.
+
+Loan Modification
+	X - YUng amortization tab, itulad sa amortization tab sa loan application
+	X - Baguhin yung share accumulated, gawing share capital
+	C - dapat, pwede ding mamodify ang grace period.
+	 
+
+
+
+Utilities:
+	- User maintenance
+	- User Access Level
+	- Holidays, para sa penalty
+	- Themes?
+
+

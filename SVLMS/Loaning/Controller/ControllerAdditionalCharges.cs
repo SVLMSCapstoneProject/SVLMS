@@ -24,7 +24,6 @@ namespace SVLMS.Loaning.Controller
             view.enableAdd();
             view.disableUpdate();
             
-
             view.setDataGrid(model.getChargeInformation());
             //view.setChargeID(model.getNextID());
             view.setlistbox(model.getLoanTypes());
@@ -93,12 +92,13 @@ namespace SVLMS.Loaning.Controller
             model.searchChargesInformation();
             model.searchchargesloantyeInfo();
 
-            view.setChargeID(model.chargeID);
+            //view.setChargeID(model.chargeID);
             view.setChargeName(model.chargeName);
             view.setIsPercentage(model.isPercentage);
             view.setAmount(model.amount);
             view.setchecklistbox(model.list);
             view.setStatus(model.status);
+
 
             view.disableAdd();
             view.enableUpdate();
@@ -136,7 +136,7 @@ namespace SVLMS.Loaning.Controller
 
         public void RefreshFields()
         {
-            view.setChargeID(model.getNextID());
+            //view.setChargeID(model.getNextID());
             view.setChargeName("");
             view.setAmount("");
             view.setDataGrid(model.getChargeInformation());
@@ -162,7 +162,7 @@ namespace SVLMS.Loaning.Controller
         {
             this.setmodelValues();
 
-            string special = "!@#$%^&*(){}/;:><+=_?.,1234567890";
+            string special = "!@#$%^&*(){}/;:><+=_?.,";
             double num;
             bool error = false;
             int correct = 0;

@@ -42,7 +42,6 @@
             this.label14 = new System.Windows.Forms.Label();
             this.dgAccountHolders = new System.Windows.Forms.DataGridView();
             this.label12 = new System.Windows.Forms.Label();
-            this.btnRemoveAccountHolder = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.rbtnMember = new System.Windows.Forms.RadioButton();
             this.btnAddAccountHolder = new System.Windows.Forms.Button();
@@ -73,6 +72,19 @@
             this.txtInitialDeposit = new System.Windows.Forms.TextBox();
             this.txtSavingsAccountNo = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgMembers)).BeginInit();
             this.panelMain.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -82,6 +94,8 @@
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // label2
@@ -162,7 +176,6 @@
             this.panel2.Controls.Add(this.label14);
             this.panel2.Controls.Add(this.dgAccountHolders);
             this.panel2.Controls.Add(this.label12);
-            this.panel2.Controls.Add(this.btnRemoveAccountHolder);
             this.panel2.Controls.Add(this.btnClear);
             this.panel2.Controls.Add(this.rbtnMember);
             this.panel2.Controls.Add(this.btnAddAccountHolder);
@@ -257,20 +270,10 @@
             this.label12.TabIndex = 189;
             this.label12.Text = "Account Holders:";
             // 
-            // btnRemoveAccountHolder
-            // 
-            this.btnRemoveAccountHolder.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemoveAccountHolder.Location = new System.Drawing.Point(476, 185);
-            this.btnRemoveAccountHolder.Name = "btnRemoveAccountHolder";
-            this.btnRemoveAccountHolder.Size = new System.Drawing.Size(80, 23);
-            this.btnRemoveAccountHolder.TabIndex = 171;
-            this.btnRemoveAccountHolder.Text = "Remove";
-            this.btnRemoveAccountHolder.UseVisualStyleBackColor = true;
-            // 
             // btnClear
             // 
             this.btnClear.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(562, 185);
+            this.btnClear.Location = new System.Drawing.Point(493, 169);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 23);
             this.btnClear.TabIndex = 175;
@@ -294,7 +297,7 @@
             // 
             this.btnAddAccountHolder.Enabled = false;
             this.btnAddAccountHolder.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddAccountHolder.Location = new System.Drawing.Point(309, 185);
+            this.btnAddAccountHolder.Location = new System.Drawing.Point(322, 169);
             this.btnAddAccountHolder.Name = "btnAddAccountHolder";
             this.btnAddAccountHolder.Size = new System.Drawing.Size(75, 23);
             this.btnAddAccountHolder.TabIndex = 170;
@@ -315,7 +318,7 @@
             // btnUpdateAccountHolder
             // 
             this.btnUpdateAccountHolder.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateAccountHolder.Location = new System.Drawing.Point(390, 185);
+            this.btnUpdateAccountHolder.Location = new System.Drawing.Point(403, 169);
             this.btnUpdateAccountHolder.Name = "btnUpdateAccountHolder";
             this.btnUpdateAccountHolder.Size = new System.Drawing.Size(80, 23);
             this.btnUpdateAccountHolder.TabIndex = 183;
@@ -432,7 +435,10 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.label13);
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.btnOpenAccount);
+            this.panel1.Controls.Add(this.groupBox4);
+            this.panel1.Controls.Add(this.groupBox3);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Location = new System.Drawing.Point(366, 81);
@@ -594,6 +600,150 @@
             this.label8.TabIndex = 117;
             this.label8.Text = "Savings Account No:";
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.comboBox1);
+            this.groupBox3.Controls.Add(this.label16);
+            this.groupBox3.Controls.Add(this.label17);
+            this.groupBox3.Controls.Add(this.textBox1);
+            this.groupBox3.Controls.Add(this.textBox2);
+            this.groupBox3.Controls.Add(this.label18);
+            this.groupBox3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(276, 35);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(293, 118);
+            this.groupBox3.TabIndex = 118;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Savings Account Information";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(146, 52);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(141, 24);
+            this.comboBox1.TabIndex = 116;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(17, 52);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(88, 16);
+            this.label16.TabIndex = 113;
+            this.label16.Text = "Savings Type:";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(17, 81);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(90, 16);
+            this.label17.TabIndex = 114;
+            this.label17.Text = "Initial Deposit:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(146, 82);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(141, 22);
+            this.textBox1.TabIndex = 115;
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.Color.White;
+            this.textBox2.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.textBox2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.ForeColor = System.Drawing.Color.Black;
+            this.textBox2.Location = new System.Drawing.Point(146, 22);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(141, 22);
+            this.textBox2.TabIndex = 118;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(15, 25);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(128, 16);
+            this.label18.TabIndex = 117;
+            this.label18.Text = "Savings Account No:";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.textBox3);
+            this.groupBox4.Controls.Add(this.label19);
+            this.groupBox4.Controls.Add(this.textBox4);
+            this.groupBox4.Controls.Add(this.label20);
+            this.groupBox4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.Location = new System.Drawing.Point(18, 35);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(249, 97);
+            this.groupBox4.TabIndex = 117;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Member Information";
+            // 
+            // textBox3
+            // 
+            this.textBox3.BackColor = System.Drawing.Color.White;
+            this.textBox3.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.textBox3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.ForeColor = System.Drawing.Color.Black;
+            this.textBox3.Location = new System.Drawing.Point(110, 51);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
+            this.textBox3.Size = new System.Drawing.Size(133, 22);
+            this.textBox3.TabIndex = 79;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(12, 53);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(97, 16);
+            this.label19.TabIndex = 78;
+            this.label19.Text = "Member Name:";
+            // 
+            // textBox4
+            // 
+            this.textBox4.BackColor = System.Drawing.Color.White;
+            this.textBox4.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.textBox4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox4.ForeColor = System.Drawing.Color.Black;
+            this.textBox4.Location = new System.Drawing.Point(110, 23);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
+            this.textBox4.Size = new System.Drawing.Size(133, 22);
+            this.textBox4.TabIndex = 77;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(12, 25);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(84, 16);
+            this.label20.TabIndex = 74;
+            this.label20.Text = "Account No.:";
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(187, 159);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(154, 23);
+            this.button1.TabIndex = 101;
+            this.button1.Text = "Open New Account";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // TransactionCreateSavingsAccountView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -620,6 +770,10 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -645,7 +799,6 @@
         private System.Windows.Forms.TextBox txtPrimaryHolder;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.Button btnRemoveAccountHolder;
         private System.Windows.Forms.Button btnAddAccountHolder;
         private System.Windows.Forms.Button btnPlus;
         private System.Windows.Forms.TextBox txtAccountHolder;
@@ -671,6 +824,19 @@
         private System.Windows.Forms.Button btnUploadJoint;
         private System.Windows.Forms.PictureBox pictureSignatureJoint;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label18;
 
 
     }

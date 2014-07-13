@@ -67,20 +67,16 @@ namespace SVLMS
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
+            LoginForm lf = new LoginForm();
+            lf.Show();
         }
 
         private void utilities_Click(object sender, EventArgs e)
         {
             this.Close();
+            Utilities.UtilitiesForm uf = new Utilities.UtilitiesForm();
+            uf.Show();
         }
-
-        
-       
-      
-
-       
-
-       
     }
 }

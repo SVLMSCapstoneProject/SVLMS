@@ -23,7 +23,6 @@ namespace SVLMS.Savings.Model
         public string status { get; set; }
         public string minimumWithdrawal { get; set; }
         public string maxWithdrawDurationDays { get; set; }
-        public string checkSavingsName { get; set; }
 
         public void insertSavingsType()
         {
@@ -126,19 +125,6 @@ namespace SVLMS.Savings.Model
                 maxWithdrawalTime = Convert.ToInt32(reader[7]);
                 noAccountHolders = reader[8].ToString();
                 status = reader[9].ToString();
-            }
-        }
-
-        public void searchSavingsName()
-        {
-            DataAccessLayer dal = new DataAccessLayer(ConfigurationManager.ConnectionStrings["coopdbConnectionString"].ConnectionString);
-            string sql = "select COUNT(*) from vw_savingsName where savingsName = @1";
-            Dictionary<string, object> parameters = new Dictionary<string, object>();
-            parameters.Add("@1", savingsName);
-            SqlDataReader reader = dal.executeReader(sql, parameters);
-            if (reader.Read())
-            {
-                checkSavingsName = reader[0].ToString();
             }
         }
     }

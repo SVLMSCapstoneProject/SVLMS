@@ -184,7 +184,7 @@ namespace SVLMS.Savings.View
 
         public void unStatus()
         {
-            statusPanel.BackColor = Color.White;
+            statusPanel.BackColor = Color.CornflowerBlue;
         }
 
         public int status()

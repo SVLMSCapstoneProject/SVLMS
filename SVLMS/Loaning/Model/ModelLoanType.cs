@@ -29,7 +29,7 @@ namespace SVLMS.Loaning.Model
         public string[] memberTypeID { get; set; }
         public List<int> list = new List<int>();
         public string status { get; set; }
-        public string loanTypeName { get; set; }
+        
 
         public void insertLoanType()
         {
@@ -209,20 +209,6 @@ namespace SVLMS.Loaning.Model
             parameters.Add("@1", loanId);
             dal.executeNonQuery(sql, parameters);
         }
-
-        public void LoanTypeName()
-        {
-            DataAccessLayer dal = new DataAccessLayer(ConfigurationManager.ConnectionStrings["coopdbConnectionString"].ConnectionString);
-            string sql = "select COUNT(*) from vw_loanName where loanName = @1";
-            Dictionary<string, object> parameters = new Dictionary<string, object>();
-            parameters.Add("@1", loanName);
-            SqlDataReader reader = dal.executeReader(sql, parameters);
-            if (reader.Read())
-            {
-                loanTypeName = reader[0].ToString();
-            }
-        }
-    
     }
 }
 

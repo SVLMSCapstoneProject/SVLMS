@@ -105,65 +105,65 @@ namespace SVLMS.Savings.View
             txtSavingsType.Text = text;
         }
 
-        public void enableDeposit()
-        {
-            txtAmountTendered.Enabled = true;
-            //btnPrintVoucher.Enabled = true;
-        }
+        //public void enableDeposit()
+        //{
+        //    txtAmountTendered.Enabled = true;
+        //    //btnPrintVoucher.Enabled = true;
+        //}
 
-        public void disableDeposit()
-        {
-            txtAmountTendered.Enabled = false;
-            btnPrintVoucher.Enabled = false;
-        }
+        //public void disableDeposit()
+        //{
+        //    txtAmountTendered.Enabled = false;
+        //    //btnPrintVoucher.Enabled = false;
+        //}
 
-        public void enablePrintVoucher()
-        {
-            btnPrintVoucher.Enabled = true;
-        }
+        //public void enablePrintVoucher()
+        //{
+        //    btnPrintVoucher.Enabled = true;
+        //}
 
-        public void disablePrintVoucher()
-        {
-            btnPrintVoucher.Enabled = false;
-        }
+        //public void disablePrintVoucher()
+        //{
+        //    btnPrintVoucher.Enabled = false;
+        //}
 
-        public void setAmountTendered(string text)
-        {
-            if (text.Length != 0)
-            {
-                text = this.amountFormatter(text);
-            }
-            txtAmountTendered.Text = text;
-        }
+        //public void setAmountTendered(string text)
+        //{
+        //    if (text.Length != 0)
+        //    {
+        //        text = this.amountFormatter(text);
+        //    }
+        //    txtAmountTendered.Text = text;
+        //}
 
-        public string getAmountTendered()
-        {
-            return txtAmountTendered.Text;
-        }
+        //public string getAmountTendered()
+        //{
+        //    return txtAmountTendered.Text;
+        //}
 
         public string getSavingsType()
         {
             return txtSavingsType.Text;
         }
 
-        public void setBtnComputeChangeEvent(EventHandler e)
-        {
-            btnPrintVoucher.Click += e;
-        }
+        //public void setBtnComputeChangeEvent(EventHandler e)
+        //{
+        //    btnPrintVoucher.Click += e;
+        //}
 
-        public void setChange(string text)
-        {
-            if (text.Length != 0)
-            {
-                text = this.amountFormatter(text);
-            }
-            txtChange.Text = text;
-        }
+        //public void setChange(string text)
+        //{
+        //    if (text.Length != 0)
+        //    {
+        //        text = this.amountFormatter(text);
+        //    }
+        //    txtChange.Text = text;
+        //}
 
-        public string getChange()
-        {
-            return txtChange.Text;
-        }
+        //public string getChange()
+        //{
+        //    return txtChange.Text;
+        //}
 
         public string amountFormatter(string text)
         {

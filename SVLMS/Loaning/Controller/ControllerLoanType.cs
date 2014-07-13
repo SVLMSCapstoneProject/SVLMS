@@ -34,21 +34,6 @@ namespace SVLMS.Loaning.Controller
             mltv.setMemberType(maltm.getMemberType());
             mltv.setTxtSearchEvent(TxtSearchTextChanged);
             mltv.setCboFilterEvent(CboFilterSelectedIndexChanged);
-            mltv.settxtLoanName(txtLoanNameLeave);
-            view.enableAdd();
-            view.disableUpdate();
-        }
-
-        public void txtLoanNameLeave(object sender, EventArgs e)
-        {
-            int check = LoanTypeName();
-            if (check == 1)
-            {
-                view.errLoanName();
-                MessageBox.Show("There's an existing Loan Type Name");
-            }
-            else
-                view.unLoanName();
         }
 
         public void CboFilterSelectedIndexChanged(object sender, EventArgs e)
@@ -130,7 +115,6 @@ namespace SVLMS.Loaning.Controller
         public void btnSaveClicked(object sender, EventArgs e)
         {
             this.setModelValues();
-            
 
             bool perform = PerformAction();
 
@@ -142,7 +126,6 @@ namespace SVLMS.Loaning.Controller
                     if (dialogResult == DialogResult.Yes)
                     {
                         view.uncboxLoan();
-                        model.loanId = model.getLoanId();
                         model.memberTypeID = view.getMemberType();
                         model.insertLoanType();
                         MessageBox.Show("The Record is Successfully Inserted");
@@ -156,13 +139,10 @@ namespace SVLMS.Loaning.Controller
                 }
                 else
                 {
-                    view.unCollateral();
-
                     DialogResult dialogResult = MessageBox.Show("Are you sure of having a Loan Entitlement?", "No Loan Entitlement", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
                     if (dialogResult == DialogResult.Yes)
                     {
                         view.uncboxLoan();
-                        model.loanId = model.getLoanId();
                         model.memberTypeID = view.getMemberType();
                         model.insertLoanType();
                         MessageBox.Show("The Record is Successfully Inserted");
@@ -305,6 +285,7 @@ namespace SVLMS.Loaning.Controller
                 }
                 else
                 {
+                    //MessageBox.Show("Testasd");
                     MessageBox.Show("Invalid Input/s", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
@@ -340,7 +321,7 @@ namespace SVLMS.Loaning.Controller
         {
             this.setModelValues();
 
-            string special = "!@#$%^&*(){}/;:><+=_?.,1234567890";
+            string special = "!@#$%^&*(){}/;:><+=_?.,";
             bool pass = true;
             int correct = 0;
             int integer;
@@ -352,7 +333,6 @@ namespace SVLMS.Loaning.Controller
             //int duration = mltv.duration();
             int comaker = view.comaker();
             int collateral = view.collateral();
-            int check = LoanTypeName();
             //LoanName
             if (string.IsNullOrWhiteSpace(model.loanName))
             {
@@ -360,46 +340,38 @@ namespace SVLMS.Loaning.Controller
             }
             else
             {
-                if (check == 1)
-                {
-                    view.errLoanName();
-                    error = true;
-                }
-                else
-                {
-                    char[] spec = special.ToCharArray();
-                    char[] str = model.loanName.ToCharArray();
+                char[] spec = special.ToCharArray();
+                char[] str = model.loanName.ToCharArray();
 
-                    for (int x = 0; x < special.Length; x++)
+                for (int x = 0; x < special.Length; x++)
+                {
+                    for (int i = 0; i < str.Length; i++)
                     {
-                        for (int i = 0; i < str.Length; i++)
+                        if (str[i] == special[x])
                         {
-                            if (str[i] == special[x])
-                            {
-                                view.errLoanName();
-                                pass = false;
-                                error = true;
-                                x = special.Length;
-                                i = str.Length;
-                            }
+                            view.errLoanName();
+                            pass = false;
+                            error = true;
+                            x = special.Length;
+                            i = str.Length;
                         }
                     }
+                }
 
-                    if (pass)
+                if (pass)
+                {
+                    for (int i = 0; i < str.Length - 1; i++)
                     {
-                        for (int i = 0; i < str.Length - 1; i++)
+                        if (char.IsLetter(str[i]) || str[i] == ' ' || str[i] == '\'' || str[i] == '-')
                         {
-                            if (char.IsLetter(str[i]) || str[i] == ' ' || str[i] == '\'' || str[i] == '-')
-                            {
-                                view.unLoanName();
-                                error = false;
-                            }
-                            else
-                            {
-                                view.errLoanName();
-                                i = model.loanName.Length;
-                                error = true;
-                            }
+                            view.unLoanName();
+                            error = false;
+                        }
+                        else
+                        {
+                            view.errLoanName();
+                            i = model.loanName.Length;
+                            error = true;
                         }
                     }
                 }
@@ -556,14 +528,6 @@ namespace SVLMS.Loaning.Controller
                 //}
             }
             return correct;
-        }
-
-        public int LoanTypeName()
-        {
-            model.loanName = view.getLoanTypeName();
-            model.LoanTypeName();
-
-            return Convert.ToInt16(model.loanTypeName);            
         }
     }
 }

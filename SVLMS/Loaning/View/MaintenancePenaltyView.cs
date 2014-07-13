@@ -113,11 +113,11 @@ namespace SVLMS.Loaning.View
             }
         }
 
-        public void clearCBBox()
+        public void clearCBBox() 
         {
 
-            cboLoanType.Select(0, 0);
-
+            cboLoanType.Select(0,0);
+        
         }
 
         public string getIsPercentage()
@@ -226,7 +226,7 @@ namespace SVLMS.Loaning.View
 
         public void setCboGracePeriod(int index)
         {
-            cboGracePeriod.SelectedIndex = (index - 1);
+            cboGracePeriod.SelectedIndex = (index-1); 
         }
 
         public void enableBtnSave()
@@ -310,7 +310,7 @@ namespace SVLMS.Loaning.View
 
         public void unStatus()
         {
-            StatusPanel.BackColor = Color.White;
+            StatusPanel.BackColor = Color.CornflowerBlue;
         }
 
         public int status()
@@ -328,7 +328,7 @@ namespace SVLMS.Loaning.View
 
         public void unPercentage()
         {
-            PercentagePanel.BackColor = Color.White;
+            PercentagePanel.BackColor = Color.CornflowerBlue;
         }
 
         public int percentage()
@@ -338,7 +338,26 @@ namespace SVLMS.Loaning.View
                 i = 1;
             return i;
         }
+        //GracePeriod(dropdown)
+        public void errCboxGracePeriod()
+        {
+            GracePeriod.Visible = true;
+        }
 
+        public void unCboxGracePeriod()
+        {
+            GracePeriod.Visible = false;
+        }
+        //Interval(dropdown)
+        public void errCboxInterval()
+        {
+            Interval.Visible = true;
+        }
+
+        public void unCboxInterval()
+        {
+            Interval.Visible = false;
+        }
         private void txtPenaltyRate_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
@@ -362,6 +381,5 @@ namespace SVLMS.Loaning.View
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
                 e.Handled = true;
         }
-
     }
 }

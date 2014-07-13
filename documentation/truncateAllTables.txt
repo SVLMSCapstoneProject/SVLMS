@@ -1,0 +1,17 @@
+EXEC sp_msforeachtable "ALTER TABLE ? NOCHECK CONSTRAINT all"
+
+-- delete data in all tables
+EXEC sp_MSForEachTable "DELETE FROM ?"
+
+-- enable all constraints
+exec sp_msforeachtable "ALTER TABLE ? WITH CHECK CHECK CONSTRAINT all"
+
+
+delete from amortizationPaid
+delete from loanpayment
+delete from amortization
+delete from checkinformation
+delete from chargedfromloans
+delete from comakers
+delete from Collateral
+delete from loan

@@ -44,6 +44,16 @@ namespace SVLMS.Savings.View
             this.txtInitialDeposit.Text = text;
         }
 
+        public void setTxtInitialDepositEvent(EventHandler e)
+        {
+            txtInitialDeposit.TextChanged += e;
+        }
+
+        public void setCboDaysEvent(EventHandler e)
+        {
+            cboTerm.SelectedIndexChanged += e;
+        }
+
         //public void setTerm(string text)
         //{
         //    txtTerm
@@ -186,6 +196,14 @@ namespace SVLMS.Savings.View
         //    }
         //    return savingsAccountNo;
         //}
+
+        public void setDataGridRates(DataSet ds)
+        {
+            dgRates.DataSource = ds.Tables[0];
+            dgRates.Columns["From"].DefaultCellStyle.Format = "#,##0.00";
+            dgRates.Columns["To"].DefaultCellStyle.Format = "#,##0.00";
+            dgRates.Columns["Interest"].DefaultCellStyle.Format = "0.00";
+        }
 
         public string getCboSavingsTransfer()
         {

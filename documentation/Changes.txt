@@ -1,0 +1,11 @@
+
+Changes:
+
+--Tinanggal na yung sa savings rate ng loan rates
+--naka "per day/week/month" na yung mga combobox sa dormancy, at savings type
+--ginawa kong priority ang penalty kaysa sa principal pagdating sa loan payment
+
+Mga kulang pa:
+Commas, fonts
+
+Balak ko ring magdagdag ng time deposit type, pero di pa sure.
