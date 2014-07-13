@@ -1,0 +1,624 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B8D3A978-11FF-4EEE-9383-E1D3FE3947A3}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SVLMS</RootNamespace>
+    <AssemblyName>SVLMS</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v13.2, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v13.2.Core, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Sparkline.v13.2.Core, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v13.2, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v13.2, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v13.2, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraNavBar.v13.2, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Win32.TaskScheduler">
+      <HintPath>..\..\..\Downloads\Compressed\TaskScheduler\v4.0\Microsoft.Win32.TaskScheduler.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="coopdbDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>coopdbDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccessLayer.cs" />
+    <Compile Include="Loaning\AmortizationCalculator.cs" />
+    <Compile Include="Loaning\Controller\ControllerAdditionalCharges.cs" />
+    <Compile Include="Loaning\Controller\ControllerLoanApplication.cs" />
+    <Compile Include="Loaning\Controller\ControllerLoanApproval.cs" />
+    <Compile Include="Loaning\Controller\ControllerLoanCancellation.cs" />
+    <Compile Include="Loaning\Controller\ControllerLoanModification.cs" />
+    <Compile Include="Loaning\Controller\ControllerLoanPayment.cs" />
+    <Compile Include="Loaning\Controller\ControllerLoanRates.cs" />
+    <Compile Include="Loaning\Controller\ControllerLoanRelease.cs" />
+    <Compile Include="Loaning\Controller\ControllerLoanType.cs" />
+    <Compile Include="Loaning\Controller\ControllerMemberType.cs" />
+    <Compile Include="Loaning\Controller\ControllerPenalty.cs" />
+    <Compile Include="Loaning\Controller\ControllerShareCapitalTransaction.cs" />
+    <Compile Include="Loaning\Controller\MaintenanceCollateralController.cs" />
+    <Compile Include="Loaning\Loan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Loaning\Loan.designer.cs">
+      <DependentUpon>Loan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Loaning\Model\ModelAdditionalCharges.cs" />
+    <Compile Include="Loaning\Model\ModelAmortization.cs" />
+    <Compile Include="Loaning\Model\ModelCheckInformation.cs" />
+    <Compile Include="Loaning\Model\ModelCollateral.cs" />
+    <Compile Include="Loaning\Model\ModelLoan.cs" />
+    <Compile Include="Loaning\Model\ModelLoanApplication.cs" />
+    <Compile Include="Loaning\Model\ModelLoanPayment.cs" />
+    <Compile Include="Loaning\Model\ModelLoanRates.cs" />
+    <Compile Include="Loaning\Model\ModelLoanType.cs" />
+    <Compile Include="Loaning\Model\ModelMemberType.cs" />
+    <Compile Include="Loaning\Model\ModelPenalty.cs" />
+    <Compile Include="Loaning\Model\ModelShareCapitalTransaction.cs" />
+    <Compile Include="Loaning\Model\TransactionLoanCancellationModel.cs" />
+    <Compile Include="Loaning\View\MaintenanceAdditionalChargesView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Loaning\View\MaintenanceAdditionalChargesView.designer.cs">
+      <DependentUpon>MaintenanceAdditionalChargesView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Loaning\View\MaintenanceCollaterallView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Loaning\View\MaintenanceCollaterallView.designer.cs">
+      <DependentUpon>MaintenanceCollaterallView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Loaning\View\MaintenanceLoanRates.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Loaning\View\MaintenanceLoanRates.designer.cs">
+      <DependentUpon>MaintenanceLoanRates.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Loaning\View\MaintenanceLoanTypeView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Loaning\View\MaintenanceLoanTypeView.designer.cs">
+      <DependentUpon>MaintenanceLoanTypeView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Loaning\View\MaintenanceMemberType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Loaning\View\MaintenanceMemberType.designer.cs">
+      <DependentUpon>MaintenanceMemberType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Loaning\View\MaintenancePenaltyView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Loaning\View\MaintenancePenaltyView.designer.cs">
+      <DependentUpon>MaintenancePenaltyView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Loaning\View\TransactionComakerFamily.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Loaning\View\TransactionComakerFamily.designer.cs">
+      <DependentUpon>TransactionComakerFamily.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Loaning\View\TransactionComakerMember.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Loaning\View\TransactionComakerMember.designer.cs">
+      <DependentUpon>TransactionComakerMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Loaning\View\TransactionLoanApplicationView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Loaning\View\TransactionLoanApplicationView.designer.cs">
+      <DependentUpon>TransactionLoanApplicationView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Loaning\View\TransactionLoanApprovalView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Loaning\View\TransactionLoanApprovalView.designer.cs">
+      <DependentUpon>TransactionLoanApprovalView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Loaning\View\TransactionLoanCancellation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Loaning\View\TransactionLoanCancellation.designer.cs">
+      <DependentUpon>TransactionLoanCancellation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Loaning\View\TransactionLoanModificationView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Loaning\View\TransactionLoanModificationView.designer.cs">
+      <DependentUpon>TransactionLoanModificationView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Loaning\View\TransactionLoanPaymentView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Loaning\View\TransactionLoanPaymentView.designer.cs">
+      <DependentUpon>TransactionLoanPaymentView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Loaning\View\TransactionLoanReleaseView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Loaning\View\TransactionLoanReleaseView.designer.cs">
+      <DependentUpon>TransactionLoanReleaseView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Loaning\View\TransactionShareCapital.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Loaning\View\TransactionShareCapital.designer.cs">
+      <DependentUpon>TransactionShareCapital.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModelUser.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Savings\Controller\ControllerDormancy.cs" />
+    <Compile Include="Savings\Controller\ControllerMember.cs" />
+    <Compile Include="Savings\Controller\ControllerMemberTermination.cs" />
+    <Compile Include="Savings\Controller\ControllerSavingsAccount.cs" />
+    <Compile Include="Savings\Controller\ControllerSavingsTransaction.cs" />
+    <Compile Include="Savings\Controller\ControllerSavingsType.cs" />
+    <Compile Include="Savings\Controller\ControllerTimeDepositAccount.cs" />
+    <Compile Include="Savings\Controller\ControllerTimeDepositPenalty.cs" />
+    <Compile Include="Savings\Controller\ControllerTimeDepositRates.cs" />
+    <Compile Include="Savings\Controller\ControllerTimeDepositTransaction.cs" />
+    <Compile Include="Savings\Controller\ControllerUnfreezeAccount.cs" />
+    <Compile Include="Savings\Model\ModelDormancy.cs" />
+    <Compile Include="Savings\Model\ModelMember.cs" />
+    <Compile Include="Savings\Model\ModelSavingsAccount.cs" />
+    <Compile Include="Savings\Model\ModelSavingsTransaction.cs" />
+    <Compile Include="Savings\Model\ModelSavingsType.cs" />
+    <Compile Include="Savings\Model\ModelTimeDepositAccount.cs" />
+    <Compile Include="Savings\Model\ModelTimeDepositPenalty.cs" />
+    <Compile Include="Savings\Model\ModelTimeDepositRates.cs" />
+    <Compile Include="Savings\Model\ModelTimeDepositTransaction.cs" />
+    <Compile Include="Savings\Savings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Savings\Savings.designer.cs">
+      <DependentUpon>Savings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Savings\View\MaintenanceDormancyView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Savings\View\MaintenanceDormancyView.designer.cs">
+      <DependentUpon>MaintenanceDormancyView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Savings\View\MaintenanceSavingsTypeView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Savings\View\MaintenanceSavingsTypeView.designer.cs">
+      <DependentUpon>MaintenanceSavingsTypeView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Savings\View\MaintenanceTimeDeposit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Savings\View\MaintenanceTimeDeposit.designer.cs">
+      <DependentUpon>MaintenanceTimeDeposit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Savings\View\MaintenanceTimeDepositDays.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Savings\View\MaintenanceTimeDepositDays.designer.cs">
+      <DependentUpon>MaintenanceTimeDepositDays.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Savings\View\MaintenanceTimeDepositPenalty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Savings\View\MaintenanceTimeDepositPenalty.designer.cs">
+      <DependentUpon>MaintenanceTimeDepositPenalty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Savings\View\TransactionCreateSavingsAccountView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Savings\View\TransactionCreateSavingsAccountView.designer.cs">
+      <DependentUpon>TransactionCreateSavingsAccountView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Savings\View\TransactionCreateTimeDeposit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Savings\View\TransactionCreateTimeDeposit.designer.cs">
+      <DependentUpon>TransactionCreateTimeDeposit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Savings\View\TransactionFamilyMember.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Savings\View\TransactionFamilyMember.designer.cs">
+      <DependentUpon>TransactionFamilyMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Savings\View\TransactionMembership.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Savings\View\TransactionMembership.designer.cs">
+      <DependentUpon>TransactionMembership.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Savings\View\TransactionMembershipTermination.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Savings\View\TransactionMembershipTermination.designer.cs">
+      <DependentUpon>TransactionMembershipTermination.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Savings\View\TransactionSavings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Savings\View\TransactionSavings.designer.cs">
+      <DependentUpon>TransactionSavings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Savings\View\TransactionTimeDeposit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Savings\View\TransactionTimeDeposit.designer.cs">
+      <DependentUpon>TransactionTimeDeposit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Savings\View\TransactionUnfreezeAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Savings\View\TransactionUnfreezeAccount.designer.cs">
+      <DependentUpon>TransactionUnfreezeAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Loaning\ViewLoanDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Loaning\ViewLoanDashboard.Designer.cs">
+      <DependentUpon>ViewLoanDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Savings\ViewSavingsDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Savings\ViewSavingsDashboard.Designer.cs">
+      <DependentUpon>ViewSavingsDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Savings\View_new\ViewRegisterMember.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Savings\View_new\ViewRegisterMember.Designer.cs">
+      <DependentUpon>ViewRegisterMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Savings\View_new\ViewTransactionMembership.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Savings\View_new\ViewTransactionMembership.Designer.cs">
+      <DependentUpon>ViewTransactionMembership.cs</DependentUpon>
+    </Compile>
+    <Compile Include="splash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="splash.designer.cs">
+      <DependentUpon>splash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Switchboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Switchboard.designer.cs">
+      <DependentUpon>Switchboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Validator.cs" />
+    <Compile Include="ViewLoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewLoginForm.Designer.cs">
+      <DependentUpon>ViewLoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewSwitchboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewSwitchboard.Designer.cs">
+      <DependentUpon>ViewSwitchboard.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Loaning\Loan.resx">
+      <DependentUpon>Loan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Loaning\View\MaintenanceAdditionalChargesView.resx">
+      <DependentUpon>MaintenanceAdditionalChargesView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Loaning\View\MaintenanceCollaterallView.resx">
+      <DependentUpon>MaintenanceCollaterallView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Loaning\View\MaintenanceLoanRates.resx">
+      <DependentUpon>MaintenanceLoanRates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Loaning\View\MaintenanceLoanTypeView.resx">
+      <DependentUpon>MaintenanceLoanTypeView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Loaning\View\MaintenanceMemberType.resx">
+      <DependentUpon>MaintenanceMemberType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Loaning\View\MaintenancePenaltyView.resx">
+      <DependentUpon>MaintenancePenaltyView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Loaning\View\TransactionComakerFamily.resx">
+      <DependentUpon>TransactionComakerFamily.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Loaning\View\TransactionComakerMember.resx">
+      <DependentUpon>TransactionComakerMember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Loaning\View\TransactionLoanApplicationView.resx">
+      <DependentUpon>TransactionLoanApplicationView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Loaning\View\TransactionLoanApprovalView.resx">
+      <DependentUpon>TransactionLoanApprovalView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Loaning\View\TransactionLoanCancellation.resx">
+      <DependentUpon>TransactionLoanCancellation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Loaning\View\TransactionLoanModificationView.resx">
+      <DependentUpon>TransactionLoanModificationView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Loaning\View\TransactionLoanPaymentView.resx">
+      <DependentUpon>TransactionLoanPaymentView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Loaning\View\TransactionLoanReleaseView.resx">
+      <DependentUpon>TransactionLoanReleaseView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Loaning\View\TransactionShareCapital.resx">
+      <DependentUpon>TransactionShareCapital.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Savings\Savings.resx">
+      <DependentUpon>Savings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Savings\View\MaintenanceDormancyView.resx">
+      <DependentUpon>MaintenanceDormancyView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Savings\View\MaintenanceSavingsTypeView.resx">
+      <DependentUpon>MaintenanceSavingsTypeView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Savings\View\MaintenanceTimeDeposit.resx">
+      <DependentUpon>MaintenanceTimeDeposit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Savings\View\MaintenanceTimeDepositDays.resx">
+      <DependentUpon>MaintenanceTimeDepositDays.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Savings\View\MaintenanceTimeDepositPenalty.resx">
+      <DependentUpon>MaintenanceTimeDepositPenalty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Savings\View\TransactionCreateSavingsAccountView.resx">
+      <DependentUpon>TransactionCreateSavingsAccountView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Savings\View\TransactionCreateTimeDeposit.resx">
+      <DependentUpon>TransactionCreateTimeDeposit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Savings\View\TransactionFamilyMember.resx">
+      <DependentUpon>TransactionFamilyMember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Savings\View\TransactionMembership.resx">
+      <DependentUpon>TransactionMembership.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Savings\View\TransactionMembershipTermination.resx">
+      <DependentUpon>TransactionMembershipTermination.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Savings\View\TransactionSavings.resx">
+      <DependentUpon>TransactionSavings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Savings\View\TransactionTimeDeposit.resx">
+      <DependentUpon>TransactionTimeDeposit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Savings\View\TransactionUnfreezeAccount.resx">
+      <DependentUpon>TransactionUnfreezeAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Loaning\ViewLoanDashboard.resx">
+      <DependentUpon>ViewLoanDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Savings\ViewSavingsDashboard.resx">
+      <DependentUpon>ViewSavingsDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Savings\View_new\ViewRegisterMember.resx">
+      <DependentUpon>ViewRegisterMember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Savings\View_new\ViewTransactionMembership.resx">
+      <DependentUpon>ViewTransactionMembership.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="splash.resx">
+      <DependentUpon>splash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Switchboard.resx">
+      <DependentUpon>Switchboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewLoginForm.resx">
+      <DependentUpon>ViewLoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewSwitchboard.resx">
+      <DependentUpon>ViewSwitchboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="coopdbDataSet.xsc">
+      <DependentUpon>coopdbDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="coopdbDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>coopdbDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="coopdbDataSet.xss">
+      <DependentUpon>coopdbDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\splash_screen.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\new icon 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\new icon 3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\new icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\new bg21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MAINTENANCEV2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TRANSACTIONV2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\QUERIESV2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\REPORTSV2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SAVINGSICON.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\form bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LOANICON.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Default.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\find_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\poweroff_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sample Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Savings Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Loan Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit_bg_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tools-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Data-Find.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Documents-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit_bg_savings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Transaction.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MaintenanceMenu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Settings-01.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
