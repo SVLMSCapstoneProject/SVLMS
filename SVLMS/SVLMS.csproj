@@ -35,7 +35,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Win32.TaskScheduler">
-      <HintPath>..\..\..\Downloads\Compressed\TaskScheduler\v4.0\Microsoft.Win32.TaskScheduler.dll</HintPath>
+      <HintPath>..\dll files\TaskScheduler\v4.0\Microsoft.Win32.TaskScheduler.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -468,7 +468,9 @@
     <EmbeddedResource Include="Utilities\UtilitiesForm.resx">
       <DependentUpon>UtilitiesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="coopdbDataSet.xsc">
       <DependentUpon>coopdbDataSet.xsd</DependentUpon>
     </None>
