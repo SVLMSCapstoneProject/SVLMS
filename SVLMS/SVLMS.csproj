@@ -540,6 +540,45 @@
   <ItemGroup>
     <None Include="Resources\Default.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit_bg_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Savings Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Loan Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tools-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Transaction.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Documents-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Data-Find.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit_bg_savings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\poweroff_icon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

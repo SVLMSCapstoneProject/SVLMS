@@ -11,7 +11,10 @@ namespace SVLMS
     class ModelUser
     {
         public static string userID { get; set; }
-
+        public static string LName { get; set; }
+        public static string FName { get; set; }
+        public static string MName { get; set; }
+    
         public static DataSet getIntervalOfPayments()
         {
             DataAccessLayer dal = new DataAccessLayer(ConfigurationManager.ConnectionStrings["coopdbConnectionString"].ConnectionString);
