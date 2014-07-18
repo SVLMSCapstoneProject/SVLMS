@@ -14,10 +14,10 @@ namespace SVLMS.Savings.View
         public MaintenanceSavingsTypeView()
         {
             InitializeComponent();
-            cboWithdrawDuration.SelectedIndex = 0;
+            cboWithdrawDuration.SelectedIndex = -1;
             dgSavingsType.ReadOnly = true;
             dgSavingsType.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            cboFilter.SelectedIndex = 0;
+            cboFilter.SelectedIndex = -1;
         }
 
         //public void setSavingsNo(string savingsNo)
@@ -288,17 +288,6 @@ namespace SVLMS.Savings.View
             dgSavingsType.CellDoubleClick += e;
         }
 
-        //Duration(DropDown)
-        public void errDuration()
-        {
-            Duration.Visible = true;
-        }
-
-        public void unDuration()
-        {
-            Duration.Visible = false;
-        }
-
         //SavingsTypeName
         public void errSavingsTypeName()
         {
@@ -380,16 +369,6 @@ namespace SVLMS.Savings.View
         //    txtStartEarning.BackColor = Color.White;
         //}
         //Status
-        public void errStatus()
-        {
-            statusPanel.BackColor = Color.Salmon;
-        }
-
-        public void unStatus()
-        {
-            statusPanel.BackColor = Color.CornflowerBlue;
-        }
-
         public int status()
         {
             int i = 0;
@@ -398,15 +377,6 @@ namespace SVLMS.Savings.View
             return i;
         }
         //Percentage
-        public void errPercentage()
-        {
-            percentagePanel.BackColor = Color.Salmon;
-        }
-
-        public void unPercentage()
-        {
-            percentagePanel.BackColor = Color.CornflowerBlue;
-        }
 
         public int percentage()
         {
@@ -416,15 +386,6 @@ namespace SVLMS.Savings.View
             return i;
         }
         //withdrawalLimit
-        public void errWithdrawLimit()
-        {
-            NoWithdrawalLimitPanel.BackColor = Color.Salmon;
-        }
-
-        public void unWithdrawLimit()
-        {
-            NoWithdrawalLimitPanel.BackColor = Color.CornflowerBlue;
-        }
 
         public void setTxtSearchEvent(EventHandler e)
         {

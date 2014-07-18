@@ -13,27 +13,19 @@ namespace SVLMS
 {
     public partial class LoginForm : Form
     {
-
+        private string strUsername;
+        
         public LoginForm()
         {
             InitializeComponent();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LoginForm_Load(object sender, EventArgs e)
-        {
-
+            lblErrorMsg.Visible = false;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            strUsername = txtUsername.Text;
             if (this.accountExists())
             {
-                //main_form mf = new main_form();
                 splash mf = new splash();
                 this.Hide();
                 mf.Show();
@@ -41,13 +33,9 @@ namespace SVLMS
 
             else
             {
-                System.Windows.Forms.MessageBox.Show("Account not found.");
+                lblErrorMsg.Visible = true;
+                txtPassword.Clear();
             }
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         public bool accountExists()
@@ -63,6 +51,9 @@ namespace SVLMS
             if (reader.Read())
             {
                 ModelUser.userID = reader[0].ToString();
+                ModelUser.LName = reader[1].ToString();
+                ModelUser.FName = reader[2].ToString();
+                ModelUser.MName = reader[3].ToString();
                 check = true;
             }
             return check;
@@ -70,7 +61,56 @@ namespace SVLMS
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            DialogResult dr = MessageBox.Show("Do you want to exit?", "Confirm Exit", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (dr == DialogResult.OK)
+            {
+                Application.Exit();    
+            }
         }
+
+        private void txtUsername_Enter(object sender, EventArgs e)
+        {
+            txtUsername.Clear();
+            lblErrorMsg.Visible = false;
+        }
+
+        private void txtUsername_Leave(object sender, EventArgs e)
+        {
+            if (txtUsername.Text == "")
+            {
+                txtUsername.Text = strUsername;
+            }
+        }
+
+        private void txtPassword_Enter(object sender, EventArgs e)
+        {
+            lblErrorMsg.Visible = false;
+        }
+
+        private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btnLogin.PerformClick();
+            }
+            else if (e.KeyChar == (char)Keys.Escape)
+            {
+                btnCancel.PerformClick();
+            }
+        }
+
+        private void txtUsername_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btnLogin.PerformClick();
+            }
+            else if (e.KeyChar == (char)Keys.Escape)
+            {
+                btnCancel.PerformClick();
+            }
+        }
+
+
     }
 }

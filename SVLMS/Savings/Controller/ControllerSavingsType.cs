@@ -52,13 +52,13 @@ namespace SVLMS.Savings.Controller
             view.unMaintainingBalance();
             view.unMaxWithdrawalAmount();
             //view.unMinimumWithrawalAmount();
-            view.unPercentage();
+            //view.unPercentage();
             view.unSavingsTypeName();
             //view.unStartEarningAt();
-            view.unStatus();
+            //view.unStatus();
             //view.unWithdrawalLimit();
-            view.unDuration();
-            view.unWithdrawLimit();
+            //view.unDuration();
+            //view.unWithdrawLimit();
 
             view.disableAdd();
             view.enableUpdate();
@@ -111,14 +111,14 @@ namespace SVLMS.Savings.Controller
                     if (dialogResult == DialogResult.Yes)
                     {
                         this.setValuesToModel();
-                        view.unWithdrawLimit();
+                        //view.unWithdrawLimit();
                         model.insertSavingsType();
                         MessageBox.Show("The Record is Successfully Inserted");
                         this.RefreshFields();
                     }
                     else if (dialogResult == DialogResult.No)
                     {
-                        view.errWithdrawLimit();
+                        //view.errWithdrawLimit();
                     }
                 }
                 else
@@ -127,14 +127,14 @@ namespace SVLMS.Savings.Controller
                     if (dialogResult == DialogResult.Yes)
                     {
                         this.setValuesToModel();
-                        view.unWithdrawLimit();
+                        //view.unWithdrawLimit();
                         model.insertSavingsType();
                         MessageBox.Show("The Record is Successfully Inserted");
                         this.RefreshFields();
                     }
                     else if (dialogResult == DialogResult.No)
                     {
-                        view.errWithdrawLimit();
+                        //view.errWithdrawLimit();
                     }
                 }
             }
@@ -151,7 +151,7 @@ namespace SVLMS.Savings.Controller
                     DialogResult dialogResult = MessageBox.Show("Are you sure of not having a withdrawal limit?", "No Withdrawal Limit", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
                     if (dialogResult == DialogResult.Yes)
                     {
-                        view.unWithdrawLimit();
+                        //view.unWithdrawLimit();
                         this.setValuesToModel();
                         model.updateSavingsType();
                         MessageBox.Show("The Record is Successfully Updated");
@@ -159,7 +159,7 @@ namespace SVLMS.Savings.Controller
                     }
                     else if (dialogResult == DialogResult.No)
                     {
-                        view.errWithdrawLimit();
+                        //view.errWithdrawLimit();
                     }
                 }
                 else
@@ -167,7 +167,7 @@ namespace SVLMS.Savings.Controller
                     DialogResult dialogResult = MessageBox.Show("Are you sure of not having a withdrawal limit?", "No Withdrawal Limit", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
                     if (dialogResult == DialogResult.Yes)
                     {
-                        view.unWithdrawLimit();
+                        //view.unWithdrawLimit();
                         this.setValuesToModel();
                         model.updateSavingsType();
                         MessageBox.Show("The Record is Successfully Updated");
@@ -175,7 +175,7 @@ namespace SVLMS.Savings.Controller
                     }
                     else if (dialogResult == DialogResult.No)
                     {
-                        view.errWithdrawLimit();
+                        //view.errWithdrawLimit();
                     }                    
                 }
             }               
@@ -216,7 +216,7 @@ namespace SVLMS.Savings.Controller
                 view.disableMaxWithdrawal();
                 //view.unWithdrawalLimit();
                 view.unMaxWithdrawalAmount();
-                view.unDuration();
+                //view.unDuration();
             }
 
             else
@@ -251,13 +251,13 @@ namespace SVLMS.Savings.Controller
             view.unMaintainingBalance();
             view.unMaxWithdrawalAmount();
             //view.unMinimumWithrawalAmount();
-            view.unPercentage();
+            //view.unPercentage();
             view.unSavingsTypeName();
             //view.unStartEarningAt();
-            view.unStatus();
+            //view.unStatus();
             //view.unWithdrawalLimit();
-            view.unDuration();
-            view.unWithdrawLimit();
+            //view.unDuration();
+            //view.unWithdrawLimit();
         }
         //---------------------------------------------------------------
         public bool PerformAction()
@@ -393,18 +393,18 @@ namespace SVLMS.Savings.Controller
             {
                 view.unMaxWithdrawalAmount();
                 //view.unWithdrawalLimit();
-                view.unDuration();
+                //view.unDuration();
             }
             else
             {
                 //Duration(DropDown)-------------------------------------
                 if (model.maxWithdrawalTime == 0 && view.getNoWithdrawalLimit() == false)
                 {
-                    view.errDuration();
+                   //view.errDuration();
                 }
                 else
                 {
-                    view.unDuration();
+                    //view.unDuration();
                     correct++;
                 }
                 //MaximumWithdrawalAmount-------------------------------
@@ -534,21 +534,21 @@ namespace SVLMS.Savings.Controller
             //FixedOrPercentage------------------------------
             if (percentage == 1)
             {
-                view.errPercentage();
+                //view.errPercentage();
             }
             else
             {
-                view.unPercentage();
+                //view.unPercentage();
                 correct++;
             }
             //StatusActiveInactve-----------------------------------
             if (status == 1)
             {
-                view.errStatus();
+                //view.errStatus();
             }
             else
             {
-                view.unStatus();
+                //view.unStatus();
                 correct++;
             }
             return correct;

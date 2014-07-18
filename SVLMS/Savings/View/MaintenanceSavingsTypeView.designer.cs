@@ -28,430 +28,534 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.Duration = new System.Windows.Forms.Label();
-            this.NoWithdrawalLimitPanel = new System.Windows.Forms.Panel();
-            this.chkWithdrawalLimit = new System.Windows.Forms.CheckBox();
-            this.error = new System.Windows.Forms.Label();
-            this.txtMaintainingBalance = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtNoAccountHolder = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.statusPanel = new System.Windows.Forms.Panel();
-            this.rbtnInactive = new System.Windows.Forms.RadioButton();
-            this.rbtnActive = new System.Windows.Forms.RadioButton();
-            this.percentagePanel = new System.Windows.Forms.Panel();
-            this.rbtnPercentage = new System.Windows.Forms.RadioButton();
-            this.rbtnFixed = new System.Windows.Forms.RadioButton();
-            this.label13 = new System.Windows.Forms.Label();
-            this.cboWithdrawDuration = new System.Windows.Forms.ComboBox();
-            this.txtMaxWithdrawal = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtInterest = new System.Windows.Forms.TextBox();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.txtSavingsName = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.dgSavingsType = new System.Windows.Forms.DataGridView();
-            this.txtSearchBox = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.cboFilter = new System.Windows.Forms.ComboBox();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.panelSavingsTypeTitle = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
-            this.NoWithdrawalLimitPanel.SuspendLayout();
-            this.statusPanel.SuspendLayout();
-            this.percentagePanel.SuspendLayout();
+            this.panelSearch = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.cboFilter = new System.Windows.Forms.ComboBox();
+            this.txtSearchBox = new System.Windows.Forms.TextBox();
+            this.panelDataGridView = new System.Windows.Forms.Panel();
+            this.dgSavingsType = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.chkWithdrawalLimit = new System.Windows.Forms.CheckBox();
+            this.rbtnInactive = new System.Windows.Forms.RadioButton();
+            this.rbtnPercentage = new System.Windows.Forms.RadioButton();
+            this.rbtnActive = new System.Windows.Forms.RadioButton();
+            this.rbtnFixed = new System.Windows.Forms.RadioButton();
+            this.cboWithdrawDuration = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtMaxWithdrawal = new System.Windows.Forms.TextBox();
+            this.txtNoAccountHolder = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtInterest = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtMaintainingBalance = new System.Windows.Forms.TextBox();
+            this.txtSavingsName = new System.Windows.Forms.TextBox();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.panelSavingsTypeTitle.SuspendLayout();
+            this.panelSearch.SuspendLayout();
+            this.panelDataGridView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgSavingsType)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // panelSavingsTypeTitle
             // 
-            this.panel1.Controls.Add(this.Duration);
-            this.panel1.Controls.Add(this.NoWithdrawalLimitPanel);
-            this.panel1.Controls.Add(this.error);
-            this.panel1.Controls.Add(this.txtMaintainingBalance);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.txtNoAccountHolder);
-            this.panel1.Controls.Add(this.label14);
-            this.panel1.Controls.Add(this.statusPanel);
-            this.panel1.Controls.Add(this.percentagePanel);
-            this.panel1.Controls.Add(this.label13);
-            this.panel1.Controls.Add(this.cboWithdrawDuration);
-            this.panel1.Controls.Add(this.txtMaxWithdrawal);
-            this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.txtInterest);
-            this.panel1.Controls.Add(this.btnClear);
-            this.panel1.Controls.Add(this.btnUpdate);
-            this.panel1.Controls.Add(this.btnAdd);
-            this.panel1.Controls.Add(this.txtSavingsName);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.dgSavingsType);
-            this.panel1.Controls.Add(this.txtSearchBox);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.cboFilter);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(2, 1);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(719, 428);
-            this.panel1.TabIndex = 0;
+            this.panelSavingsTypeTitle.BackColor = System.Drawing.Color.LimeGreen;
+            this.panelSavingsTypeTitle.Controls.Add(this.label1);
+            this.panelSavingsTypeTitle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelSavingsTypeTitle.Location = new System.Drawing.Point(0, 0);
+            this.panelSavingsTypeTitle.Name = "panelSavingsTypeTitle";
+            this.panelSavingsTypeTitle.Size = new System.Drawing.Size(834, 50);
+            this.panelSavingsTypeTitle.TabIndex = 1;
             // 
-            // Duration
+            // label1
             // 
-            this.Duration.AutoSize = true;
-            this.Duration.BackColor = System.Drawing.Color.Red;
-            this.Duration.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Duration.ForeColor = System.Drawing.SystemColors.Window;
-            this.Duration.Location = new System.Drawing.Point(400, 323);
-            this.Duration.Name = "Duration";
-            this.Duration.Size = new System.Drawing.Size(16, 15);
-            this.Duration.TabIndex = 210;
-            this.Duration.Text = "X";
-            this.Duration.Visible = false;
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label1.AutoSize = true;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.Location = new System.Drawing.Point(7, 6);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(236, 25);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Savings Type Maintenance";
             // 
-            // NoWithdrawalLimitPanel
+            // panelSearch
             // 
-            this.NoWithdrawalLimitPanel.Controls.Add(this.chkWithdrawalLimit);
-            this.NoWithdrawalLimitPanel.Location = new System.Drawing.Point(177, 346);
-            this.NoWithdrawalLimitPanel.Name = "NoWithdrawalLimitPanel";
-            this.NoWithdrawalLimitPanel.Size = new System.Drawing.Size(153, 28);
-            this.NoWithdrawalLimitPanel.TabIndex = 6;
+            this.panelSearch.Controls.Add(this.label10);
+            this.panelSearch.Controls.Add(this.cboFilter);
+            this.panelSearch.Controls.Add(this.txtSearchBox);
+            this.panelSearch.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelSearch.Location = new System.Drawing.Point(0, 50);
+            this.panelSearch.Name = "panelSearch";
+            this.panelSearch.Size = new System.Drawing.Size(834, 39);
+            this.panelSearch.TabIndex = 2;
             // 
-            // chkWithdrawalLimit
+            // label10
             // 
-            this.chkWithdrawalLimit.AutoSize = true;
-            this.chkWithdrawalLimit.Location = new System.Drawing.Point(3, 3);
-            this.chkWithdrawalLimit.Name = "chkWithdrawalLimit";
-            this.chkWithdrawalLimit.Size = new System.Drawing.Size(143, 20);
-            this.chkWithdrawalLimit.TabIndex = 199;
-            this.chkWithdrawalLimit.Text = "No Withdrawal Limit";
-            this.chkWithdrawalLimit.UseVisualStyleBackColor = true;
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI Light", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(430, 8);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(48, 20);
+            this.label10.TabIndex = 5;
+            this.label10.Text = "Filters:";
             // 
-            // error
+            // cboFilter
             // 
-            this.error.AutoSize = true;
-            this.error.BackColor = System.Drawing.Color.Red;
-            this.error.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.error.ForeColor = System.Drawing.SystemColors.Window;
-            this.error.Location = new System.Drawing.Point(382, 347);
-            this.error.Name = "error";
-            this.error.Size = new System.Drawing.Size(0, 16);
-            this.error.TabIndex = 208;
-            this.error.Visible = false;
+            this.cboFilter.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cboFilter.Font = new System.Drawing.Font("Segoe UI Symbol", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboFilter.FormattingEnabled = true;
+            this.cboFilter.Location = new System.Drawing.Point(484, 5);
+            this.cboFilter.Name = "cboFilter";
+            this.cboFilter.Size = new System.Drawing.Size(155, 28);
+            this.cboFilter.TabIndex = 21;
             // 
-            // txtMaintainingBalance
+            // txtSearchBox
             // 
-            this.txtMaintainingBalance.Location = new System.Drawing.Point(561, 263);
-            this.txtMaintainingBalance.MaxLength = 8;
-            this.txtMaintainingBalance.Name = "txtMaintainingBalance";
-            this.txtMaintainingBalance.Size = new System.Drawing.Size(128, 22);
-            this.txtMaintainingBalance.TabIndex = 7;
-            this.txtMaintainingBalance.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMaintainingBalance_KeyPress);
+            this.txtSearchBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtSearchBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtSearchBox.Font = new System.Drawing.Font("Segoe UI Symbol", 11.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchBox.Location = new System.Drawing.Point(645, 5);
+            this.txtSearchBox.Name = "txtSearchBox";
+            this.txtSearchBox.Size = new System.Drawing.Size(177, 28);
+            this.txtSearchBox.TabIndex = 13;
             // 
-            // label6
+            // panelDataGridView
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(426, 269);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(129, 16);
-            this.label6.TabIndex = 205;
-            this.label6.Text = "Maintaining Balance:";
-            // 
-            // txtNoAccountHolder
-            // 
-            this.txtNoAccountHolder.Location = new System.Drawing.Point(177, 292);
-            this.txtNoAccountHolder.MaxLength = 4;
-            this.txtNoAccountHolder.Name = "txtNoAccountHolder";
-            this.txtNoAccountHolder.Size = new System.Drawing.Size(114, 22);
-            this.txtNoAccountHolder.TabIndex = 3;
-            this.txtNoAccountHolder.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNoAccountHolder_KeyPress);
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(27, 293);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(145, 16);
-            this.label14.TabIndex = 197;
-            this.label14.Text = "No. of Account Holders:";
-            // 
-            // statusPanel
-            // 
-            this.statusPanel.Controls.Add(this.rbtnInactive);
-            this.statusPanel.Controls.Add(this.rbtnActive);
-            this.statusPanel.Location = new System.Drawing.Point(561, 343);
-            this.statusPanel.Name = "statusPanel";
-            this.statusPanel.Size = new System.Drawing.Size(142, 31);
-            this.statusPanel.TabIndex = 172;
-            // 
-            // rbtnInactive
-            // 
-            this.rbtnInactive.AutoSize = true;
-            this.rbtnInactive.Location = new System.Drawing.Point(59, 3);
-            this.rbtnInactive.Name = "rbtnInactive";
-            this.rbtnInactive.Size = new System.Drawing.Size(69, 20);
-            this.rbtnInactive.TabIndex = 12;
-            this.rbtnInactive.TabStop = true;
-            this.rbtnInactive.Text = "Inactive";
-            this.rbtnInactive.UseVisualStyleBackColor = true;
-            // 
-            // rbtnActive
-            // 
-            this.rbtnActive.AutoSize = true;
-            this.rbtnActive.Location = new System.Drawing.Point(3, 4);
-            this.rbtnActive.Name = "rbtnActive";
-            this.rbtnActive.Size = new System.Drawing.Size(61, 20);
-            this.rbtnActive.TabIndex = 11;
-            this.rbtnActive.TabStop = true;
-            this.rbtnActive.Text = "Active";
-            this.rbtnActive.UseVisualStyleBackColor = true;
-            // 
-            // percentagePanel
-            // 
-            this.percentagePanel.Controls.Add(this.rbtnPercentage);
-            this.percentagePanel.Controls.Add(this.rbtnFixed);
-            this.percentagePanel.Location = new System.Drawing.Point(561, 315);
-            this.percentagePanel.Name = "percentagePanel";
-            this.percentagePanel.Size = new System.Drawing.Size(151, 22);
-            this.percentagePanel.TabIndex = 177;
-            // 
-            // rbtnPercentage
-            // 
-            this.rbtnPercentage.AutoSize = true;
-            this.rbtnPercentage.Location = new System.Drawing.Point(59, 3);
-            this.rbtnPercentage.Name = "rbtnPercentage";
-            this.rbtnPercentage.Size = new System.Drawing.Size(92, 20);
-            this.rbtnPercentage.TabIndex = 10;
-            this.rbtnPercentage.TabStop = true;
-            this.rbtnPercentage.Text = "Percentage";
-            this.rbtnPercentage.UseVisualStyleBackColor = true;
-            // 
-            // rbtnFixed
-            // 
-            this.rbtnFixed.AutoSize = true;
-            this.rbtnFixed.Location = new System.Drawing.Point(3, 3);
-            this.rbtnFixed.Name = "rbtnFixed";
-            this.rbtnFixed.Size = new System.Drawing.Size(58, 20);
-            this.rbtnFixed.TabIndex = 9;
-            this.rbtnFixed.TabStop = true;
-            this.rbtnFixed.Text = "Fixed";
-            this.rbtnFixed.UseVisualStyleBackColor = true;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(426, 348);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(50, 16);
-            this.label13.TabIndex = 196;
-            this.label13.Text = "Status:";
-            // 
-            // cboWithdrawDuration
-            // 
-            this.cboWithdrawDuration.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboWithdrawDuration.FormattingEnabled = true;
-            this.cboWithdrawDuration.Items.AddRange(new object[] {
-            "per Day",
-            "per Week",
-            "per Month",
-            "per Year"});
-            this.cboWithdrawDuration.Location = new System.Drawing.Point(296, 318);
-            this.cboWithdrawDuration.Name = "cboWithdrawDuration";
-            this.cboWithdrawDuration.Size = new System.Drawing.Size(99, 24);
-            this.cboWithdrawDuration.TabIndex = 5;
-            // 
-            // txtMaxWithdrawal
-            // 
-            this.txtMaxWithdrawal.Location = new System.Drawing.Point(177, 319);
-            this.txtMaxWithdrawal.MaxLength = 8;
-            this.txtMaxWithdrawal.Name = "txtMaxWithdrawal";
-            this.txtMaxWithdrawal.Size = new System.Drawing.Size(114, 22);
-            this.txtMaxWithdrawal.TabIndex = 4;
-            this.txtMaxWithdrawal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMaxWithdrawal_KeyPress);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(26, 322);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(153, 16);
-            this.label11.TabIndex = 194;
-            this.label11.Text = "Max Withdrawal Amount:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(426, 296);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(55, 16);
-            this.label4.TabIndex = 192;
-            this.label4.Text = "Interest:";
-            // 
-            // txtInterest
-            // 
-            this.txtInterest.Location = new System.Drawing.Point(561, 289);
-            this.txtInterest.MaxLength = 8;
-            this.txtInterest.Name = "txtInterest";
-            this.txtInterest.Size = new System.Drawing.Size(128, 22);
-            this.txtInterest.TabIndex = 8;
-            this.txtInterest.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtInterest_KeyPress);
-            // 
-            // btnClear
-            // 
-            this.btnClear.Location = new System.Drawing.Point(401, 394);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(75, 23);
-            this.btnClear.TabIndex = 15;
-            this.btnClear.Text = "Clear";
-            this.btnClear.UseVisualStyleBackColor = true;
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Location = new System.Drawing.Point(320, 394);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
-            this.btnUpdate.TabIndex = 14;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Location = new System.Drawing.Point(239, 394);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 13;
-            this.btnAdd.Text = "Add";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            // 
-            // txtSavingsName
-            // 
-            this.txtSavingsName.BackColor = System.Drawing.SystemColors.Window;
-            this.txtSavingsName.Location = new System.Drawing.Point(177, 266);
-            this.txtSavingsName.MaxLength = 50;
-            this.txtSavingsName.Name = "txtSavingsName";
-            this.txtSavingsName.Size = new System.Drawing.Size(114, 22);
-            this.txtSavingsName.TabIndex = 2;
-            this.txtSavingsName.Validating += new System.ComponentModel.CancelEventHandler(this.txtSavingsName_Validating);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(27, 270);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(126, 16);
-            this.label3.TabIndex = 187;
-            this.label3.Text = "Savings Type Name:";
+            this.panelDataGridView.AutoScroll = true;
+            this.panelDataGridView.Controls.Add(this.dgSavingsType);
+            this.panelDataGridView.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelDataGridView.Location = new System.Drawing.Point(0, 89);
+            this.panelDataGridView.Name = "panelDataGridView";
+            this.panelDataGridView.Size = new System.Drawing.Size(834, 202);
+            this.panelDataGridView.TabIndex = 3;
             // 
             // dgSavingsType
             // 
             this.dgSavingsType.AllowUserToAddRows = false;
             this.dgSavingsType.AllowUserToDeleteRows = false;
+            this.dgSavingsType.AllowUserToResizeColumns = false;
+            this.dgSavingsType.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgSavingsType.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgSavingsType.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.dgSavingsType.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgSavingsType.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgSavingsType.Location = new System.Drawing.Point(20, 94);
+            this.dgSavingsType.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
+            this.dgSavingsType.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgSavingsType.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgSavingsType.ColumnHeadersHeight = 28;
+            this.dgSavingsType.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgSavingsType.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgSavingsType.Location = new System.Drawing.Point(12, 0);
             this.dgSavingsType.Name = "dgSavingsType";
-            this.dgSavingsType.Size = new System.Drawing.Size(671, 159);
-            this.dgSavingsType.TabIndex = 16;
+            this.dgSavingsType.ReadOnly = true;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.dgSavingsType.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgSavingsType.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dgSavingsType.RowTemplate.Height = 25;
+            this.dgSavingsType.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgSavingsType.Size = new System.Drawing.Size(810, 199);
+            this.dgSavingsType.TabIndex = 1;
             // 
-            // txtSearchBox
+            // panel1
             // 
-            this.txtSearchBox.Location = new System.Drawing.Point(186, 65);
-            this.txtSearchBox.Name = "txtSearchBox";
-            this.txtSearchBox.Size = new System.Drawing.Size(188, 22);
-            this.txtSearchBox.TabIndex = 183;
+            this.panel1.Controls.Add(this.groupBox1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 291);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(834, 270);
+            this.panel1.TabIndex = 4;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.groupBox1.Controls.Add(this.panel2);
+            this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox1.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(12, 6);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(810, 252);
+            this.groupBox1.TabIndex = 4;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Savings Type Information";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.chkWithdrawalLimit);
+            this.panel2.Controls.Add(this.rbtnInactive);
+            this.panel2.Controls.Add(this.rbtnPercentage);
+            this.panel2.Controls.Add(this.rbtnActive);
+            this.panel2.Controls.Add(this.rbtnFixed);
+            this.panel2.Controls.Add(this.cboWithdrawDuration);
+            this.panel2.Controls.Add(this.label6);
+            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.txtMaxWithdrawal);
+            this.panel2.Controls.Add(this.txtNoAccountHolder);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.label8);
+            this.panel2.Controls.Add(this.label7);
+            this.panel2.Controls.Add(this.txtInterest);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.txtMaintainingBalance);
+            this.panel2.Controls.Add(this.txtSavingsName);
+            this.panel2.Controls.Add(this.btnClear);
+            this.panel2.Controls.Add(this.btnAdd);
+            this.panel2.Controls.Add(this.btnUpdate);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(3, 25);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(804, 221);
+            this.panel2.TabIndex = 11;
+            // 
+            // chkWithdrawalLimit
+            // 
+            this.chkWithdrawalLimit.AutoSize = true;
+            this.chkWithdrawalLimit.Location = new System.Drawing.Point(234, 141);
+            this.chkWithdrawalLimit.Name = "chkWithdrawalLimit";
+            this.chkWithdrawalLimit.Size = new System.Drawing.Size(173, 25);
+            this.chkWithdrawalLimit.TabIndex = 29;
+            this.chkWithdrawalLimit.Text = "No Withdrawal Limit";
+            this.chkWithdrawalLimit.UseVisualStyleBackColor = true;
+            // 
+            // rbtnInactive
+            // 
+            this.rbtnInactive.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.rbtnInactive.AutoSize = true;
+            this.rbtnInactive.Font = new System.Drawing.Font("Segoe UI Symbol", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbtnInactive.Location = new System.Drawing.Point(658, 104);
+            this.rbtnInactive.Name = "rbtnInactive";
+            this.rbtnInactive.Size = new System.Drawing.Size(78, 24);
+            this.rbtnInactive.TabIndex = 23;
+            this.rbtnInactive.TabStop = true;
+            this.rbtnInactive.Text = "Inactive";
+            this.rbtnInactive.UseVisualStyleBackColor = true;
+            // 
+            // rbtnPercentage
+            // 
+            this.rbtnPercentage.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.rbtnPercentage.AutoSize = true;
+            this.rbtnPercentage.Font = new System.Drawing.Font("Segoe UI Symbol", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbtnPercentage.Location = new System.Drawing.Point(658, 74);
+            this.rbtnPercentage.Name = "rbtnPercentage";
+            this.rbtnPercentage.Size = new System.Drawing.Size(101, 24);
+            this.rbtnPercentage.TabIndex = 23;
+            this.rbtnPercentage.TabStop = true;
+            this.rbtnPercentage.Text = "Percentage";
+            this.rbtnPercentage.UseVisualStyleBackColor = true;
+            // 
+            // rbtnActive
+            // 
+            this.rbtnActive.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.rbtnActive.AutoSize = true;
+            this.rbtnActive.Font = new System.Drawing.Font("Segoe UI Symbol", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbtnActive.Location = new System.Drawing.Point(584, 104);
+            this.rbtnActive.Name = "rbtnActive";
+            this.rbtnActive.Size = new System.Drawing.Size(68, 24);
+            this.rbtnActive.TabIndex = 24;
+            this.rbtnActive.TabStop = true;
+            this.rbtnActive.Text = "Active";
+            this.rbtnActive.UseVisualStyleBackColor = true;
+            // 
+            // rbtnFixed
+            // 
+            this.rbtnFixed.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.rbtnFixed.AutoSize = true;
+            this.rbtnFixed.Font = new System.Drawing.Font("Segoe UI Symbol", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbtnFixed.Location = new System.Drawing.Point(584, 74);
+            this.rbtnFixed.Name = "rbtnFixed";
+            this.rbtnFixed.Size = new System.Drawing.Size(62, 24);
+            this.rbtnFixed.TabIndex = 24;
+            this.rbtnFixed.TabStop = true;
+            this.rbtnFixed.Text = "Fixed";
+            this.rbtnFixed.UseVisualStyleBackColor = true;
+            // 
+            // cboWithdrawDuration
+            // 
+            this.cboWithdrawDuration.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.cboWithdrawDuration.Font = new System.Drawing.Font("Segoe UI Symbol", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboWithdrawDuration.FormattingEnabled = true;
+            this.cboWithdrawDuration.Location = new System.Drawing.Point(237, 106);
+            this.cboWithdrawDuration.Name = "cboWithdrawDuration";
+            this.cboWithdrawDuration.Size = new System.Drawing.Size(177, 28);
+            this.cboWithdrawDuration.TabIndex = 21;
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI Light", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(52, 109);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(176, 20);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Withdraw Transaction Limit:";
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI Light", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(66, 76);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(165, 20);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "Max. Withdrawal Amount:";
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI Light", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(74, 43);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(157, 20);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "No. of Account Holders:";
+            // 
+            // txtMaxWithdrawal
+            // 
+            this.txtMaxWithdrawal.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtMaxWithdrawal.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtMaxWithdrawal.Font = new System.Drawing.Font("Segoe UI Symbol", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaxWithdrawal.Location = new System.Drawing.Point(237, 73);
+            this.txtMaxWithdrawal.Name = "txtMaxWithdrawal";
+            this.txtMaxWithdrawal.Size = new System.Drawing.Size(177, 27);
+            this.txtMaxWithdrawal.TabIndex = 9;
+            // 
+            // txtNoAccountHolder
+            // 
+            this.txtNoAccountHolder.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtNoAccountHolder.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtNoAccountHolder.Font = new System.Drawing.Font("Segoe UI Symbol", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNoAccountHolder.Location = new System.Drawing.Point(237, 40);
+            this.txtNoAccountHolder.Name = "txtNoAccountHolder";
+            this.txtNoAccountHolder.Size = new System.Drawing.Size(177, 27);
+            this.txtNoAccountHolder.TabIndex = 10;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Light", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(530, 106);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(48, 20);
+            this.label2.TabIndex = 18;
+            this.label2.Text = "Status:";
             // 
             // label8
             // 
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(17, 66);
+            this.label8.Font = new System.Drawing.Font("Segoe UI Light", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(489, 43);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(41, 16);
-            this.label8.TabIndex = 181;
-            this.label8.Text = "Filter:";
+            this.label8.Size = new System.Drawing.Size(89, 20);
+            this.label8.TabIndex = 17;
+            this.label8.Text = "Interest Rate:";
             // 
-            // cboFilter
+            // label7
             // 
-            this.cboFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboFilter.FormattingEnabled = true;
-            this.cboFilter.Items.AddRange(new object[] {
-            "No Filter",
-            "Active",
-            "Inactive"});
-            this.cboFilter.Location = new System.Drawing.Point(65, 63);
-            this.cboFilter.Name = "cboFilter";
-            this.cboFilter.Size = new System.Drawing.Size(115, 24);
-            this.cboFilter.TabIndex = 182;
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI Light", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(443, 10);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(135, 20);
+            this.label7.TabIndex = 19;
+            this.label7.Text = "Maintaining Balance:";
             // 
-            // label1
+            // txtInterest
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(15, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(308, 29);
-            this.label1.TabIndex = 164;
-            this.label1.Text = "Maintenance: Savings Type";
+            this.txtInterest.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtInterest.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtInterest.Font = new System.Drawing.Font("Segoe UI Symbol", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtInterest.Location = new System.Drawing.Point(584, 40);
+            this.txtInterest.Name = "txtInterest";
+            this.txtInterest.Size = new System.Drawing.Size(177, 27);
+            this.txtInterest.TabIndex = 11;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Light", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(97, 10);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(134, 20);
+            this.label3.TabIndex = 20;
+            this.label3.Text = "Savings Type Name:";
+            // 
+            // txtMaintainingBalance
+            // 
+            this.txtMaintainingBalance.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtMaintainingBalance.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtMaintainingBalance.Font = new System.Drawing.Font("Segoe UI Symbol", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaintainingBalance.Location = new System.Drawing.Point(584, 7);
+            this.txtMaintainingBalance.Name = "txtMaintainingBalance";
+            this.txtMaintainingBalance.Size = new System.Drawing.Size(177, 27);
+            this.txtMaintainingBalance.TabIndex = 12;
+            // 
+            // txtSavingsName
+            // 
+            this.txtSavingsName.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtSavingsName.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtSavingsName.Font = new System.Drawing.Font("Segoe UI Symbol", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSavingsName.Location = new System.Drawing.Point(237, 7);
+            this.txtSavingsName.Name = "txtSavingsName";
+            this.txtSavingsName.Size = new System.Drawing.Size(177, 27);
+            this.txtSavingsName.TabIndex = 13;
+            // 
+            // btnClear
+            // 
+            this.btnClear.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnClear.BackColor = System.Drawing.Color.Red;
+            this.btnClear.FlatAppearance.BorderSize = 0;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnClear.Location = new System.Drawing.Point(466, 174);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(98, 35);
+            this.btnClear.TabIndex = 25;
+            this.btnClear.Text = "Clear";
+            this.btnClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnClear.UseVisualStyleBackColor = false;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnAdd.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnAdd.FlatAppearance.BorderSize = 0;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnAdd.Location = new System.Drawing.Point(258, 174);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(98, 35);
+            this.btnAdd.TabIndex = 26;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAdd.UseVisualStyleBackColor = false;
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnUpdate.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnUpdate.FlatAppearance.BorderSize = 0;
+            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdate.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnUpdate.Location = new System.Drawing.Point(362, 174);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(98, 35);
+            this.btnUpdate.TabIndex = 27;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnUpdate.UseVisualStyleBackColor = false;
             // 
             // MaintenanceSavingsTypeView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.ClientSize = new System.Drawing.Size(723, 430);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(834, 561);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelDataGridView);
+            this.Controls.Add(this.panelSearch);
+            this.Controls.Add(this.panelSavingsTypeTitle);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "MaintenanceSavingsTypeView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Savings Type";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.NoWithdrawalLimitPanel.ResumeLayout(false);
-            this.NoWithdrawalLimitPanel.PerformLayout();
-            this.statusPanel.ResumeLayout(false);
-            this.statusPanel.PerformLayout();
-            this.percentagePanel.ResumeLayout(false);
-            this.percentagePanel.PerformLayout();
+            this.panelSavingsTypeTitle.ResumeLayout(false);
+            this.panelSavingsTypeTitle.PerformLayout();
+            this.panelSearch.ResumeLayout(false);
+            this.panelSearch.PerformLayout();
+            this.panelDataGridView.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgSavingsType)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox txtNoAccountHolder;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.TextBox txtSavingsName;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView dgSavingsType;
-        private System.Windows.Forms.TextBox txtSearchBox;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox cboFilter;
+        private System.Windows.Forms.Panel panelSavingsTypeTitle;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtMaintainingBalance;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel panelSearch;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox cboFilter;
+        private System.Windows.Forms.TextBox txtSearchBox;
+        private System.Windows.Forms.Panel panelDataGridView;
+        private System.Windows.Forms.DataGridView dgSavingsType;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.CheckBox chkWithdrawalLimit;
-        private System.Windows.Forms.Panel statusPanel;
-        private System.Windows.Forms.RadioButton rbtnInactive;
-        private System.Windows.Forms.RadioButton rbtnActive;
-        private System.Windows.Forms.Panel percentagePanel;
         private System.Windows.Forms.RadioButton rbtnPercentage;
         private System.Windows.Forms.RadioButton rbtnFixed;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox cboWithdrawDuration;
-        private System.Windows.Forms.TextBox txtMaxWithdrawal;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtMaxWithdrawal;
+        private System.Windows.Forms.TextBox txtNoAccountHolder;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtInterest;
-        private System.Windows.Forms.Label error;
-        private System.Windows.Forms.Panel NoWithdrawalLimitPanel;
-        private System.Windows.Forms.Label Duration;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtMaintainingBalance;
+        private System.Windows.Forms.TextBox txtSavingsName;
+        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.RadioButton rbtnInactive;
+        private System.Windows.Forms.RadioButton rbtnActive;
+        private System.Windows.Forms.Label label2;
+
 
     }
 }

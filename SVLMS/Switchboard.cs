@@ -17,6 +17,10 @@ namespace SVLMS
         public main_form()
         {
             InitializeComponent();
+            if (ModelUser.MName.Equals(""))
+                lblUser.Text = ModelUser.FName + " " + ModelUser.LName;
+            else
+                lblUser.Text = ModelUser.FName + " " + ModelUser.MName + " " + ModelUser.LName;
             StartTimer();
             this.ControlBox = false;
         }
@@ -42,13 +46,12 @@ namespace SVLMS
         {
             if (a.Contains("A"))
             {
-                time.Text = "" + (DateTime.Now.ToString("hh:mm")) + "AM";
+                lblDateTime.Text = DateTime.Now.ToString("dd-MMM-yyyy") + " " + (DateTime.Now.ToString("hh:mm")) + "AM";
             }
             else
             {
-                time.Text = "" + (DateTime.Now.ToString("hh:mm") + "PM");
+                lblDateTime.Text = DateTime.Now.ToString("dd-MMM-yyyy") + " " + (DateTime.Now.ToString("hh:mm")) + "AM";
             }
-            date.Text = DateTime.Now.ToString("dd-MMM-yyyy");
         }     
  
         private void savings_form_Click(object sender, EventArgs e)
@@ -67,7 +70,7 @@ namespace SVLMS
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Dispose();
             LoginForm lf = new LoginForm();
             lf.Show();
         }
@@ -77,6 +80,16 @@ namespace SVLMS
             this.Close();
             Utilities.UtilitiesForm uf = new Utilities.UtilitiesForm();
             uf.Show();
+        }
+
+        private void btnLogout_MouseHover(object sender, EventArgs e)
+        {
+            btnLogout.BackgroundImage = Properties.Resources.exit_bg_hover;
+        }
+
+        private void btnLogout_MouseLeave(object sender, EventArgs e)
+        {
+            btnLogout.BackgroundImage = Properties.Resources.exit_bg;
         }
     }
 }
