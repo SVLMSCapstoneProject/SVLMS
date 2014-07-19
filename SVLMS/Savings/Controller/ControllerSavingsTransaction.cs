@@ -95,16 +95,16 @@ namespace SVLMS.Savings.Controller
             //view.disableCheckInformation();
             if (view.getTransactionType() == "D")
             {
-                //view.enableDeposit();
-                //view.disablePrintVoucher();
+                view.enableDeposit();
+                view.disablePrintVoucher();
                 view.enableTxtTransact();
                 //view.disableReleaseType();
             }
 
             else if (view.getTransactionType() == "C")
             {
-                //view.disableDeposit();
-                //view.disablePrintVoucher();
+                view.disableDeposit();
+                view.disablePrintVoucher();
                 view.disableTxtTransact();
                 view.setAmountSavings(model.getCurrentBalance(view.getSavingsAccountNo()));
                 //view.enableReleaseType();
@@ -112,8 +112,8 @@ namespace SVLMS.Savings.Controller
 
             else if (view.getTransactionType() == "W")
             {
-               //view.disableDeposit();
-               //view.enablePrintVoucher();
+               view.disableDeposit();
+               view.enablePrintVoucher();
                view.enableTxtTransact();
                //view.enableReleaseType();
             }
@@ -146,9 +146,9 @@ namespace SVLMS.Savings.Controller
             {
                 if (this.validateTransactionDeposit())
                 {
-                    //double amountTendered = Convert.ToDouble(view.getAmountTendered());
-                    //double transactionAmount = Convert.ToDouble(view.getAmountSavings());
-                    //view.setChange((amountTendered - transactionAmount).ToString());
+                    double amountTendered = Convert.ToDouble(view.getAmountTendered());
+                    double transactionAmount = Convert.ToDouble(view.getAmountSavings());
+                    view.setChange((amountTendered - transactionAmount).ToString());
                     model.insertSavingsTransaction();
                     MessageBox.Show("Transaction successfully saved.");
                     this.RenewFields();
@@ -197,12 +197,12 @@ namespace SVLMS.Savings.Controller
                 {
                     if (!Validator.isAlphanumeric(view.getAmountSavings()) && view.getAmountSavings().Length < 16 && Convert.ToDouble(view.getAmountSavings()) > 0)
                     {
-                        //if (!Validator.isAlphanumeric(view.getAmountTendered()) && view.getAmountTendered().Length < 16 && Convert.ToDouble(view.getAmountTendered()) > 0)
-                        //{
+                        if (!Validator.isAlphanumeric(view.getAmountTendered()) && view.getAmountTendered().Length < 16 && Convert.ToDouble(view.getAmountTendered()) > 0)
+                        {
                             double amountSavings = Convert.ToDouble(view.getAmountSavings());
-                            //double amountTendered = Convert.ToDouble(view.getAmountTendered());
-                            //if (amountTendered >= amountSavings)
-                            //{
+                            double amountTendered = Convert.ToDouble(view.getAmountTendered());
+                            if (amountTendered >= amountSavings)
+                            {
                                 if (!Validator.isAlphanumeric(view.getControlNumber()))
                                 {
                                     check = true;
@@ -212,18 +212,18 @@ namespace SVLMS.Savings.Controller
                                 {
                                     MessageBox.Show("Invalid value for control number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
-                            //}
+                            }
 
-                            //else
-                            //{
-                                //MessageBox.Show("Amount tendered must be greater than or equal to the transaction amount.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            //}
-                        //}
+                            else
+                            {
+                                MessageBox.Show("Amount tendered must be greater than or equal to the transaction amount.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
 
-                       // else
-                       // {
-                            //MessageBox.Show("Invalid value for amount tendered.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        //}
+                        else
+                        {
+                            MessageBox.Show("Invalid value for amount tendered.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
 
                     else
@@ -349,7 +349,7 @@ namespace SVLMS.Savings.Controller
             //view.disableDeposit();
             //view.setChange("");
             view.setControlNumber("");
-            //view.setAmountTendered("");
+            view.setAmountTendered("");
             view.setAmountSavings("");
         }
 
@@ -361,15 +361,15 @@ namespace SVLMS.Savings.Controller
             view.setCurrentBalance("");
             view.setAmountSavings("");
             view.setSavingsType("");
-            //view.disableDeposit();
-            //view.setChange("");
+            view.disableDeposit();
+            view.setChange("");
             view.setControlNumber("");
-            //view.setAmountTendered("");
+            view.setAmountTendered("");
             //view.clearSignaturePic();
-            //view.enableDeposit();
+            view.enableDeposit();
             view.setPictureSingature1("", "");
             view.setPictureSingature2("", "");
-            //view.disablePrintVoucher();
+            view.disablePrintVoucher();
             view.enableTxtTransact();
             view.setTransactionType(0);
             view.setAccountHolderName("");
@@ -386,15 +386,15 @@ namespace SVLMS.Savings.Controller
             view.setCurrentBalance("");
             view.setAmountSavings("");
             view.setSavingsType("");
-            //view.disableDeposit();
-            //view.setChange("");
+            view.disableDeposit();
+            view.setChange("");
             view.setControlNumber("");
-            //view.setAmountTendered("");
+            view.setAmountTendered("");
             //view.clearSignaturePic();
-            //view.enableDeposit();
+            view.enableDeposit();
             view.setPictureSingature1("", "");
             view.setPictureSingature2("", "");
-            //view.disablePrintVoucher();
+            view.disablePrintVoucher();
             view.enableTxtTransact();
             view.setTransactionType(0);
             view.setAccountHolderName("");

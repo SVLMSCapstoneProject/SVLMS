@@ -78,7 +78,6 @@ namespace SVLMS.Loaning.View
         public void disableApprovedAmount()
         {
             txtApprovedAmount.Enabled = false;
-            txtApprovedAmount.Text = "";
         }
 
         public void setStatus(string index)
@@ -263,37 +262,23 @@ namespace SVLMS.Loaning.View
         //    this.cboSavingsAccount.SelectedItem = text;
         //}
 
-        //public void setIntervalOfPayment(DataSet ds)
-        //{
-        //    //this.cboIntervalPayment.SelectedItem = text;
-        //    if (ds != null)
-        //    {
-        //        cboIntervalPayment.DisplayMember = "indicatorDesc";
-        //        cboIntervalPayment.ValueMember = "indicatorID";
-        //        cboIntervalPayment.DataSource = ds.Tables[0];
-        //        cboInterval.DisplayMember = "indicatorDesc";
-        //        cboInterval.ValueMember = "indicatorID";
-        //        cboInterval.DataSource = ds.Tables[0];
-        //    }
-        //}
+        public void setIntervalOfPayment(DataSet ds)
+        {
+            //this.cboIntervalPayment.SelectedItem = text;
+            if (ds != null)
+            {
+                cboIntervalPayment.DisplayMember = "indicatorDesc";
+                cboIntervalPayment.ValueMember = "indicatorID";
+                cboIntervalPayment.DataSource = ds.Tables[0];
+                cboInterval.DisplayMember = "indicatorDesc";
+                cboInterval.ValueMember = "indicatorID";
+                cboInterval.DataSource = ds.Tables[0];
+            }
+        }
 
         public void setIntervalOfPayment(string value)
         {
-            MessageBox.Show(value);
-            if (value == "2")
-            {
-                cboIntervalPayment.SelectedIndex = 0;//cboIntervalPayment.FindStringExact("Weekly");
-            }
-
-            else if (value == "5")
-            {
-                cboIntervalPayment.SelectedIndex = 1;//cboIntervalPayment.FindStringExact("Semi-monthly");
-            }
-
-            else if (value == "3")
-            {
-                cboIntervalPayment.SelectedIndex = 2;// cboIntervalPayment.FindStringExact("Monthly");
-            }
+            cboIntervalPayment.SelectedValue = value;
         }
 
         //public void setlblSavings(string text)
@@ -662,16 +647,6 @@ namespace SVLMS.Loaning.View
             return txtBrgy.Text;
         }
 
-        public void enableBtnSave()
-        {
-            btnSave.Enabled = true;
-        }
-
-        public void disableBtnSave()
-        {
-            btnSave.Enabled = false;
-        }
-
         public string getComputeLoanType()
         {
             return cboLoanType.SelectedValue.ToString();
@@ -708,35 +683,6 @@ namespace SVLMS.Loaning.View
             return interval;
         }
 
-        public void setLoanNoPrevious(string text)
-        {
-            txtLoanNoPrevious.Text = text;
-        }
-
-        public void setLoanTypePrevious(string text)
-        {
-            txtLoanTypePrevious.Text = text;
-        }
-
-        public void setMaturityDatePrevious(string text)
-        {
-            txtMaturityPrevious.Text = text;
-        }
-
-        public void setCurrentBalancePrevious(string text)
-        {
-            txtCurrentBalancePrevious.Text = text;
-        }
-
-        public void setShareCapital(string text)
-        {
-            if (text.Length != 0)
-            {
-                text = Validator.amountFormatter(text);
-            }
-            txtShareCapital.Text = text;
-        }
-
         public void setRequestedAmountTooltip(string text)
         {
             toolTip1.SetToolTip(txtRequestedAmount, text);
@@ -746,11 +692,6 @@ namespace SVLMS.Loaning.View
         public void setTermsTooltip(string text)
         {
             toolTip1.SetToolTip(txtTermsOfPayment, text);
-        }
-
-        public void setLblEligibility(string text)
-        {
-            lblEligibility.Text = text;
         }
     }
 }

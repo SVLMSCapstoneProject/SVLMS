@@ -21,10 +21,6 @@ namespace SVLMS.Savings
             InitializeComponent();
         }
 
-        public int width = Screen.PrimaryScreen.WorkingArea.Width;
-        //public int height = 600;
-        public int height = Screen.PrimaryScreen.WorkingArea.Height;
-
         private void btnLogout_Click(object sender, EventArgs e)
         {
             ViewSwitchboard vs = new ViewSwitchboard();
@@ -78,21 +74,8 @@ namespace SVLMS.Savings
             }
         }
 
-        private void ViewSavingsDashboard_Load(object sender, EventArgs e)
-        {
-            
 
-            if (height < 728)
-            {
-                panel4.Size = new System.Drawing.Size(300, 392);
-                mAINTENANCEToolStripMenuItem.TextImageRelation = TextImageRelation.ImageBeforeText;
-                tRANSACTIONSToolStripMenuItem.TextImageRelation = TextImageRelation.ImageBeforeText;
-                toolStripMenuItem3.TextImageRelation = TextImageRelation.ImageBeforeText;
-                toolStripMenuItem15.TextImageRelation = TextImageRelation.ImageBeforeText;
-            }
-        }
 
-       
 
 
 

@@ -158,89 +158,72 @@ namespace SVLMS.Loaning.Controller
 
         public void BtnSaveClicked(object sender, EventArgs e)
         {
+            
             if (this.validateSaveLoanApplication())
             {
-                bool isContinue = true;
-                if (view.getStatus() == "3" || view.getStatus() == "4")
-                {
-                    DialogResult dr = MessageBox.Show("Are you sure you want to reject/cancel this loan?", "Reject/Cancel", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                    if (dr == DialogResult.Yes)
-                    {
-                        isContinue = true;
-                    }
+                model.dateOfApplication = view.getDateOfApplication();
+                model.requestedAmount = view.getRequestedAmount();
+                model.termsofPayment = view.getTermsOfPayment();
+                model.intervalPayment = view.getIntervalOfPayment();
+                model.loanTypeID = view.getApplicableLoanType();
+                model.userID = ModelUser.userID;
+                model.status = view.getStatus();
+                model.remarks = view.getRemarks();
+                model.approvedAmount = view.getApprovedAmount();
+                //model.savingsAccountNo = view.getSavingsAccount();
 
-                    else
-                    {
-                        isContinue = false;
-                    }
+                if (view.getCboOperationIndex() == 0)
+                {
+                    //Insert loan application
+                    model.insertLoanApplication();
                 }
 
-                if (isContinue == true)
+                else if (view.getCboOperationIndex() == 1)
                 {
-                    model.dateOfApplication = view.getDateOfApplication();
-                    model.requestedAmount = view.getRequestedAmount();
-                    model.termsofPayment = view.getTermsOfPayment();
-                    model.intervalPayment = view.getIntervalOfPayment();
-                    model.loanTypeID = view.getApplicableLoanType();
-                    model.userID = ModelUser.userID;
-                    model.status = view.getStatus();
-                    model.remarks = view.getRemarks();
-                    model.approvedAmount = view.getApprovedAmount();
-                    //model.savingsAccountNo = view.getSavingsAccount();
-
-                    if (view.getCboOperationIndex() == 0)
-                    {
-                        //Insert loan application
-                        model.insertLoanApplication();
-                    }
-
-                    else if (view.getCboOperationIndex() == 1)
-                    {
-                        //Update loan application
-                        model.updateLoanApplication();
-                    }
-
-                    if (model.hasCollateral())
-                    {
-                        mc.collateralName = view.getCollateral();
-                        mc.collateralDesc = view.getCollateralDescription();
-                        mc.loanNo = view.getLoanNo();
-                        if (String.IsNullOrEmpty(mc.collateralId))
-                            mc.insertCollateral();
-                        else
-                            mc.updateCollateral();
-                    }
-
-                    else
-                    {
-                        if (view.getCboOperationIndex() == 1)
-                            mc.deleteCollateral();
-                    }
-
-                    if (model.hasComaker())
-                    {
-                        model.loanNo = view.getLoanNo();
-                        model.comemberID = member;
-                        model.familyID = family;
-                        model.blkNoAddressFamily = view.getBlkNo();
-                        model.streetAddressFamily = view.getStreet();
-                        model.brgyAddressFamily = view.getBrgy();
-                        model.cityAddressFamily = view.getCity();
-                        if (String.IsNullOrEmpty(model.comakerID))
-                            model.insertComakers();
-                        else
-                            model.updateComakers();
-                    }
-
-                    else
-                    {
-                        if (view.getCboOperationIndex() == 1)
-                            model.deleteComakers();
-                    }
-
-                    MessageBox.Show("Loan Application Saved!");
-                    this.RefreshFields();
+                    //Update loan application
+                    model.updateLoanApplication();
                 }
+
+                if (model.hasCollateral())
+                {
+                    mc.collateralName = view.getCollateral();
+                    mc.collateralDesc = view.getCollateralDescription();
+                    mc.loanNo = view.getLoanNo();
+                    if (String.IsNullOrEmpty(mc.collateralId)) 
+                        mc.insertCollateral();
+                    else 
+                        mc.updateCollateral();
+                }
+
+                else
+                {
+                    if (view.getCboOperationIndex() == 1)
+                        mc.deleteCollateral();
+                }
+
+                if (model.hasComaker())
+                {
+                    model.loanNo = view.getLoanNo();
+                    model.comemberID = member;
+                    model.familyID = family;
+                    model.blkNoAddressFamily = view.getBlkNo();
+                    model.streetAddressFamily = view.getStreet();
+                    model.brgyAddressFamily = view.getBrgy();
+                    model.cityAddressFamily = view.getCity();
+                    if (String.IsNullOrEmpty(model.comakerID))
+                        model.insertComakers();
+                    else
+                        model.updateComakers();
+                }
+
+                else
+                {
+                    if (view.getCboOperationIndex() == 1)
+                        model.deleteComakers();
+                }
+
+                MessageBox.Show("Loan Application Saved!");
+                this.RefreshFields();
             }
         }
 
@@ -260,7 +243,6 @@ namespace SVLMS.Loaning.Controller
         {
             DataGridView dg = view.getdgMembers();
             int row = dg.CurrentCell.RowIndex;
-            this.RefreshFields();
             model.familyName = "";
 
             if (view.getCboOperationIndex() == 0)
@@ -322,42 +304,7 @@ namespace SVLMS.Loaning.Controller
             view.setTermsTooltip("Maximum Term: "+mlt.maxTerm + " month/s");
             view.setRequestedAmountTooltip("Minimum Amount: P " + Validator.amountFormatter(mlt.minAmount) + "\nMaximum Amount: P " + Validator.amountFormatter(mlt.maxAmount));
             
-            //Set Previous Loan
-            ModelShareCapitalTransaction modelShare = new ModelShareCapitalTransaction();
-            modelShare.accountNo = model.accountNo;
-            view.setShareCapital(modelShare.getShareCapitalBalance().ToString());
-
-            view.setLblEligibility("The member is eligible for loan application.");
-            view.enableBtnSave();
-
-            //If member has outstanding (approved or pending) loan application.
-            if (model.hasOutstandingLoanApplication() && view.getCboOperationIndex() == 0) 
-            {
-                view.setLblEligibility("The member has a pending loan application.");
-                view.disableBtnSave();
-            }
-
-            SqlDataReader readerPrevious = model.getPreviousLoan();
-            if (readerPrevious.Read())
-            {
-                model.loanNo = readerPrevious["loanNo"].ToString();
-                view.setLoanNoPrevious(model.loanNo);
-                view.setLoanTypePrevious(readerPrevious["loanName"].ToString());
-                view.setCurrentBalancePrevious(model.getLoanBalance().ToString());
-                view.setMaturityDatePrevious(model.getMaturityDate());
-
-                if (model.isMemberEligible())
-                {
-                    view.setLblEligibility("The member is eligible for loan application.");
-                    view.enableBtnSave();
-                }
-
-                else
-                {
-                    view.setLblEligibility("The previous loan must be " + Validator.amountFormatter(model.loanEligibility) + "% paid to apply for another loan."); ;
-                    view.disableBtnSave();
-                }
-            }
+            
         }
 
         public void setCollateralComaker()
@@ -586,98 +533,78 @@ namespace SVLMS.Loaning.Controller
             
             ModelShareCapitalTransaction msct = new ModelShareCapitalTransaction();
             bool check = false;
-            SqlDataReader readerPrevious = model.getPreviousLoan();
-            if (readerPrevious.Read())
-            {
-                model.loanNo = readerPrevious["loanNo"].ToString();
-            }
+
             if (view.getAccountNo().Trim().Length != 0)
             {
                 if (Validator.isValidAmount(view.getRequestedAmount()) && view.getRequestedAmount().Trim().Length < 16)
                 {
-                    if (Convert.ToDouble(view.getRequestedAmount()) >= model.getLoanBalance())
+                    if (Validator.isValidDigit(view.getTermsOfPayment()))
                     {
-                        if (Validator.isValidDigit(view.getTermsOfPayment()))
+                        double requestedAmount = Convert.ToDouble(view.getRequestedAmount());
+                        int termsOfPayment = Convert.ToInt32(view.getTermsOfPayment());
+                        mlt.loanId = view.getCboLoanType().Row["loanTypeID"].ToString();
+                        mlt.searchLoanType();
+                        msct.accountNo = view.getAccountNo();
+                        double shareCapital = Convert.ToDouble(msct.getShareCapitalBalance());
+                        double loanEntitlement = shareCapital * (Convert.ToDouble(mlt.loanEntitlement) / 100);
+                        int maxTerm = Convert.ToInt32(mlt.maxTerm);
+                        int termsOfPaymentDays = termsOfPayment*30;
+                        int intervalOfPaymentDays = ModelUser.getIntervalInDays(view.getIntervalOfPayment());
+                        if (requestedAmount >= Convert.ToDouble(mlt.minAmount) && requestedAmount <= Convert.ToDouble(mlt.maxAmount))
                         {
-                            double requestedAmount = Convert.ToDouble(view.getRequestedAmount());
-                            int termsOfPayment = Convert.ToInt32(view.getTermsOfPayment());
-                            mlt.loanId = view.getCboLoanType().Row["loanTypeID"].ToString();
-                            mlt.searchLoanType();
-                            msct.accountNo = view.getAccountNo();
-                            double shareCapital = Convert.ToDouble(msct.getShareCapitalBalance());
-                            double loanEntitlement = shareCapital * (Convert.ToDouble(mlt.loanEntitlement) / 100);
-                            int maxTerm = Convert.ToInt32(mlt.maxTerm);
-                            int termsOfPaymentDays = termsOfPayment*30;
-                            int intervalOfPaymentDays = ModelUser.getIntervalInDays(view.getIntervalOfPayment());
-                            if (requestedAmount >= Convert.ToDouble(mlt.minAmount) && requestedAmount <= Convert.ToDouble(mlt.maxAmount))
+                            if (termsOfPayment <= maxTerm)
                             {
-                                if (termsOfPayment <= maxTerm)
+                                if (Convert.ToDouble(view.getRequestedAmount()) <= loanEntitlement || loanEntitlement == 0)
                                 {
-                                    if (Convert.ToDouble(view.getRequestedAmount()) <= loanEntitlement || loanEntitlement == 0)
+                                    if (termsOfPaymentDays >= intervalOfPaymentDays)
                                     {
-                                        if (termsOfPaymentDays >= intervalOfPaymentDays)
+                                        if (view.getStatus() == "2")
                                         {
-                                            if (view.getStatus() == "2")
+                                            if (Validator.isValidAmount(view.getApprovedAmount()))
                                             {
-                                                if (Validator.isValidAmount(view.getApprovedAmount()))
-                                                {
-                                                    if (Convert.ToDouble(view.getApprovedAmount()) <= Convert.ToDouble(view.getRequestedAmount()))
-                                                    {
-                                                        check = true;
-                                                    }
-
-                                                    else
-                                                    {
-                                                        MessageBox.Show("Approved amount must be less than or equal to the requested amount.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                                    }
-                                                }
-
-                                                else
-                                                {
-                                                    MessageBox.Show("Invalid value in approved amount.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                                }
+                                                check = true;
                                             }
 
                                             else
                                             {
-                                                check = true;
+                                                MessageBox.Show("Invalid value in approved amount.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                             }
-                                        
                                         }
 
                                         else
                                         {
-                                            MessageBox.Show("Interval of payment must be less than or equal to the terms of payment.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                            check = true;
                                         }
+                                        
                                     }
 
                                     else
                                     {
-                                        MessageBox.Show("The member has a current share capital of P " + Validator.amountFormatter(msct.getShareCapitalBalance()) + ". The maximum loanable amount allowed for this member is P "+Validator.amountFormatter(loanEntitlement.ToString())+".", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        MessageBox.Show("Interval of payment must be less than or equal to the terms of payment.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     }
                                 }
 
                                 else
                                 {
-                                    MessageBox.Show("The maximum term for this loan is "+mlt.maxTerm+" month/s.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    MessageBox.Show("The member has a current share capital of P " + Validator.amountFormatter(msct.getShareCapitalBalance()) + ". The maximum loanable amount allowed for this member is P "+Validator.amountFormatter(loanEntitlement.ToString())+".", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
                             }
 
                             else
                             {
-                                MessageBox.Show("The amount required for this loan is from P " + Validator.amountFormatter(mlt.minAmount) + " to P "+Validator.amountFormatter(mlt.maxAmount)+".", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show("The maximum term for this loan is "+mlt.maxTerm+" month/s.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
 
                         else
                         {
-                            MessageBox.Show("Invalid number for the terms of payment.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("The amount required for this loan is from P " + Validator.amountFormatter(mlt.minAmount) + " to P "+Validator.amountFormatter(mlt.maxAmount)+".", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
 
                     else
                     {
-                        MessageBox.Show("The loan amount must be less than the balance of the previous loan (" + Validator.amountFormatter(model.getLoanBalance().ToString()) + ").", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Invalid number for the terms of payment.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
 
@@ -724,13 +651,6 @@ namespace SVLMS.Loaning.Controller
             view.setStatus("0");
             view.setRemarks("");
             view.setApprovedAmount("");
-            view.setLoanNoPrevious("");
-            view.setCurrentBalancePrevious("");
-            view.setMaturityDatePrevious("");
-            view.setLoanTypePrevious("");
-            view.setLblEligibility("");
-            view.enableBtnSave();
-            view.setShareCapital("");
         }
     }
 }

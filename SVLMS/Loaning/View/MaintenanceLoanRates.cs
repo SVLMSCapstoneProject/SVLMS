@@ -154,12 +154,12 @@ namespace SVLMS.Loaning.View
 
         public void setlblTitle(string title)
         {
-            lblTitle.Text = title;
+            //lblTitle.Text = title;
         }
 
         public void setlblRate(string rate)
         {
-            lblRate.Text = rate+":";
+            lblRate.Text = rate + ":";
         }
 
 
@@ -299,7 +299,7 @@ namespace SVLMS.Loaning.View
 
         public void unStatus()
         {
-            statusPanel.BackColor = Color.CornflowerBlue;
+            statusPanel.BackColor = Color.White;
         }
 
         public int status()
@@ -335,5 +335,6 @@ namespace SVLMS.Loaning.View
                 e.Handled = true;
             }
         }
+
     }
 }

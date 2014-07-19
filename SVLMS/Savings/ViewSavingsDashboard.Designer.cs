@@ -62,6 +62,21 @@
             this.closureAndRenewalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem15 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem14 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem12 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem13 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.qUERIESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rEPORTSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -82,7 +97,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 123);
+            this.panel1.Size = new System.Drawing.Size(1366, 123);
             this.panel1.TabIndex = 0;
             // 
             // label1
@@ -108,7 +123,7 @@
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogout.Image = global::SVLMS.Properties.Resources.Close;
             this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnLogout.Location = new System.Drawing.Point(725, 0);
+            this.btnLogout.Location = new System.Drawing.Point(1291, 0);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(75, 75);
             this.btnLogout.TabIndex = 4;
@@ -170,9 +185,9 @@
             this.panel2.BackColor = System.Drawing.Color.LimeGreen;
             this.panel2.Controls.Add(this.lblDateTime);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 559);
+            this.panel2.Location = new System.Drawing.Point(0, 727);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(800, 41);
+            this.panel2.Size = new System.Drawing.Size(1366, 41);
             this.panel2.TabIndex = 1;
             // 
             // lblDateTime
@@ -197,7 +212,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 123);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(800, 44);
+            this.panel3.Size = new System.Drawing.Size(1366, 44);
             this.panel3.TabIndex = 2;
             // 
             // label3
@@ -263,7 +278,7 @@
             this.panel4.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.panel4.MinimumSize = new System.Drawing.Size(191, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(191, 392);
+            this.panel4.Size = new System.Drawing.Size(191, 560);
             this.panel4.TabIndex = 4;
             // 
             // menuStripSavings
@@ -275,12 +290,19 @@
             this.mAINTENANCEToolStripMenuItem,
             this.tRANSACTIONSToolStripMenuItem,
             this.toolStripMenuItem3,
-            this.toolStripMenuItem15});
+            this.toolStripMenuItem15,
+            this.toolStripMenuItem14,
+            this.toolStripMenuItem10,
+            this.toolStripMenuItem4,
+            this.toolStripMenuItem2,
+            this.toolStripMenuItem1,
+            this.qUERIESToolStripMenuItem,
+            this.rEPORTSToolStripMenuItem});
             this.menuStripSavings.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
             this.menuStripSavings.Location = new System.Drawing.Point(0, 0);
             this.menuStripSavings.Name = "menuStripSavings";
             this.menuStripSavings.Padding = new System.Windows.Forms.Padding(3);
-            this.menuStripSavings.Size = new System.Drawing.Size(191, 392);
+            this.menuStripSavings.Size = new System.Drawing.Size(191, 560);
             this.menuStripSavings.TabIndex = 0;
             this.menuStripSavings.Text = "menuStrip1";
             // 
@@ -452,11 +474,188 @@
             this.toolStripMenuItem15.Text = "REPORTS";
             this.toolStripMenuItem15.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
+            // toolStripMenuItem14
+            // 
+            this.toolStripMenuItem14.BackColor = System.Drawing.Color.LimeGreen;
+            this.toolStripMenuItem14.ForeColor = System.Drawing.Color.White;
+            this.toolStripMenuItem14.Image = global::SVLMS.Properties.Resources.Data_Find;
+            this.toolStripMenuItem14.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripMenuItem14.Margin = new System.Windows.Forms.Padding(0, 0, 0, 2);
+            this.toolStripMenuItem14.Name = "toolStripMenuItem14";
+            this.toolStripMenuItem14.Size = new System.Drawing.Size(184, 119);
+            this.toolStripMenuItem14.Text = "QUERIES";
+            this.toolStripMenuItem14.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // toolStripMenuItem10
+            // 
+            this.toolStripMenuItem10.BackColor = System.Drawing.Color.LimeGreen;
+            this.toolStripMenuItem10.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem11,
+            this.toolStripMenuItem12,
+            this.toolStripMenuItem13});
+            this.toolStripMenuItem10.ForeColor = System.Drawing.Color.White;
+            this.toolStripMenuItem10.Image = global::SVLMS.Properties.Resources.Transaction;
+            this.toolStripMenuItem10.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripMenuItem10.Margin = new System.Windows.Forms.Padding(0, 0, 0, 2);
+            this.toolStripMenuItem10.Name = "toolStripMenuItem10";
+            this.toolStripMenuItem10.Size = new System.Drawing.Size(184, 119);
+            this.toolStripMenuItem10.Text = "TRANSACTIONS";
+            this.toolStripMenuItem10.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // toolStripMenuItem11
+            // 
+            this.toolStripMenuItem11.BackColor = System.Drawing.Color.LimeGreen;
+            this.toolStripMenuItem11.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Bold);
+            this.toolStripMenuItem11.ForeColor = System.Drawing.Color.White;
+            this.toolStripMenuItem11.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
+            this.toolStripMenuItem11.Name = "toolStripMenuItem11";
+            this.toolStripMenuItem11.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
+            this.toolStripMenuItem11.Size = new System.Drawing.Size(185, 25);
+            this.toolStripMenuItem11.Text = "Membership";
+            // 
+            // toolStripMenuItem12
+            // 
+            this.toolStripMenuItem12.BackColor = System.Drawing.Color.LimeGreen;
+            this.toolStripMenuItem12.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Bold);
+            this.toolStripMenuItem12.ForeColor = System.Drawing.Color.White;
+            this.toolStripMenuItem12.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.toolStripMenuItem12.Name = "toolStripMenuItem12";
+            this.toolStripMenuItem12.Size = new System.Drawing.Size(185, 26);
+            this.toolStripMenuItem12.Text = "Savings";
+            // 
+            // toolStripMenuItem13
+            // 
+            this.toolStripMenuItem13.BackColor = System.Drawing.Color.LimeGreen;
+            this.toolStripMenuItem13.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Bold);
+            this.toolStripMenuItem13.ForeColor = System.Drawing.Color.White;
+            this.toolStripMenuItem13.Margin = new System.Windows.Forms.Padding(0, 0, 0, 2);
+            this.toolStripMenuItem13.Name = "toolStripMenuItem13";
+            this.toolStripMenuItem13.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
+            this.toolStripMenuItem13.Size = new System.Drawing.Size(185, 25);
+            this.toolStripMenuItem13.Text = "Time Deposit";
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.BackColor = System.Drawing.Color.LimeGreen;
+            this.toolStripMenuItem4.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem5,
+            this.toolStripMenuItem6,
+            this.toolStripMenuItem7});
+            this.toolStripMenuItem4.Font = new System.Drawing.Font("Segoe UI Symbol", 16F, System.Drawing.FontStyle.Bold);
+            this.toolStripMenuItem4.ForeColor = System.Drawing.Color.White;
+            this.toolStripMenuItem4.Image = global::SVLMS.Properties.Resources.Tools_01;
+            this.toolStripMenuItem4.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripMenuItem4.Margin = new System.Windows.Forms.Padding(0, 0, 0, 2);
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(184, 124);
+            this.toolStripMenuItem4.Text = "MAINTENANCE";
+            this.toolStripMenuItem4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.BackColor = System.Drawing.Color.LimeGreen;
+            this.toolStripMenuItem5.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Bold);
+            this.toolStripMenuItem5.ForeColor = System.Drawing.Color.White;
+            this.toolStripMenuItem5.Margin = new System.Windows.Forms.Padding(0, 0, 0, 2);
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(186, 25);
+            this.toolStripMenuItem5.Text = "Savings Type";
+            // 
+            // toolStripMenuItem6
+            // 
+            this.toolStripMenuItem6.BackColor = System.Drawing.Color.LimeGreen;
+            this.toolStripMenuItem6.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Bold);
+            this.toolStripMenuItem6.ForeColor = System.Drawing.Color.White;
+            this.toolStripMenuItem6.Margin = new System.Windows.Forms.Padding(0, 0, 0, 2);
+            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(186, 26);
+            this.toolStripMenuItem6.Text = "Dormancy";
+            // 
+            // toolStripMenuItem7
+            // 
+            this.toolStripMenuItem7.BackColor = System.Drawing.Color.LimeGreen;
+            this.toolStripMenuItem7.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem8,
+            this.toolStripMenuItem9});
+            this.toolStripMenuItem7.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Bold);
+            this.toolStripMenuItem7.ForeColor = System.Drawing.Color.White;
+            this.toolStripMenuItem7.Margin = new System.Windows.Forms.Padding(0, 0, 0, 2);
+            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
+            this.toolStripMenuItem7.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(186, 25);
+            this.toolStripMenuItem7.Text = "Time Deposit";
+            // 
+            // toolStripMenuItem8
+            // 
+            this.toolStripMenuItem8.BackColor = System.Drawing.Color.LimeGreen;
+            this.toolStripMenuItem8.ForeColor = System.Drawing.Color.White;
+            this.toolStripMenuItem8.Margin = new System.Windows.Forms.Padding(0, 0, 0, 2);
+            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
+            this.toolStripMenuItem8.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(269, 25);
+            this.toolStripMenuItem8.Text = "Terms and Rates";
+            // 
+            // toolStripMenuItem9
+            // 
+            this.toolStripMenuItem9.BackColor = System.Drawing.Color.LimeGreen;
+            this.toolStripMenuItem9.ForeColor = System.Drawing.Color.White;
+            this.toolStripMenuItem9.Margin = new System.Windows.Forms.Padding(0, 0, 0, 2);
+            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
+            this.toolStripMenuItem9.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
+            this.toolStripMenuItem9.Size = new System.Drawing.Size(269, 25);
+            this.toolStripMenuItem9.Text = "Pre Termination Penalty";
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.BackColor = System.Drawing.Color.LimeGreen;
+            this.toolStripMenuItem2.ForeColor = System.Drawing.Color.White;
+            this.toolStripMenuItem2.Image = global::SVLMS.Properties.Resources.Documents_01;
+            this.toolStripMenuItem2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripMenuItem2.Margin = new System.Windows.Forms.Padding(0, 0, 0, 2);
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(184, 119);
+            this.toolStripMenuItem2.Text = "REPORTS";
+            this.toolStripMenuItem2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.BackColor = System.Drawing.Color.LimeGreen;
+            this.toolStripMenuItem1.ForeColor = System.Drawing.Color.White;
+            this.toolStripMenuItem1.Image = global::SVLMS.Properties.Resources.Tools_01;
+            this.toolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(184, 119);
+            this.toolStripMenuItem1.Text = "MAINTENANCE";
+            this.toolStripMenuItem1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // qUERIESToolStripMenuItem
+            // 
+            this.qUERIESToolStripMenuItem.BackColor = System.Drawing.Color.LimeGreen;
+            this.qUERIESToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.qUERIESToolStripMenuItem.Image = global::SVLMS.Properties.Resources.Data_Find;
+            this.qUERIESToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.qUERIESToolStripMenuItem.Name = "qUERIESToolStripMenuItem";
+            this.qUERIESToolStripMenuItem.Size = new System.Drawing.Size(184, 119);
+            this.qUERIESToolStripMenuItem.Text = "QUERIES";
+            this.qUERIESToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // rEPORTSToolStripMenuItem
+            // 
+            this.rEPORTSToolStripMenuItem.BackColor = System.Drawing.Color.LimeGreen;
+            this.rEPORTSToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.rEPORTSToolStripMenuItem.Image = global::SVLMS.Properties.Resources.Documents_01;
+            this.rEPORTSToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.rEPORTSToolStripMenuItem.Name = "rEPORTSToolStripMenuItem";
+            this.rEPORTSToolStripMenuItem.Size = new System.Drawing.Size(184, 119);
+            this.rEPORTSToolStripMenuItem.Text = "REPORTS";
+            this.rEPORTSToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
             // ViewSavingsDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 600);
+            this.ClientSize = new System.Drawing.Size(1366, 768);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -469,7 +668,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ViewSavingsDashboard";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.ViewSavingsDashboard_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -508,7 +706,11 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ToolStripMenuItem mAINTENANCEToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tRANSACTIONSToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem qUERIESToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rEPORTSToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem savingsTypeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dormancyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem timeDepositToolStripMenuItem;
@@ -518,6 +720,17 @@
         private System.Windows.Forms.ToolStripMenuItem savingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem timeDepositToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem15;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem14;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem10;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem11;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem12;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem13;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem7;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem8;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem9;
         private System.Windows.Forms.ToolStripMenuItem createTimeDepositToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem closureAndRenewalToolStripMenuItem;
     }

@@ -15,6 +15,7 @@ namespace SVLMS.Savings.Controller
         MaintenanceSavingsTypeView view;
         ModelSavingsType model;
 
+        bool update;
         public ControllerSavingsType(ModelSavingsType model, MaintenanceSavingsTypeView view)
         {
             this.view = view;
@@ -33,6 +34,7 @@ namespace SVLMS.Savings.Controller
             view.setChkWithdrawalEvent(chkNoWithdrawalClicked);
             view.setTxtSearchEvent(txtSearchTextChanged);
             view.setCboFilterEvent(cboFilterIndexChanged);
+            view.setTxtSavingsName(txtSavingsNameLeave);
         }
 
         public void cboFilterIndexChanged(object sender, EventArgs e)
@@ -45,6 +47,41 @@ namespace SVLMS.Savings.Controller
             view.setSavingsTypeInfo(model.searchSavingsType(view.getCboFilter(),view.getTxtSearch()));
         }
 
+        public void txtSavingsNameLeave(object sender, EventArgs e)
+        {
+            int check = SavingsTypeName();
+            if (update == true)
+            {
+                int check1 = UpdateSavingsTypeName();
+                if (check1 == 1)
+                {
+                    view.unSavingsTypeName();
+                }
+                else
+                {
+                    if (check == 1)
+                    {
+                        view.errSavingsTypeName();
+                        MessageBox.Show("There's an existing Savings Type Name");
+                    }
+                    else
+                    {
+                        view.unSavingsTypeName();
+                    }
+                }
+            }
+            else
+            {
+                if (check == 1)
+                {
+                    view.errSavingsTypeName();
+                    MessageBox.Show("There's an existing Savings Type Name");
+                }
+                else
+                    view.unSavingsTypeName();            
+            }
+        }
+
         public void dgCellClicked(object sender, EventArgs e)
         {
             view.unAccountHolders();
@@ -52,13 +89,13 @@ namespace SVLMS.Savings.Controller
             view.unMaintainingBalance();
             view.unMaxWithdrawalAmount();
             //view.unMinimumWithrawalAmount();
-            //view.unPercentage();
+            view.unPercentage();
             view.unSavingsTypeName();
             //view.unStartEarningAt();
-            //view.unStatus();
+            view.unStatus();
             //view.unWithdrawalLimit();
-            //view.unDuration();
-            //view.unWithdrawLimit();
+            view.unDuration();
+            view.unWithdrawLimit();
 
             view.disableAdd();
             view.enableUpdate();
@@ -95,46 +132,58 @@ namespace SVLMS.Savings.Controller
                 //view.setWithdrawaLimit("");
                 view.setWithdrawDuration("0");
             }
-
+            update = true;
             view.enableUpdate();
             view.disableAdd();
         }
 
         public void btnSaveClicked(object sender, EventArgs e)
         {
-            bool perform = PerformAction();
-            if (perform == true)
+            int check = SavingsTypeName();
+
+            if (check == 1)
             {
-                if (view.getNoWithdrawalLimit())
+                MessageBox.Show("There's an existing Savings Type Name");
+                bool perform = PerformAction();
+                view.errSavingsTypeName();
+            }
+            else
+            {
+                view.unSavingsTypeName();
+                bool perform = PerformAction();
+                if (perform == true)
                 {
-                    DialogResult dialogResult = MessageBox.Show("Are you sure of not having a withdrawal limit?", "No Withdrawal Limit", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
-                    if (dialogResult == DialogResult.Yes)
+                    if (view.getNoWithdrawalLimit())
                     {
-                        this.setValuesToModel();
-                        //view.unWithdrawLimit();
-                        model.insertSavingsType();
-                        MessageBox.Show("The Record is Successfully Inserted");
-                        this.RefreshFields();
+                        DialogResult dialogResult = MessageBox.Show("Are you sure of not having a withdrawal limit?", "No Withdrawal Limit", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            this.setValuesToModel();
+                            view.unWithdrawLimit();
+                            model.insertSavingsType();
+                            MessageBox.Show("The Record is Successfully Inserted");
+                            this.RefreshFields();
+                        }
+                        else if (dialogResult == DialogResult.No)
+                        {
+                            view.errWithdrawLimit();
+                        }
                     }
-                    else if (dialogResult == DialogResult.No)
+                    else
                     {
-                        //view.errWithdrawLimit();
-                    }
-                }
-                else
-                {
-                    DialogResult dialogResult = MessageBox.Show("Are you sure of not having a withdrawal limit?", "No Withdrawal Limit", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
-                    if (dialogResult == DialogResult.Yes)
-                    {
-                        this.setValuesToModel();
-                        //view.unWithdrawLimit();
-                        model.insertSavingsType();
-                        MessageBox.Show("The Record is Successfully Inserted");
-                        this.RefreshFields();
-                    }
-                    else if (dialogResult == DialogResult.No)
-                    {
-                        //view.errWithdrawLimit();
+                        DialogResult dialogResult = MessageBox.Show("Are you sure of not having a withdrawal limit?", "No Withdrawal Limit", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            this.setValuesToModel();
+                            view.unWithdrawLimit();
+                            model.insertSavingsType();
+                            MessageBox.Show("The Record is Successfully Inserted");
+                            this.RefreshFields();
+                        }
+                        else if (dialogResult == DialogResult.No)
+                        {
+                            view.errWithdrawLimit();
+                        }
                     }
                 }
             }
@@ -142,43 +191,27 @@ namespace SVLMS.Savings.Controller
 
         public void btnUpdateClicked(object sender, EventArgs e)
         {
-            bool perform = PerformAction();
+            int check = UpdateSavingsTypeName();
+            int check1 = SavingsTypeName();
 
-            if (perform == true)
+            if (check1 == 1)
             {
-                if (view.getNoWithdrawalLimit())
+                view.unSavingsTypeName();
+                Update();
+            }
+            else
+            {
+                if (check == 1)
                 {
-                    DialogResult dialogResult = MessageBox.Show("Are you sure of not having a withdrawal limit?", "No Withdrawal Limit", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
-                    if (dialogResult == DialogResult.Yes)
-                    {
-                        //view.unWithdrawLimit();
-                        this.setValuesToModel();
-                        model.updateSavingsType();
-                        MessageBox.Show("The Record is Successfully Updated");
-                        this.RefreshFields();
-                    }
-                    else if (dialogResult == DialogResult.No)
-                    {
-                        //view.errWithdrawLimit();
-                    }
+                    MessageBox.Show("There's an existing Savings Type Name");
+                    Update();
+                    view.errSavingsTypeName();
                 }
                 else
                 {
-                    DialogResult dialogResult = MessageBox.Show("Are you sure of not having a withdrawal limit?", "No Withdrawal Limit", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
-                    if (dialogResult == DialogResult.Yes)
-                    {
-                        //view.unWithdrawLimit();
-                        this.setValuesToModel();
-                        model.updateSavingsType();
-                        MessageBox.Show("The Record is Successfully Updated");
-                        this.RefreshFields();
-                    }
-                    else if (dialogResult == DialogResult.No)
-                    {
-                        //view.errWithdrawLimit();
-                    }                    
+                    Update();
                 }
-            }               
+            }
         }
 
         public void setValuesToModel()
@@ -216,7 +249,7 @@ namespace SVLMS.Savings.Controller
                 view.disableMaxWithdrawal();
                 //view.unWithdrawalLimit();
                 view.unMaxWithdrawalAmount();
-                //view.unDuration();
+                view.unDuration();
             }
 
             else
@@ -232,6 +265,7 @@ namespace SVLMS.Savings.Controller
 
         public void RefreshFields()
         {
+            update = false;
             //view.setSavingsNo(model.getNextID());
             view.setSavingsTypeName("");
             view.setInterest("");
@@ -251,13 +285,13 @@ namespace SVLMS.Savings.Controller
             view.unMaintainingBalance();
             view.unMaxWithdrawalAmount();
             //view.unMinimumWithrawalAmount();
-            //view.unPercentage();
+            view.unPercentage();
             view.unSavingsTypeName();
             //view.unStartEarningAt();
-            //view.unStatus();
+            view.unStatus();
             //view.unWithdrawalLimit();
-            //view.unDuration();
-            //view.unWithdrawLimit();
+            view.unDuration();
+            view.unWithdrawLimit();
         }
         //---------------------------------------------------------------
         public bool PerformAction()
@@ -309,7 +343,7 @@ namespace SVLMS.Savings.Controller
         {
             this.setValuesToModel();
 
-            string special = "!@#$%^&*(){}/;:><+=_?.,";
+            string special = "!@#$%^&*(){}/;:><+=_?.,1234567890";
             bool pass = true;
             int integer;
             double num;
@@ -324,44 +358,44 @@ namespace SVLMS.Savings.Controller
             }
             else
             {
-                char[] spec = special.ToCharArray();
-                char[] str = model.savingsName.ToCharArray();
-                for (int x = 0; x < special.Length; x++)
-                {
-                    for (int i = 0; i < str.Length; i++)
+                    char[] spec = special.ToCharArray();
+                    char[] str = model.savingsName.ToCharArray();
+                    for (int x = 0; x < special.Length; x++)
                     {
-                        if (str[i] == special[x])
+                        for (int i = 0; i < str.Length; i++)
                         {
-                            view.errSavingsTypeName();
-                            pass = false;
-                            error = true;
-                            x = special.Length;
-                            i = str.Length;
+                            if (str[i] == special[x])
+                            {
+                                view.errSavingsTypeName();
+                                pass = false;
+                                error = true;
+                                x = special.Length;
+                                i = str.Length;
+                            }
                         }
                     }
-                }
 
-                if (pass)
-                {
-                    for (int i = 0; i < str.Length - 1; i++)
+                    if (pass)
                     {
-                        if (char.IsLetter(str[i]) || str[i] == ' ' || str[i] == '-' || str[i] == '\'')
+                        for (int i = 0; i < str.Length - 1; i++)
                         {
-                            view.unSavingsTypeName();
-                            error = false;
-                        }
-                        else
-                        {
-                            view.errSavingsTypeName();
-                            i = model.savingsName.Length;
-                            error = true;
+                            if (char.IsLetter(str[i]) || str[i] == ' ' || str[i] == '-' || str[i] == '\'')
+                            {
+                                view.unSavingsTypeName();
+                                error = false;
+                            }
+                            else
+                            {
+                                view.errSavingsTypeName();
+                                i = model.savingsName.Length;
+                                error = true;
+                            }
                         }
                     }
-                }
                 if (error == false)
                 {
-                    view.unSavingsTypeName();
-                    correct++;
+                   view.unSavingsTypeName();
+                   correct++;
                 }
             }
             //AccountHolders------------------------------------------
@@ -393,18 +427,18 @@ namespace SVLMS.Savings.Controller
             {
                 view.unMaxWithdrawalAmount();
                 //view.unWithdrawalLimit();
-                //view.unDuration();
+                view.unDuration();
             }
             else
             {
                 //Duration(DropDown)-------------------------------------
                 if (model.maxWithdrawalTime == 0 && view.getNoWithdrawalLimit() == false)
                 {
-                   //view.errDuration();
+                    view.errDuration();
                 }
                 else
                 {
-                    //view.unDuration();
+                    view.unDuration();
                     correct++;
                 }
                 //MaximumWithdrawalAmount-------------------------------
@@ -432,7 +466,7 @@ namespace SVLMS.Savings.Controller
                     }
                 }
             //    //WithdrawalLimit-------------------------------------
-            //    if (string.IsNullOrWhiteSpace(model.maxWithdrawDuration))
+            //    if (string.IsNullOrWhiteSpace(mod/el.maxWithdrawDuration))
             //    {
             //        view.errWithdrawalLimit();
             //    }
@@ -534,24 +568,81 @@ namespace SVLMS.Savings.Controller
             //FixedOrPercentage------------------------------
             if (percentage == 1)
             {
-                //view.errPercentage();
+                view.errPercentage();
             }
             else
             {
-                //view.unPercentage();
+                view.unPercentage();
                 correct++;
             }
             //StatusActiveInactve-----------------------------------
             if (status == 1)
             {
-                //view.errStatus();
+                view.errStatus();
             }
             else
             {
-                //view.unStatus();
+                view.unStatus();
                 correct++;
             }
             return correct;
+        }
+
+        public int SavingsTypeName()
+        {
+            model.savingsName = view.getName();
+            model.searchSavingsName();
+
+            return Convert.ToInt16(model.checkSavingsName);
+        }
+
+        public int UpdateSavingsTypeName()
+        {
+            model.updateSavingsName = view.getName();
+            model.SavingsNameUpdate();
+
+            return Convert.ToInt16(model.savingsNameID);
+        }
+
+        public void Update()
+        {
+            bool perform = PerformAction();
+
+            if (perform == true)
+            {
+                if (view.getNoWithdrawalLimit())
+                {
+                    DialogResult dialogResult = MessageBox.Show("Are you sure of not having a withdrawal limit?", "No Withdrawal Limit", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        view.unWithdrawLimit();
+                        this.setValuesToModel();
+                        model.updateSavingsType();
+                        MessageBox.Show("The Record is Successfully Updated");
+                        this.RefreshFields();
+                    }
+                    else if (dialogResult == DialogResult.No)
+                    {
+                        view.errWithdrawLimit();
+                    }
+                }
+                else
+                {
+                    DialogResult dialogResult = MessageBox.Show("Are you sure of not having a withdrawal limit?", "No Withdrawal Limit", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        view.unWithdrawLimit();
+                        this.setValuesToModel();
+                        model.updateSavingsType();
+                        MessageBox.Show("The Record is Successfully Updated");
+                        this.RefreshFields();
+                    }
+                    else if (dialogResult == DialogResult.No)
+                    {
+                        view.errWithdrawLimit();
+                    }
+                }
+            }
         }
     }
 }

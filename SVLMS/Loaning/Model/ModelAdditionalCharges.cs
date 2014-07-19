@@ -18,8 +18,9 @@ namespace SVLMS.Loaning.Model
         public string loanTypeID { get; set; }
         public List<int> list = new List<int>();
         public string loanChargeID { get; set; }
-
-
+        public string nameCharge { get; set; }
+        public string nameChargeID { get; set; }
+        public string updateNameCharge { get; set; }
 
         public DataSet getLoanTypes()
         {
@@ -220,9 +221,33 @@ namespace SVLMS.Loaning.Model
             parameters.Add("@5", status);
             dal.executeNonQuery(sql, parameters);
             parameters.Clear();
-            
- 
-        
+        }
+
+        public void ChargeName()
+        {
+            DataAccessLayer dal = new DataAccessLayer(ConfigurationManager.ConnectionStrings["coopdbConnectionString"].ConnectionString);
+            string sql = "select COUNT(chargeName) from vw_chargeName where chargeName = @1";
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+            parameters.Add("@1", chargeName);
+            SqlDataReader reader = dal.executeReader(sql, parameters);
+            if (reader.Read())
+            {
+                nameCharge = reader[0].ToString();
+            }
+        }
+
+        public void UpdateChargeName()
+        {
+            DataAccessLayer dal = new DataAccessLayer(ConfigurationManager.ConnectionStrings["coopdbConnectionString"].ConnectionString);
+            string sql = "select COUNT(chargeID) from vw_chargeName where chargeName = @1 AND chargeID = @2";
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+            parameters.Add("@1", updateNameCharge);
+            parameters.Add("@2", chargeID);
+            SqlDataReader reader = dal.executeReader(sql, parameters);
+            if (reader.Read())
+            {
+                nameChargeID = reader[0].ToString();
+            }        
         }
     }
 }

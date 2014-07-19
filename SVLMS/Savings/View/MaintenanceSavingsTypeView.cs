@@ -14,10 +14,10 @@ namespace SVLMS.Savings.View
         public MaintenanceSavingsTypeView()
         {
             InitializeComponent();
-            cboWithdrawDuration.SelectedIndex = -1;
+            cboWithdrawDuration.SelectedIndex = 0;
             dgSavingsType.ReadOnly = true;
             dgSavingsType.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            cboFilter.SelectedIndex = -1;
+            cboFilter.SelectedIndex = 0;
         }
 
         //public void setSavingsNo(string savingsNo)
@@ -226,12 +226,12 @@ namespace SVLMS.Savings.View
 
         public void enableAdd()
         {
-            btnAdd.Enabled = true;
+            btnSave.Enabled = true;
         }
 
         public void disableAdd()
         {
-            btnAdd.Enabled = false;
+            btnSave.Enabled = false;
         }
 
         public void setNoAccountHolders(string text)
@@ -270,7 +270,7 @@ namespace SVLMS.Savings.View
 
         public void setBtnSaveEvent(EventHandler e)
         {
-            btnAdd.Click += e;
+            btnSave.Click += e;
         }
 
         public void setBtnUpdateEvent(EventHandler e)
@@ -283,9 +283,25 @@ namespace SVLMS.Savings.View
             btnClear.Click += e;
         }
 
+        public void setTxtSavingsName(EventHandler e)
+        {
+            txtSavingsName.Leave += e;
+        }
+
         public void setDataGridEvent(DataGridViewCellEventHandler e)
         {
             dgSavingsType.CellDoubleClick += e;
+        }
+
+        //Duration(DropDown)
+        public void errDuration()
+        {
+            Duration.Visible = true;
+        }
+
+        public void unDuration()
+        {
+            Duration.Visible = false;
         }
 
         //SavingsTypeName
@@ -369,6 +385,16 @@ namespace SVLMS.Savings.View
         //    txtStartEarning.BackColor = Color.White;
         //}
         //Status
+        public void errStatus()
+        {
+            statusPanel.BackColor = Color.Salmon;
+        }
+
+        public void unStatus()
+        {
+            statusPanel.BackColor = Color.White;
+        }
+
         public int status()
         {
             int i = 0;
@@ -377,6 +403,15 @@ namespace SVLMS.Savings.View
             return i;
         }
         //Percentage
+        public void errPercentage()
+        {
+            percentagePanel.BackColor = Color.Salmon;
+        }
+
+        public void unPercentage()
+        {
+            percentagePanel.BackColor = Color.White;
+        }
 
         public int percentage()
         {
@@ -386,6 +421,15 @@ namespace SVLMS.Savings.View
             return i;
         }
         //withdrawalLimit
+        public void errWithdrawLimit()
+        {
+            NoWithdrawalLimitPanel.BackColor = Color.Salmon;
+        }
+
+        public void unWithdrawLimit()
+        {
+            NoWithdrawalLimitPanel.BackColor = Color.White;
+        }
 
         public void setTxtSearchEvent(EventHandler e)
         {
@@ -407,14 +451,32 @@ namespace SVLMS.Savings.View
             return cboFilter.SelectedItem.ToString();
         }
 
+        private void txtSavingsName_Validating_1(object sender, CancelEventArgs e)
+        {
+            setSavingsTypeName(txtSavingsName.Text.Trim());
+        }
 
-        private void txtNoAccountHolder_KeyPress(object sender, KeyPressEventArgs e)
+        public string getName()
+        {
+            string result = "";
+            char[] str = txtSavingsName.Text.ToCharArray();
+            for (int i = 0; i < str.Length; i++)
+            {
+                if (str[i] == ' ')
+                { }
+                else
+                    result += str[i];
+            }
+            return result.ToLower();
+        }
+
+        private void txtNoAccountHolder_KeyPress_1(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
                 e.Handled = true;
         }
 
-        private void txtMaxWithdrawal_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtMaxWithdrawal_KeyPress_1(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
             {
@@ -426,7 +488,7 @@ namespace SVLMS.Savings.View
             }
         }
 
-        private void txtMaintainingBalance_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtMaintainingBalance_KeyPress_1(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
             {
@@ -448,11 +510,6 @@ namespace SVLMS.Savings.View
             {
                 e.Handled = true;
             }
-        }
-
-        private void txtSavingsName_Validating(object sender, CancelEventArgs e)
-        {
-            setSavingsTypeName(txtSavingsName.Text.Trim());
         }
     }
 }

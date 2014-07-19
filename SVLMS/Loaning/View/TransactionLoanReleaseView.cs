@@ -15,7 +15,6 @@ namespace SVLMS.Loaning.View
         {
             InitializeComponent();
             cboSearchBy.SelectedIndex = 0;
-            
         }
 
         public event EventHandler searchPressed;
@@ -196,7 +195,6 @@ namespace SVLMS.Loaning.View
         {
             dgApprovedLoans.DataSource = ds.Tables[0];
             dgApprovedLoans.Columns["Requested Amount"].Visible = false;
-            dgApprovedLoans.Columns["accountNo"].Visible = false;
             dgApprovedLoans.Columns["Approved Amount"].DefaultCellStyle.Format = "0.00";
         }
 
@@ -270,20 +268,6 @@ namespace SVLMS.Loaning.View
             dgCharges.DataSource = null;
             dgCharges.DataBindings.Clear();
             dgCharges.Refresh();
-        }
-
-        public void setPreviousLoanBalance(string text)
-        {
-            if (text.Length != 0)
-            {
-                text = Validator.amountFormatter(text);
-            }
-            txtPreviousLoanBalance.Text = text;
-        }
-
-        public string getPreviousLoanBalance()
-        {
-            return txtPreviousLoanBalance.Text;
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)

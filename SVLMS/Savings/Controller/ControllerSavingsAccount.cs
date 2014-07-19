@@ -39,7 +39,7 @@ namespace SVLMS.Savings.Controller
             this.view.dgAccountHoldersClickedEvent(dataGridAccountHolderClicked);
             this.view.setCboSavingsJointSelectedIndex(cboSavingsJointClicked);
             this.view.setBtnAddAccountHolderEvent(btnAddAccountHolderClicked);
-            //this.view.setBtnRemoveAccountHolderEvent(btnRemoveAccountHolderClicked);
+            this.view.setBtnRemoveAccountHolderEvent(btnRemoveAccountHolderClicked);
             this.view.setRbtnFamilyClick(rbtnFamilyClick);
             this.view.setRbtnMemberClick(rbtnMemberClick);
             this.view.setBtnClearEvent(btnClearEvent);
@@ -155,7 +155,7 @@ namespace SVLMS.Savings.Controller
             view.setAccountHolder("");
             view.setSignatureImageJoint("", "");
             view.setSignatureImageJoint2("", "");
-            //view.disableBtnRemoveAccountHolder();
+            view.disableBtnRemoveAccountHolder();
             //view.setSignatureImageJoint("SpecimenSignatures1//" + model.getSignatureImage("0"), model.getSignatureImage("0"));
             //view.setSignatureImageJoint2("SpecimenSignatures2//" + model.getSignatureImage("0"), model.getSignatureImage("0"));
             
@@ -165,7 +165,7 @@ namespace SVLMS.Savings.Controller
         {
             string isPrimary = "";
             view.disableBtnAddAccountHolder();
-            //view.enableBtnRemoveAccountHolder();
+            view.enableBtnRemoveAccountHolder();
             view.enableBtnUpdate();
             DataGridView dg = view.getDatagridAccountHolders();
             int row = dg.CurrentCell.RowIndex;
@@ -183,14 +183,14 @@ namespace SVLMS.Savings.Controller
                 model.accountNo = dg.Rows[row].Cells[0].Value.ToString();
                 view.disableBtnUpdate();
                 view.disableBtnAddAccountHolder();
-                //view.disableBtnRemoveAccountHolder();
+                view.disableBtnRemoveAccountHolder();
                 view.disableUploadJoint();
                 isPrimary = dg.Rows[row].Cells[3].Value.ToString();
                 if (isPrimary == "0")
                 {
                     view.setAccountHolder(dg.Rows[row].Cells[1].Value.ToString());
                     view.enableBtnAddAccountHolder();
-                    //view.enableBtnRemoveAccountHolder();
+                    view.enableBtnRemoveAccountHolder();
                 }
             }
             view.setSignatureImageJoint("SpecimenSignatures1//"+model.getSignatureImage(isFamily),model.getSignatureImage(isFamily));
@@ -404,7 +404,7 @@ namespace SVLMS.Savings.Controller
             view.setSignatureImageJoint("", "");
             view.setSignatureImageJoint2("", "");
             view.setAccountHolder("");
-            //view.disableBtnRemoveAccountHolder();
+            view.disableBtnRemoveAccountHolder();
             view.disableBtnUpdate();
             view.enableAccountHolder();
             view.enablePlusButton();
@@ -432,8 +432,8 @@ namespace SVLMS.Savings.Controller
 
             //Clear
             view.enableBtnAddAccountHolder();
-            //view.disableBtnRemoveAccountHolder();
-            //view.disableBtnRemoveAccountHolder();
+            view.disableBtnRemoveAccountHolder();
+            view.disableBtnRemoveAccountHolder();
             view.disableAccountHolder();
             view.setAccountHolder("");
             view.setPrimaryAccountHolder("");

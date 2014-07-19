@@ -28,229 +28,50 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MaintenanceMemberType));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dgMemberType = new System.Windows.Forms.DataGridView();
+            this.panelSearch = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtSearchBox = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.cboFilter = new System.Windows.Forms.ComboBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.HasCertificatepanel = new System.Windows.Forms.Panel();
             this.chkHasCertificate = new System.Windows.Forms.CheckBox();
             this.statusPanel = new System.Windows.Forms.Panel();
             this.rbtnInactive = new System.Windows.Forms.RadioButton();
             this.rbtnActive = new System.Windows.Forms.RadioButton();
             this.label7 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtSearchBox = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.cboFilter = new System.Windows.Forms.ComboBox();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
             this.txtTypeName = new System.Windows.Forms.TextBox();
             this.txtMinimumShare = new System.Windows.Forms.TextBox();
+            this.txtTypeID = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panelSavingsTypeTitle = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.dgMemberType = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgMemberType)).BeginInit();
+            this.panelSearch.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.HasCertificatepanel.SuspendLayout();
             this.statusPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgMemberType)).BeginInit();
+            this.panelSavingsTypeTitle.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.HasCertificatepanel);
-            this.panel1.Controls.Add(this.statusPanel);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.txtSearchBox);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.cboFilter);
-            this.panel1.Controls.Add(this.btnClear);
-            this.panel1.Controls.Add(this.btnUpdate);
-            this.panel1.Controls.Add(this.btnSave);
-            this.panel1.Controls.Add(this.txtTypeName);
-            this.panel1.Controls.Add(this.txtMinimumShare);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.dgMemberType);
-            this.panel1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(1, 3);
+            this.panel1.Controls.Add(this.panelSearch);
+            this.panel1.Controls.Add(this.groupBox1);
+            this.panel1.Controls.Add(this.panelSavingsTypeTitle);
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(602, 269);
-            this.panel1.TabIndex = 0;
-            // 
-            // HasCertificatepanel
-            // 
-            this.HasCertificatepanel.Controls.Add(this.chkHasCertificate);
-            this.HasCertificatepanel.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HasCertificatepanel.Location = new System.Drawing.Point(445, 151);
-            this.HasCertificatepanel.Name = "HasCertificatepanel";
-            this.HasCertificatepanel.Size = new System.Drawing.Size(126, 26);
-            this.HasCertificatepanel.TabIndex = 154;
-            // 
-            // chkHasCertificate
-            // 
-            this.chkHasCertificate.AutoSize = true;
-            this.chkHasCertificate.Location = new System.Drawing.Point(5, 4);
-            this.chkHasCertificate.Name = "chkHasCertificate";
-            this.chkHasCertificate.Size = new System.Drawing.Size(112, 20);
-            this.chkHasCertificate.TabIndex = 151;
-            this.chkHasCertificate.Text = "Has Certificate";
-            this.chkHasCertificate.UseVisualStyleBackColor = true;
-            // 
-            // statusPanel
-            // 
-            this.statusPanel.Controls.Add(this.rbtnInactive);
-            this.statusPanel.Controls.Add(this.rbtnActive);
-            this.statusPanel.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.statusPanel.Location = new System.Drawing.Point(435, 180);
-            this.statusPanel.Name = "statusPanel";
-            this.statusPanel.Size = new System.Drawing.Size(138, 26);
-            this.statusPanel.TabIndex = 153;
-            // 
-            // rbtnInactive
-            // 
-            this.rbtnInactive.AutoSize = true;
-            this.rbtnInactive.Location = new System.Drawing.Point(71, 3);
-            this.rbtnInactive.Name = "rbtnInactive";
-            this.rbtnInactive.Size = new System.Drawing.Size(69, 20);
-            this.rbtnInactive.TabIndex = 162;
-            this.rbtnInactive.TabStop = true;
-            this.rbtnInactive.Text = "Inactive";
-            this.rbtnInactive.UseVisualStyleBackColor = true;
-            // 
-            // rbtnActive
-            // 
-            this.rbtnActive.AutoSize = true;
-            this.rbtnActive.Location = new System.Drawing.Point(10, 3);
-            this.rbtnActive.Name = "rbtnActive";
-            this.rbtnActive.Size = new System.Drawing.Size(61, 20);
-            this.rbtnActive.TabIndex = 162;
-            this.rbtnActive.TabStop = true;
-            this.rbtnActive.Text = "Active";
-            this.rbtnActive.UseVisualStyleBackColor = true;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(321, 182);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(50, 16);
-            this.label7.TabIndex = 152;
-            this.label7.Text = "Status:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(11, 26);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(313, 29);
-            this.label4.TabIndex = 148;
-            this.label4.Text = "Maintenance: Member Type";
-            // 
-            // txtSearchBox
-            // 
-            this.txtSearchBox.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchBox.Location = new System.Drawing.Point(178, 66);
-            this.txtSearchBox.Name = "txtSearchBox";
-            this.txtSearchBox.Size = new System.Drawing.Size(122, 22);
-            this.txtSearchBox.TabIndex = 146;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(14, 69);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(41, 16);
-            this.label8.TabIndex = 144;
-            this.label8.Text = "Filter:";
-            // 
-            // cboFilter
-            // 
-            this.cboFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboFilter.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboFilter.FormattingEnabled = true;
-            this.cboFilter.Items.AddRange(new object[] {
-            "No Filter",
-            "Active",
-            "Inactive"});
-            this.cboFilter.Location = new System.Drawing.Point(73, 66);
-            this.cboFilter.Name = "cboFilter";
-            this.cboFilter.Size = new System.Drawing.Size(99, 24);
-            this.cboFilter.TabIndex = 145;
-            // 
-            // btnClear
-            // 
-            this.btnClear.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(497, 222);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(75, 23);
-            this.btnClear.TabIndex = 143;
-            this.btnClear.Text = "Clear";
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(416, 222);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
-            this.btnUpdate.TabIndex = 142;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(335, 222);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 141;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // txtTypeName
-            // 
-            this.txtTypeName.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTypeName.Location = new System.Drawing.Point(444, 96);
-            this.txtTypeName.MaxLength = 50;
-            this.txtTypeName.Name = "txtTypeName";
-            this.txtTypeName.Size = new System.Drawing.Size(129, 22);
-            this.txtTypeName.TabIndex = 139;
-            this.txtTypeName.Validating += new System.ComponentModel.CancelEventHandler(this.txtTypeName_Validating);
-            // 
-            // txtMinimumShare
-            // 
-            this.txtMinimumShare.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMinimumShare.Location = new System.Drawing.Point(444, 124);
-            this.txtMinimumShare.MaxLength = 5;
-            this.txtMinimumShare.Name = "txtMinimumShare";
-            this.txtMinimumShare.Size = new System.Drawing.Size(129, 22);
-            this.txtMinimumShare.TabIndex = 140;
-            this.txtMinimumShare.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMinimumShare_KeyPress);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(316, 127);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(103, 16);
-            this.label3.TabIndex = 137;
-            this.label3.Text = "Minimum Share:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(316, 99);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(128, 16);
-            this.label1.TabIndex = 136;
-            this.label1.Text = "Member Type Name:";
             // 
             // dgMemberType
             // 
@@ -259,32 +80,211 @@
             this.dgMemberType.AllowUserToOrderColumns = true;
             this.dgMemberType.AllowUserToResizeColumns = false;
             this.dgMemberType.AllowUserToResizeRows = false;
+            this.dgMemberType.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgMemberType.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgMemberType.Location = new System.Drawing.Point(17, 96);
+            resources.ApplyResources(this.dgMemberType, "dgMemberType");
             this.dgMemberType.Name = "dgMemberType";
             this.dgMemberType.ReadOnly = true;
-            this.dgMemberType.Size = new System.Drawing.Size(296, 160);
-            this.dgMemberType.TabIndex = 134;
-            this.dgMemberType.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            // 
+            // panelSearch
+            // 
+            this.panelSearch.Controls.Add(this.label10);
+            this.panelSearch.Controls.Add(this.label2);
+            this.panelSearch.Controls.Add(this.txtSearchBox);
+            this.panelSearch.Controls.Add(this.btnSearch);
+            this.panelSearch.Controls.Add(this.cboFilter);
+            resources.ApplyResources(this.panelSearch, "panelSearch");
+            this.panelSearch.Name = "panelSearch";
+            // 
+            // label10
+            // 
+            resources.ApplyResources(this.label10, "label10");
+            this.label10.Name = "label10";
+            // 
+            // label2
+            // 
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.Name = "label2";
+            // 
+            // txtSearchBox
+            // 
+            resources.ApplyResources(this.txtSearchBox, "txtSearchBox");
+            this.txtSearchBox.Name = "txtSearchBox";
+            // 
+            // btnSearch
+            // 
+            resources.ApplyResources(this.btnSearch, "btnSearch");
+            this.btnSearch.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnSearch.BackgroundImage = global::SVLMS.Properties.Resources.find_icon;
+            this.btnSearch.FlatAppearance.BorderSize = 0;
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            // 
+            // cboFilter
+            // 
+            resources.ApplyResources(this.cboFilter, "cboFilter");
+            this.cboFilter.FormattingEnabled = true;
+            this.cboFilter.Items.AddRange(new object[] {
+            resources.GetString("cboFilter.Items"),
+            resources.GetString("cboFilter.Items1"),
+            resources.GetString("cboFilter.Items2")});
+            this.cboFilter.Name = "cboFilter";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnUpdate);
+            this.groupBox1.Controls.Add(this.btnClear);
+            this.groupBox1.Controls.Add(this.btnSave);
+            this.groupBox1.Controls.Add(this.HasCertificatepanel);
+            this.groupBox1.Controls.Add(this.statusPanel);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.txtTypeName);
+            this.groupBox1.Controls.Add(this.txtMinimumShare);
+            this.groupBox1.Controls.Add(this.txtTypeID);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label5);
+            resources.ApplyResources(this.groupBox1, "groupBox1");
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.TabStop = false;
+            // 
+            // btnUpdate
+            // 
+            resources.ApplyResources(this.btnUpdate, "btnUpdate");
+            this.btnUpdate.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnUpdate.BackgroundImage = global::SVLMS.Properties.Resources.save_icon;
+            this.btnUpdate.FlatAppearance.BorderSize = 0;
+            this.btnUpdate.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.UseVisualStyleBackColor = false;
+            // 
+            // btnClear
+            // 
+            resources.ApplyResources(this.btnClear, "btnClear");
+            this.btnClear.BackColor = System.Drawing.Color.Red;
+            this.btnClear.BackgroundImage = global::SVLMS.Properties.Resources.cancel_icon;
+            this.btnClear.FlatAppearance.BorderSize = 0;
+            this.btnClear.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnClear.Name = "btnClear";
+            this.btnClear.UseVisualStyleBackColor = false;
+            // 
+            // btnSave
+            // 
+            resources.ApplyResources(this.btnSave, "btnSave");
+            this.btnSave.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnSave.BackgroundImage = global::SVLMS.Properties.Resources.add_icon;
+            this.btnSave.FlatAppearance.BorderSize = 0;
+            this.btnSave.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnSave.Name = "btnSave";
+            this.btnSave.UseVisualStyleBackColor = false;
+            // 
+            // HasCertificatepanel
+            // 
+            this.HasCertificatepanel.Controls.Add(this.chkHasCertificate);
+            resources.ApplyResources(this.HasCertificatepanel, "HasCertificatepanel");
+            this.HasCertificatepanel.Name = "HasCertificatepanel";
+            // 
+            // chkHasCertificate
+            // 
+            resources.ApplyResources(this.chkHasCertificate, "chkHasCertificate");
+            this.chkHasCertificate.Name = "chkHasCertificate";
+            this.chkHasCertificate.UseVisualStyleBackColor = true;
+            // 
+            // statusPanel
+            // 
+            this.statusPanel.Controls.Add(this.rbtnInactive);
+            this.statusPanel.Controls.Add(this.rbtnActive);
+            resources.ApplyResources(this.statusPanel, "statusPanel");
+            this.statusPanel.Name = "statusPanel";
+            // 
+            // rbtnInactive
+            // 
+            resources.ApplyResources(this.rbtnInactive, "rbtnInactive");
+            this.rbtnInactive.Name = "rbtnInactive";
+            this.rbtnInactive.TabStop = true;
+            this.rbtnInactive.UseVisualStyleBackColor = true;
+            // 
+            // rbtnActive
+            // 
+            resources.ApplyResources(this.rbtnActive, "rbtnActive");
+            this.rbtnActive.Name = "rbtnActive";
+            this.rbtnActive.TabStop = true;
+            this.rbtnActive.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            resources.ApplyResources(this.label7, "label7");
+            this.label7.Name = "label7";
+            // 
+            // txtTypeName
+            // 
+            resources.ApplyResources(this.txtTypeName, "txtTypeName");
+            this.txtTypeName.Name = "txtTypeName";
+            this.txtTypeName.Validating += new System.ComponentModel.CancelEventHandler(this.txtTypeName_Validating_1);
+            // 
+            // txtMinimumShare
+            // 
+            resources.ApplyResources(this.txtMinimumShare, "txtMinimumShare");
+            this.txtMinimumShare.Name = "txtMinimumShare";
+            this.txtMinimumShare.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMinimumShare_KeyPress);
+            // 
+            // txtTypeID
+            // 
+            resources.ApplyResources(this.txtTypeID, "txtTypeID");
+            this.txtTypeID.Name = "txtTypeID";
+            // 
+            // label3
+            // 
+            resources.ApplyResources(this.label3, "label3");
+            this.label3.Name = "label3";
+            // 
+            // label4
+            // 
+            resources.ApplyResources(this.label4, "label4");
+            this.label4.Name = "label4";
+            // 
+            // label5
+            // 
+            resources.ApplyResources(this.label5, "label5");
+            this.label5.Name = "label5";
+            // 
+            // panelSavingsTypeTitle
+            // 
+            this.panelSavingsTypeTitle.BackColor = System.Drawing.Color.RoyalBlue;
+            this.panelSavingsTypeTitle.Controls.Add(this.label1);
+            resources.ApplyResources(this.panelSavingsTypeTitle, "panelSavingsTypeTitle");
+            this.panelSavingsTypeTitle.Name = "panelSavingsTypeTitle";
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.Name = "label1";
             // 
             // MaintenanceMemberType
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AllowDrop = true;
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.ClientSize = new System.Drawing.Size(603, 272);
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.panel1);
-            this.ForeColor = System.Drawing.Color.Black;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "MaintenanceMemberType";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Member Type";
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgMemberType)).EndInit();
+            this.panelSearch.ResumeLayout(false);
+            this.panelSearch.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.HasCertificatepanel.ResumeLayout(false);
             this.HasCertificatepanel.PerformLayout();
             this.statusPanel.ResumeLayout(false);
             this.statusPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgMemberType)).EndInit();
+            this.panelSavingsTypeTitle.ResumeLayout(false);
+            this.panelSavingsTypeTitle.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -292,24 +292,32 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtSearchBox;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox cboFilter;
-        private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.TextBox txtTypeName;
-        private System.Windows.Forms.TextBox txtMinimumShare;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgMemberType;
+        private System.Windows.Forms.Panel panelSearch;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtSearchBox;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.ComboBox cboFilter;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Panel HasCertificatepanel;
+        private System.Windows.Forms.CheckBox chkHasCertificate;
         private System.Windows.Forms.Panel statusPanel;
         private System.Windows.Forms.RadioButton rbtnInactive;
         private System.Windows.Forms.RadioButton rbtnActive;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.CheckBox chkHasCertificate;
-        private System.Windows.Forms.Panel HasCertificatepanel;
+        private System.Windows.Forms.TextBox txtTypeName;
+        private System.Windows.Forms.TextBox txtMinimumShare;
+        private System.Windows.Forms.TextBox txtTypeID;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Panel panelSavingsTypeTitle;
+        private System.Windows.Forms.Label label1;
+
 
     }
 }

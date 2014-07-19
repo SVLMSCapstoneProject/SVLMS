@@ -26,6 +26,11 @@ namespace SVLMS.Loaning.View
             btnSave.Click += e;
         }
 
+        public void settxtLoanName(EventHandler e)
+        {
+            txtLoanName.Leave += e;
+        }
+
         public void setBtnUpdateEvent(EventHandler e)
         {
             btnUpdate.Click += e;
@@ -62,12 +67,12 @@ namespace SVLMS.Loaning.View
             string[] value = new string[count];
             int x = 0;
             foreach (var item in listUnselected.CheckedItems)
-            { 
+            {
                 var row = (item as DataRowView).Row;
-                value[x] = row["TypeID"].ToString(); 
-               // MessageBox.Show(row["TypeID"].ToString());
+                value[x] = row["TypeID"].ToString();
+                // MessageBox.Show(row["TypeID"].ToString());
                 x++;
-            }   
+            }
 
             return value;
         }
@@ -76,23 +81,23 @@ namespace SVLMS.Loaning.View
         {
             int value = 0;
             for (int i = 0; i < listUnselected.Items.Count; i++)
-			{
-			    DataRowView view = listUnselected.Items[i] as DataRowView;
+            {
+                DataRowView view = listUnselected.Items[i] as DataRowView;
                 value = (int)view["TypeID"];
-                if(list.Contains(value))
-                 {
-                   listUnselected.SetItemChecked(i,true);
-                 }
-                 else
-                 {
-                   listUnselected.SetItemChecked(i,false);
-                 }
-			}
+                if (list.Contains(value))
+                {
+                    listUnselected.SetItemChecked(i, true);
+                }
+                else
+                {
+                    listUnselected.SetItemChecked(i, false);
+                }
+            }
         }
 
         public void getLoanApplicableInfo(DataSet ds)
-        { 
-            
+        {
+
         }
 
         public void disableEntitlement()
@@ -160,7 +165,7 @@ namespace SVLMS.Loaning.View
 
         public void enableUpdate()
         {
-           btnUpdate.Enabled = true;
+            btnUpdate.Enabled = true;
         }
 
         public void disableUpdate()
@@ -180,7 +185,7 @@ namespace SVLMS.Loaning.View
 
 
         //-------------- DG BTN -------------
-        
+
         private void dgLoantype_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -203,15 +208,9 @@ namespace SVLMS.Loaning.View
             dgLoantype.Columns[0].Visible = false;
             dgLoantype.Columns["Min Amount"].DefaultCellStyle.Format = "0.00";
             dgLoantype.Columns["Max Amount"].DefaultCellStyle.Format = "0.00";
-         ///   MessageBox.Show(ds.Tables[0].ToString());
+            ///   MessageBox.Show(ds.Tables[0].ToString());
         }
         //========================= GET ===========================
-       
-        //public string getLoanId()
-        //{
-        //    return txtLoanTypeId.Text;
-        //}
-
         public string getLoanName()
         {
             return txtLoanName.Text;
@@ -260,9 +259,9 @@ namespace SVLMS.Loaning.View
             return hasComaker;
         }
 
-//=================== SET ========================
+        //=================== SET ========================
 
-        public void refresh() 
+        public void refresh()
         {
             rbtnCoMakerNo.Checked = false;
             rbtnCoMakerYes.Checked = false;
@@ -274,13 +273,8 @@ namespace SVLMS.Loaning.View
             rbtnNo.Checked = false;
             listUnselected.ClearSelected();
         }
-        
-        //public void setLoanId(string LoanId)
-        //{
-        //    this.txtLoanTypeId.Text = LoanId;
-        //}
 
-        public void setLoanName(string loanName) 
+        public void setLoanName(string loanName)
         {
             this.txtLoanName.Text = loanName;
         }
@@ -289,7 +283,7 @@ namespace SVLMS.Loaning.View
         {
             if (minAmount.Length != 0)
             {
-                 minAmount = this.amountFormatter(minAmount);
+                minAmount = this.amountFormatter(minAmount);
             }
             this.txtMinAmount.Text = minAmount;
         }
@@ -326,7 +320,7 @@ namespace SVLMS.Loaning.View
             {
                 rbtnCoMakerNo.Checked = true;
             }
-            else 
+            else
             {
                 rbtnCoMakerYes.Checked = true;
             }
@@ -393,7 +387,7 @@ namespace SVLMS.Loaning.View
                 rbtnActive.Checked = true;
             }
 
-            else 
+            else
             {
                 rbtnInactive.Checked = true;
             }
@@ -441,7 +435,7 @@ namespace SVLMS.Loaning.View
             }
             return isCollateralized;
         }
-        
+
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
@@ -532,6 +526,16 @@ namespace SVLMS.Loaning.View
         {
             txtLoanEntitlement.BackColor = Color.White;
         }
+        //LoanEligibility
+        public void errLoanEligibility()
+        { 
+            txtLoanEligibility.BackColor = Color.Salmon;
+        }
+
+        public void unLoanEligibility()
+        {
+            txtLoanEligibility.BackColor = Color.White;
+        }
         ////Duration
         //public void errDuration()
         //{
@@ -552,17 +556,17 @@ namespace SVLMS.Loaning.View
         //}
         //CoMaker
         public void errComaker()
-        { 
+        {
             comakerPanel.BackColor = Color.Salmon;
         }
 
         public void unComaker()
         {
-            comakerPanel.BackColor = Color.CornflowerBlue;
+            comakerPanel.BackColor = Color.White;
         }
 
         public int comaker()
-        { 
+        {
             int i = 0;
             if (rbtnCoMakerYes.Checked == false && rbtnCoMakerNo.Checked == false)
                 i = 1;
@@ -576,7 +580,7 @@ namespace SVLMS.Loaning.View
 
         public void unStatus()
         {
-            statusPanel.BackColor = Color.CornflowerBlue;
+            statusPanel.BackColor = Color.White;
         }
 
         public int status()
@@ -594,7 +598,7 @@ namespace SVLMS.Loaning.View
 
         public void unCollateral()
         {
-            collateraPanel.BackColor = Color.CornflowerBlue;
+            collateraPanel.BackColor = Color.White;
         }
 
         public int collateral()
@@ -618,7 +622,7 @@ namespace SVLMS.Loaning.View
         {
             return txtLoanEligibility.Text;
         }
-        
+
         //Percentage
         //public void errPercentage()
         //{
@@ -640,12 +644,31 @@ namespace SVLMS.Loaning.View
         //CheckboxLoanEntitlement
         public void errcboxLoan()
         {
-            LoanEntitlementPanel.BackColor = Color.Salmon;
+            chkNoEntitlement.BackColor = Color.Salmon;
         }
 
         public void uncboxLoan()
         {
-            LoanEntitlementPanel.BackColor = Color.CornflowerBlue;
+            chkNoEntitlement.BackColor = Color.White;
+        }
+
+        public string getLoanTypeName()
+        {
+            string result = "";
+            char[] str = txtLoanName.Text.ToCharArray();
+            for (int i = 0; i < str.Length; i++)
+            {
+                if (str[i] == ' ')
+                { }
+                else
+                    result += str[i];
+            }
+            return result.ToLower();
+        }
+
+        private void txtLoanName_Validating(object sender, CancelEventArgs e)
+        {
+            setLoanName(txtLoanName.Text.Trim());
         }
 
         private void txtMinAmount_KeyPress(object sender, KeyPressEventArgs e)
@@ -672,11 +695,6 @@ namespace SVLMS.Loaning.View
             }
         }
 
-        private void txtMaxTerm_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = !(char.IsControl(e.KeyChar) || char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back || char.IsWhiteSpace(e.KeyChar));
-        }
-
         private void txtLoanEntitlement_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
@@ -689,9 +707,22 @@ namespace SVLMS.Loaning.View
             }
         }
 
-        private void txtLoanName_Validating(object sender, CancelEventArgs e)
+        private void txtMaxTerm_KeyPress(object sender, KeyPressEventArgs e)
         {
-            setLoanName(txtLoanName.Text.Trim());
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void txtLoanEligibility_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == '.' && (sender as TextBox).Text.IndexOf('.') > -1)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using SVLMS.Loaning.Model;
 using SVLMS.Loaning.View;
-using SVLMS.Savings.Model;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
@@ -16,7 +15,6 @@ namespace SVLMS.Loaning.Controller
     {
         ModelLoan model;
         TransactionLoanReleaseView view;
-        ModelLoanApplication mla = new ModelLoanApplication();
 
         public ControllerLoanRelease(ModelLoan model, TransactionLoanReleaseView view)
         {
@@ -37,12 +35,14 @@ namespace SVLMS.Loaning.Controller
         {
             if (view.getSearchBy() == "Loan No")
             {
-                view.setDataGridApprovedLoans(model.SearchByApprovedLoans(1,view.getTxtSearch()));
+                model.loanNo = view.getTxtSearch();
+                view.setDataGridApprovedLoans(model.SearchByApprovedLoans(1));
             }
 
             else if (view.getSearchBy() == "Member Name")
             {
-                view.setDataGridApprovedLoans(model.SearchByApprovedLoans(2, view.getTxtSearch()));
+                model.memberName = view.getTxtSearch();
+                view.setDataGridApprovedLoans(model.SearchByApprovedLoans(2));
 
             }
 
@@ -70,17 +70,6 @@ namespace SVLMS.Loaning.Controller
                     model.releaseType = view.getReleaseType();
                     model.loanNo = view.getLoanNo();
                     model.userID = ModelUser.userID;
-
-                    if (Convert.ToDouble(view.getPreviousLoanBalance()) > 0)
-                    {
-                        //Pay the previous loan
-                        ModelLoanPayment mlp = new ModelLoanPayment();
-                        mlp.loanNo = mla.loanNo;
-                        mlp.accountNo = 
-                        mlp.paymentAmount = view.getPreviousLoanBalance();
-                        mlp.userID = ModelUser.userID;
-                        mlp.insertLoanPayment(new ModelAmortization() { loanNo = mlp.loanNo }.countRemainingAmortization(), 0, "");
-                    }
 
                     //Release Loan
                     int transactionID = model.loanRelease();
@@ -144,15 +133,6 @@ namespace SVLMS.Loaning.Controller
         {
             DataGridView dg = view.getDataGridApprovedLoans();
             int row = dg.CurrentCell.RowIndex;
-            
-            mla.accountNo = dg.Rows[row].Cells[5].Value.ToString();
-            mla.loanNo = "";
-            view.setPreviousLoanBalance(mla.getLoanBalance().ToString());
-            SqlDataReader reader = mla.getPreviousLoan();
-            if (reader.Read())
-            {
-                mla.loanNo = reader["loanNo"].ToString();
-            }
 
             //Set values to Loan Information
             view.setLoanNo(dg.Rows[row].Cells[0].Value.ToString());
@@ -175,9 +155,8 @@ namespace SVLMS.Loaning.Controller
             //Get the net amount
             double netAmount = 0;
             double totalCharges = model.getTotalCharges();
-            double previousLoanBalance = mla.getLoanBalance();
             double approvedAmount = Convert.ToDouble(view.getApprovedAmountRelease());
-            netAmount = approvedAmount - (totalCharges + previousLoanBalance);
+            netAmount = approvedAmount - totalCharges;
             view.setNetAmount(netAmount.ToString());
             view.enableBtnRelease();
             view.disablePrintVoucher();
@@ -232,7 +211,7 @@ namespace SVLMS.Loaning.Controller
 
         public void RefreshFields()
         {
-            view.setDataGridApprovedLoans(model.SearchByApprovedLoans(1,view.getTxtSearch()));
+            view.setDataGridApprovedLoans(model.getApprovedLoans());
             view.disableCheckInformation();
             //view.setLoanNo("");
             //view.setMemberName("");

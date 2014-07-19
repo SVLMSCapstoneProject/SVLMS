@@ -34,12 +34,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.Data.v13.2, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v13.2.Core, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Sparkline.v13.2.Core, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v13.2, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v13.2, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v13.2, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraNavBar.v13.2, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Win32.TaskScheduler">
-      <HintPath>..\dll files\TaskScheduler\v4.0\Microsoft.Win32.TaskScheduler.dll</HintPath>
+      <HintPath>..\..\..\Downloads\Compressed\TaskScheduler\v4.0\Microsoft.Win32.TaskScheduler.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Printing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -69,16 +78,16 @@
     <Compile Include="Loaning\Controller\ControllerMemberType.cs" />
     <Compile Include="Loaning\Controller\ControllerPenalty.cs" />
     <Compile Include="Loaning\Controller\ControllerShareCapitalTransaction.cs" />
-    <Compile Include="Loaning\Controller\ControllerCollateral.cs" />
+    <Compile Include="Loaning\Controller\MaintenanceCollateralController.cs" />
     <Compile Include="Loaning\Loan.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Loaning\Loan.designer.cs">
       <DependentUpon>Loan.cs</DependentUpon>
     </Compile>
-    <Compile Include="Loaning\Model\ModelCheckInformation.cs" />
     <Compile Include="Loaning\Model\ModelAdditionalCharges.cs" />
     <Compile Include="Loaning\Model\ModelAmortization.cs" />
+    <Compile Include="Loaning\Model\ModelCheckInformation.cs" />
     <Compile Include="Loaning\Model\ModelCollateral.cs" />
     <Compile Include="Loaning\Model\ModelLoan.cs" />
     <Compile Include="Loaning\Model\ModelLoanApplication.cs" />
@@ -292,23 +301,17 @@
     <Compile Include="Savings\View\TransactionUnfreezeAccount.designer.cs">
       <DependentUpon>TransactionUnfreezeAccount.cs</DependentUpon>
     </Compile>
-    <Compile Include="Savings\View\XXXCreateSavings.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Savings\View\XXXCreateSavings.Designer.cs">
-      <DependentUpon>XXXCreateSavings.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Savings\View\XXXSampleCreate.cs">
+    <Compile Include="Loaning\ViewLoanDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Savings\View\XXXSampleCreate.Designer.cs">
-      <DependentUpon>XXXSampleCreate.cs</DependentUpon>
+    <Compile Include="Loaning\ViewLoanDashboard.Designer.cs">
+      <DependentUpon>ViewLoanDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Savings\View\XXXSavingsWindows.cs">
+    <Compile Include="Savings\ViewSavingsDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Savings\View\XXXSavingsWindows.Designer.cs">
-      <DependentUpon>XXXSavingsWindows.cs</DependentUpon>
+    <Compile Include="Savings\ViewSavingsDashboard.Designer.cs">
+      <DependentUpon>ViewSavingsDashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="splash.cs">
       <SubType>Form</SubType>
@@ -322,25 +325,19 @@
     <Compile Include="Switchboard.designer.cs">
       <DependentUpon>Switchboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Utilities\BatchProcessing.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Utilities\BatchProcessing.designer.cs">
-      <DependentUpon>BatchProcessing.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Utilities\UserType.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Utilities\UserType.Designer.cs">
-      <DependentUpon>UserType.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Utilities\UtilitiesForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Utilities\UtilitiesForm.Designer.cs">
-      <DependentUpon>UtilitiesForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Validator.cs" />
+    <Compile Include="ViewLoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewLoginForm.Designer.cs">
+      <DependentUpon>ViewLoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewSwitchboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewSwitchboard.Designer.cs">
+      <DependentUpon>ViewSwitchboard.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Loaning\Loan.resx">
       <DependentUpon>Loan.cs</DependentUpon>
     </EmbeddedResource>
@@ -392,6 +389,7 @@
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -444,14 +442,11 @@
     <EmbeddedResource Include="Savings\View\TransactionUnfreezeAccount.resx">
       <DependentUpon>TransactionUnfreezeAccount.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Savings\View\XXXCreateSavings.resx">
-      <DependentUpon>XXXCreateSavings.cs</DependentUpon>
+    <EmbeddedResource Include="Loaning\ViewLoanDashboard.resx">
+      <DependentUpon>ViewLoanDashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Savings\View\XXXSampleCreate.resx">
-      <DependentUpon>XXXSampleCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Savings\View\XXXSavingsWindows.resx">
-      <DependentUpon>XXXSavingsWindows.cs</DependentUpon>
+    <EmbeddedResource Include="Savings\ViewSavingsDashboard.resx">
+      <DependentUpon>ViewSavingsDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="splash.resx">
       <DependentUpon>splash.cs</DependentUpon>
@@ -459,14 +454,11 @@
     <EmbeddedResource Include="Switchboard.resx">
       <DependentUpon>Switchboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Utilities\BatchProcessing.resx">
-      <DependentUpon>BatchProcessing.cs</DependentUpon>
+    <EmbeddedResource Include="ViewLoginForm.resx">
+      <DependentUpon>ViewLoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Utilities\UserType.resx">
-      <DependentUpon>UserType.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Utilities\UtilitiesForm.resx">
-      <DependentUpon>UtilitiesForm.cs</DependentUpon>
+    <EmbeddedResource Include="ViewSwitchboard.resx">
+      <DependentUpon>ViewSwitchboard.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config">
       <SubType>Designer</SubType>
@@ -541,16 +533,28 @@
     <None Include="Resources\Default.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\exit_bg.png" />
+    <None Include="Resources\find_icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Close.png" />
+    <None Include="Resources\save_icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\logout.png" />
+    <None Include="Resources\cancel_icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\exit_bg_hover.png" />
+    <None Include="Resources\add_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\poweroff_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sample Logo.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Savings Logo.png" />
@@ -559,25 +563,37 @@
     <None Include="Resources\Loan Logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Gear.png" />
+    <None Include="Resources\exit_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit_bg_hover.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Tools-01.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Transaction.png" />
+    <None Include="Resources\Data-Find.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Documents-01.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Data-Find.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\exit_bg_savings.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\poweroff_icon.png" />
+    <None Include="Resources\Close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Transaction.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MaintenanceMenu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Settings-01.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

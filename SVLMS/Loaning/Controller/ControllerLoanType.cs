@@ -15,7 +15,8 @@ namespace SVLMS.Loaning.Controller
         ModelLoanType model;
         MaintenanceLoanTypeView view;
 
-
+        bool update;
+        string updateTypeName = "";
         public ControllerLoanType(ModelLoanType maltm, MaintenanceLoanTypeView mltv)
         {
             this.model = maltm;
@@ -34,6 +35,42 @@ namespace SVLMS.Loaning.Controller
             mltv.setMemberType(maltm.getMemberType());
             mltv.setTxtSearchEvent(TxtSearchTextChanged);
             mltv.setCboFilterEvent(CboFilterSelectedIndexChanged);
+            mltv.settxtLoanName(txtLoanNameLeave);
+            view.enableAdd();
+            view.disableUpdate();
+        }
+
+        public void txtLoanNameLeave(object sender, EventArgs e)
+        {
+            int check = LoanTypeName();
+            if (update == true)
+            {
+                int check1 = LoanTypeID();
+                if (check1 == 1)
+                {
+                    view.unLoanName();
+                }
+                else
+                {
+                    if (check == 1)
+                    {
+                        view.errLoanName();
+                        MessageBox.Show("There's an existing Loan Type Name");
+                    }
+                    else
+                        view.unLoanName();
+                }
+            }
+            else
+            {
+                if (check == 1)
+                {
+                    view.errLoanName();
+                    MessageBox.Show("There's an existing Loan Type Name");
+                }
+                else
+                    view.unLoanName();            
+            }
         }
 
         public void CboFilterSelectedIndexChanged(object sender, EventArgs e)
@@ -81,7 +118,6 @@ namespace SVLMS.Loaning.Controller
 
             model.searchLoanType();
 
-            //view.setLoanId(model.loanId);
             view.setLoanName(model.loanName);
             view.setMinAmount(model.minAmount);
             view.setMaxAmount(model.maxAmount);
@@ -91,7 +127,9 @@ namespace SVLMS.Loaning.Controller
             view.setIsCollateralized(model.hasCollateral.ToString());
             view.setStatus(model.status);
             view.setLoanEligibility(model.loanEligibility);
-            
+            updateTypeName = model.loanName.ToString();
+            update = true;
+
             double entitlement = Convert.ToDouble(model.loanEntitlement);
 
             if (entitlement == 0)
@@ -114,87 +152,89 @@ namespace SVLMS.Loaning.Controller
 
         public void btnSaveClicked(object sender, EventArgs e)
         {
+            int check = LoanTypeName();
+
             this.setModelValues();
 
             bool perform = PerformAction();
 
             if (perform == true)
             {
-                if (view.getNoEntitlement() == true)
+                if (check == 1)
                 {
-                    DialogResult dialogResult = MessageBox.Show("Are you sure of not having a Loan Entitlement?", "No Loan Entitlement", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
-                    if (dialogResult == DialogResult.Yes)
-                    {
-                        view.uncboxLoan();
-                        model.memberTypeID = view.getMemberType();
-                        model.insertLoanType();
-                        MessageBox.Show("The Record is Successfully Inserted");
-                        view.setLoanTypeInfo(model.getLoanTypeInfo());
-                        this.refreshfields();
-                    }
-                    else if (dialogResult == DialogResult.No)
-                    {
-                        view.errcboxLoan();
-                    }
+                    view.errLoanName();
+                    MessageBox.Show("There's an existing Loan Type Name");
                 }
                 else
                 {
-                    DialogResult dialogResult = MessageBox.Show("Are you sure of having a Loan Entitlement?", "No Loan Entitlement", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
-                    if (dialogResult == DialogResult.Yes)
+                    if (view.getNoEntitlement() == true)
                     {
-                        view.uncboxLoan();
-                        model.memberTypeID = view.getMemberType();
-                        model.insertLoanType();
-                        MessageBox.Show("The Record is Successfully Inserted");
-                        view.setLoanTypeInfo(model.getLoanTypeInfo());
-                        this.refreshfields();
+                        DialogResult dialogResult = MessageBox.Show("Are you sure of not having a Loan Entitlement?", "No Loan Entitlement", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            view.uncboxLoan();
+                            model.loanId = model.getLoanId();
+                            model.memberTypeID = view.getMemberType();
+                            model.insertLoanType();
+                            MessageBox.Show("The Record is Successfully Inserted");
+                            view.setLoanTypeInfo(model.getLoanTypeInfo());
+                            this.refreshfields();
+                        }
+                        else if (dialogResult == DialogResult.No)
+                        {
+                            view.errcboxLoan();
+                        }
                     }
-                    else if (dialogResult == DialogResult.No)
+                    else
                     {
-                        view.errcboxLoan();
+                        view.unCollateral();
+
+                        DialogResult dialogResult = MessageBox.Show("Are you sure of having a Loan Entitlement?", "No Loan Entitlement", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            view.uncboxLoan();
+                            model.loanId = model.getLoanId();
+                            model.memberTypeID = view.getMemberType();
+                            model.insertLoanType();
+                            MessageBox.Show("The Record is Successfully Inserted");
+                            view.setLoanTypeInfo(model.getLoanTypeInfo());
+                            this.refreshfields();
+                        }
+                        else if (dialogResult == DialogResult.No)
+                        {
+                            view.errcboxLoan();
+                        }
                     }
                 }
             }
         }
 
-        public void btnUpdateClicked(object sender,EventArgs e)
+        public void btnUpdateClicked(object sender, EventArgs e)
         {
+            int check = LoanTypeID();
+            int check1 = LoanTypeName();
+
             this.setModelValues();
 
             bool perform = PerformAction();
 
             if (perform == true)
             {
-                if (view.getNoEntitlement() == true)
+                if (check == 1)
                 {
-                    DialogResult dialogResult = MessageBox.Show("Are you sure of not having a Loan Entitlement?", "No Loan Entitlement", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
-                    if (dialogResult == DialogResult.Yes)
-                    {
-                        view.uncboxLoan();
-                        model.updateLoanType();
-                        view.setLoanTypeInfo(model.getLoanTypeInfo());
-                        MessageBox.Show("The Record is Successfully Updated");
-                        this.refreshfields();
-                    }
-                    else if (dialogResult == DialogResult.No)
-                    {
-                        view.errcboxLoan();
-                    }
+                    view.unLoanName();
+                    Update();
                 }
                 else
                 {
-                    DialogResult dialogResult = MessageBox.Show("Are you sure of not having a Loan Entitlement?", "No Loan Entitlement", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
-                    if (dialogResult == DialogResult.Yes)
+                    if (check1 == 1)
                     {
-                        view.uncboxLoan();
-                        model.updateLoanType();
-                        view.setLoanTypeInfo(model.getLoanTypeInfo());
-                        MessageBox.Show("The Record is Successfully Updated");
-                        this.refreshfields();
+                        view.errLoanName();
+                        MessageBox.Show("There's an existing Loan Type Name");
                     }
-                    else if (dialogResult == DialogResult.No)
+                    else
                     {
-                        view.errcboxLoan();
+                        Update();
                     }
                 }
             }
@@ -202,7 +242,6 @@ namespace SVLMS.Loaning.Controller
 
         public void setModelValues()
         {
-            //model.loanId = view.getLoanId();
             model.loanName = view.getLoanName();
             model.minAmount = view.getMinAmount();
             model.maxAmount = view.getMaxAmount();
@@ -231,7 +270,8 @@ namespace SVLMS.Loaning.Controller
         }
 
         public void refreshfields()
-        {            
+        {           
+            update = false;
             view.setLoanName("");
             view.setMinAmount("");
             view.setMaxAmount("");
@@ -261,6 +301,42 @@ namespace SVLMS.Loaning.Controller
             view.setLoanEligibility("");
         }
 
+        public void Update()
+        {
+                    if (view.getNoEntitlement() == true)
+                    {
+                        DialogResult dialogResult = MessageBox.Show("Are you sure of not having a Loan Entitlement?", "No Loan Entitlement", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            view.uncboxLoan();
+                            model.updateLoanType();
+                            view.setLoanTypeInfo(model.getLoanTypeInfo());
+                            MessageBox.Show("The Record is Successfully Updated");
+                            this.refreshfields();
+                        }
+                        else if (dialogResult == DialogResult.No)
+                        {
+                            view.errcboxLoan();
+                        }
+                    }
+                    else
+                    {
+                        DialogResult dialogResult = MessageBox.Show("Are you sure of not having a Loan Entitlement?", "No Loan Entitlement", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            view.uncboxLoan();
+                            model.updateLoanType();
+                            view.setLoanTypeInfo(model.getLoanTypeInfo());
+                            MessageBox.Show("The Record is Successfully Updated");
+                            this.refreshfields();
+                        }
+                        else if (dialogResult == DialogResult.No)
+                        {
+                            view.errcboxLoan();
+                        }
+                    }        
+        }
+
         public bool PerformAction()
         {
             bool perform = false;
@@ -268,7 +344,7 @@ namespace SVLMS.Loaning.Controller
             //if No Loan Entitlement is checked
             if (view.getNoEntitlement() == true)
             {
-                if (validate == 6)
+                if (validate == 7)
                 {
                     if (Convert.ToDouble(model.maxAmount) < Convert.ToDouble(model.minAmount))
                     {
@@ -285,14 +361,13 @@ namespace SVLMS.Loaning.Controller
                 }
                 else
                 {
-                    //MessageBox.Show("Testasd");
                     MessageBox.Show("Invalid Input/s", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
             //if No Loan Entitlement is not checked
             else
             {
-                if (validate == 7)
+                if (validate == 8)
                 {
                     if (Convert.ToDouble(model.maxAmount) < Convert.ToDouble(model.minAmount))
                     {
@@ -321,7 +396,7 @@ namespace SVLMS.Loaning.Controller
         {
             this.setModelValues();
 
-            string special = "!@#$%^&*(){}/;:><+=_?.,";
+            string special = "!@#$%^&*(){}/;:><+=_?.,1234567890";
             bool pass = true;
             int correct = 0;
             int integer;
@@ -340,41 +415,41 @@ namespace SVLMS.Loaning.Controller
             }
             else
             {
-                char[] spec = special.ToCharArray();
-                char[] str = model.loanName.ToCharArray();
+                    char[] spec = special.ToCharArray();
+                    char[] str = model.loanName.ToCharArray();
 
-                for (int x = 0; x < special.Length; x++)
-                {
-                    for (int i = 0; i < str.Length; i++)
+                    for (int x = 0; x < special.Length; x++)
                     {
-                        if (str[i] == special[x])
+                        for (int i = 0; i < str.Length; i++)
                         {
-                            view.errLoanName();
-                            pass = false;
-                            error = true;
-                            x = special.Length;
-                            i = str.Length;
+                            if (str[i] == special[x])
+                            {
+                                view.errLoanName();
+                                pass = false;
+                                error = true;
+                                x = special.Length;
+                                i = str.Length;
+                            }
                         }
                     }
-                }
 
-                if (pass)
-                {
-                    for (int i = 0; i < str.Length - 1; i++)
+                    if (pass)
                     {
-                        if (char.IsLetter(str[i]) || str[i] == ' ' || str[i] == '\'' || str[i] == '-')
+                        for (int i = 0; i < str.Length - 1; i++)
                         {
-                            view.unLoanName();
-                            error = false;
-                        }
-                        else
-                        {
-                            view.errLoanName();
-                            i = model.loanName.Length;
-                            error = true;
+                            if (char.IsLetter(str[i]) || str[i] == ' ' || str[i] == '\'' || str[i] == '-')
+                            {
+                                view.unLoanName();
+                                error = false;
+                            }
+                            else
+                            {
+                                view.errLoanName();
+                                i = model.loanName.Length;
+                                error = true;
+                            }
                         }
                     }
-                }
                 if (error == false)
                 {
                     view.unLoanName();
@@ -427,6 +502,37 @@ namespace SVLMS.Loaning.Controller
                 else
                 {
                     view.errMaximumAmount();
+                }
+            }
+            //LoanEligibility
+            if (string.IsNullOrWhiteSpace(model.loanEligibility))
+            {
+                view.errLoanEligibility();
+            }
+            else
+            {
+                if (double.TryParse(model.loanEligibility, out num))
+                {
+                    if (Convert.ToDouble(model.loanEligibility) < 0)
+                    {
+                        view.errLoanEligibility();
+                    }
+                    else
+                    {
+                        if (Convert.ToDouble(model.loanEligibility) >= 0 && Convert.ToDouble(model.loanEligibility) <= 100)
+                        {
+                            view.unLoanEligibility();
+                            correct++;
+                        }
+                        else
+                        {
+                            view.errLoanEligibility();
+                        }
+                    }
+                }
+                else
+                {
+                    view.errLoanEligibility();
                 }
             }
             //MaximumTerm
@@ -505,7 +611,6 @@ namespace SVLMS.Loaning.Controller
                         view.errLoanEntitlement();
                     }
                 }
-
                 //collateral
                 if (collateral == 1)
                 {
@@ -528,6 +633,23 @@ namespace SVLMS.Loaning.Controller
                 //}
             }
             return correct;
+        }
+
+        public int LoanTypeName()
+        {
+            model.loanName = view.getLoanTypeName();
+            model.LoanTypeName();
+
+            return Convert.ToInt16(model.loanTypeName);            
+        }
+
+
+        public int LoanTypeID()
+        {
+            model.updateLoanTypeName = view.getLoanTypeName();
+            model.UpdateLoanTypeName();
+
+            return Convert.ToInt16(model.loanTypeID);
         }
     }
 }

@@ -16,6 +16,7 @@ namespace SVLMS.Loaning.Controller
         MaintenanceAdditionalChargesView view;
         ModelAdditionalCharges model;
 
+        bool update;
         public ControllerAdditionalCharges(ModelAdditionalCharges model, MaintenanceAdditionalChargesView view)
         {
             this.view = view;
@@ -24,6 +25,7 @@ namespace SVLMS.Loaning.Controller
             view.enableAdd();
             view.disableUpdate();
             
+
             view.setDataGrid(model.getChargeInformation());
             //view.setChargeID(model.getNextID());
             view.setlistbox(model.getLoanTypes());
@@ -34,6 +36,44 @@ namespace SVLMS.Loaning.Controller
             view.setDataGridEvent(dgClicked);
             view.setCboFilterEvent(CboFilterSelectedIndexChanged);
             view.setTxtSearchEvent(TextSearchTextChanged);
+            view.settxtChargeName(txtChargeNameLeave);
+        }
+
+        public void txtChargeNameLeave(object sender, EventArgs e)
+        {
+            int check = ChargeName();
+            if (update == true)
+            {
+                int check1 = ChargeNameID();
+                if (check1 == 1)
+                {
+                    view.unChargeName();
+                }
+                else
+                {
+                    if (check == 1)
+                    {
+                        view.errChargeName();
+                        MessageBox.Show("There's an existing Charge Name");
+                    }
+                    else
+                    {
+                        view.unChargeName();
+                    }
+                }
+            }
+            else 
+            {
+                if (check == 1)
+                {
+                    view.errChargeName();
+                    MessageBox.Show("There's an existing Charge Name");
+                }
+                else
+                {
+                    view.unChargeName();
+                }            
+            }
         }
 
         public void TextSearchTextChanged(object sender, EventArgs e)
@@ -60,19 +100,52 @@ namespace SVLMS.Loaning.Controller
 
         public void btnUpdateClicked(object sender, EventArgs e)
         {
-            this.setmodelValues();
-
+            int check = ChargeNameID();
+            int check1 = ChargeName();
             int validate = Validate();
+
+            this.setmodelValues();
 
             if (validate == 4)
             {
-                model.updateCharges();
-                model.UpdateLoanCharges();
-                MessageBox.Show("The Record is Successfully Updated");
-                this.RefreshFields();
+                if (check == 1)
+                {
+                    view.unChargeName();
+                    model.updateCharges();
+                    model.UpdateLoanCharges();
+                    MessageBox.Show("The Record is Successfully Updated");
+                    this.RefreshFields();                
+                }
+                else
+                {
+                    if (check1 == 1)
+                    {
+                        view.errChargeName();
+                        MessageBox.Show("There's an existing Charge Name");
+                    }
+                    else
+                    {
+                        view.unChargeName();
+                        model.updateCharges();
+                        model.UpdateLoanCharges();
+                        MessageBox.Show("The Record is Successfully Updated");
+                        this.RefreshFields();
+                    }
+                }
             }
             else
             {
+                if (check == 1)
+                {
+                    view.errChargeName();
+                }
+                else
+                {
+                    if (check1 == 1)
+                    {
+                        view.errChargeName();
+                    }
+                }
                 MessageBox.Show("Invalid Input/s", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);            
             }
         }
@@ -92,33 +165,47 @@ namespace SVLMS.Loaning.Controller
             model.searchChargesInformation();
             model.searchchargesloantyeInfo();
 
-            //view.setChargeID(model.chargeID);
+            view.setChargeID(model.chargeID);
             view.setChargeName(model.chargeName);
             view.setIsPercentage(model.isPercentage);
             view.setAmount(model.amount);
             view.setchecklistbox(model.list);
             view.setStatus(model.status);
 
-
             view.disableAdd();
             view.enableUpdate();
+            update = true;
         }
 
         public void btnSaveClicked(object sender, EventArgs e)
         {
-            this.setmodelValues();
-
+            int check = ChargeName();
             int validate = Validate();
+
+            this.setmodelValues();
 
             if (validate == 4)
             {
-                model.insertCharges();
-                model.insertLoanCharges();
-                MessageBox.Show("The Record is Successfully Inserted");
-                this.RefreshFields();
+                if (check == 1)
+                {
+                    view.errChargeName();
+                    MessageBox.Show("There's an existing Charge Name");
+                }
+                else
+                {
+                    view.unChargeName();
+                    model.insertCharges();
+                    model.insertLoanCharges();
+                    MessageBox.Show("The Record is Successfully Inserted");
+                    this.RefreshFields();
+                }
             }
             else
             {
+                if (check == 1)
+                {
+                    view.errChargeName();
+                }
                 MessageBox.Show("Invalid Input/s", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
@@ -136,7 +223,7 @@ namespace SVLMS.Loaning.Controller
 
         public void RefreshFields()
         {
-            //view.setChargeID(model.getNextID());
+            view.setChargeID(model.getNextID());
             view.setChargeName("");
             view.setAmount("");
             view.setDataGrid(model.getChargeInformation());
@@ -152,6 +239,7 @@ namespace SVLMS.Loaning.Controller
 
         public void refresh()
         {
+            update = false;
             view.unAmount();
             view.unChargeName();
             view.unPercentage();
@@ -162,7 +250,7 @@ namespace SVLMS.Loaning.Controller
         {
             this.setmodelValues();
 
-            string special = "!@#$%^&*(){}/;:><+=_?.,";
+            string special = "!@#$%^&*(){}/;:><+=_?.,1234567890";
             double num;
             bool error = false;
             int correct = 0;
@@ -262,6 +350,22 @@ namespace SVLMS.Loaning.Controller
             }
 
             return correct;
+        }
+
+        public int ChargeName()
+        {
+            model.chargeName = view.getNameCharge();
+            model.ChargeName();
+
+            return Convert.ToInt16(model.nameCharge);
+        }
+
+        public int ChargeNameID()
+        {
+            model.updateNameCharge = view.getNameCharge();
+            model.UpdateChargeName();
+
+            return Convert.ToInt16(model.nameChargeID);
         }
     }
 }

@@ -100,7 +100,7 @@ namespace SVLMS.Savings.View
             btnPlus.Enabled = true;
             btnUploadJoint.Enabled = true;
             btnUploadJoint2.Enabled = true;
-            //btnRemoveAccountHolder.Enabled = true;
+            btnRemoveAccountHolder.Enabled = true;
             btnAddAccountHolder.Enabled = true;
         }
 
@@ -108,7 +108,7 @@ namespace SVLMS.Savings.View
         {
             btnPlus.Enabled = false;
             btnAddAccountHolder.Enabled = false;
-            //btnRemoveAccountHolder.Enabled = false;
+            btnRemoveAccountHolder.Enabled = false;
             btnUpdateAccountHolder.Enabled = false;
             btnPlus.Enabled = false;
             btnUploadJoint.Enabled = false;
@@ -168,10 +168,10 @@ namespace SVLMS.Savings.View
             btnAddAccountHolder.Click += e;
         }
 
-        //public void setBtnRemoveAccountHolderEvent(EventHandler e)
-        //{
-        //    btnRemoveAccountHolder.Click += e;
-        //}
+        public void setBtnRemoveAccountHolderEvent(EventHandler e)
+        {
+            btnRemoveAccountHolder.Click += e;
+        }
 
         public void setCboSavingsJointSelectedIndex(EventHandler e)
         {
@@ -259,15 +259,15 @@ namespace SVLMS.Savings.View
             btnAddAccountHolder.Enabled = false;
         }
 
-        //public void enableBtnRemoveAccountHolder()
-        //{
-        //    btnRemoveAccountHolder.Enabled = true;
-        //}
+        public void enableBtnRemoveAccountHolder()
+        {
+            btnRemoveAccountHolder.Enabled = true;
+        }
 
-        //public void disableBtnRemoveAccountHolder()
-        //{
-        //    btnRemoveAccountHolder.Enabled = false;
-        //}
+        public void disableBtnRemoveAccountHolder()
+        {
+            btnRemoveAccountHolder.Enabled = false;
+        }
 
         public string getIsFamily()
         {

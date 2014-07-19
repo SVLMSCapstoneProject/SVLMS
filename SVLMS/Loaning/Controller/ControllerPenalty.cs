@@ -53,10 +53,6 @@ namespace SVLMS.Loaning.Controller
             view.unStatus();
             view.unPercentage();
             view.unPenaltyRate();
-            view.unInterval();
-            view.unGracePeriod();
-            view.unCboxInterval();
-            view.unCboxGracePeriod();
 
             DataGridView dg = view.getDataGrid();
             int row = dg.CurrentCell.RowIndex;
@@ -84,7 +80,7 @@ namespace SVLMS.Loaning.Controller
             //model.loanTypeID = dg.Rows[row].Cells[0].Value.ToString();
             model.penaltyID = dg.Rows[row].Cells[0].Value.ToString();
             int validate = Validate();
-            if (validate == 7)
+            if (validate == 5)
             {
                 if (!model.penaltyRateExistsUpdate())
                 {
@@ -110,7 +106,7 @@ namespace SVLMS.Loaning.Controller
             model.loanTypeID = view.getLoanTypeID();
 
             int validate = Validate();
-            if (validate == 7)
+            if (validate == 5)
             {
                 if (!model.penaltyRateExists())
                 {
@@ -159,10 +155,6 @@ namespace SVLMS.Loaning.Controller
             view.unStatus();
             view.unPercentage();
             view.unPenaltyRate();
-            view.unInterval();
-            view.unGracePeriod();
-            view.unCboxInterval();
-            view.unCboxGracePeriod();
         }
 
         public int Validate()
@@ -265,26 +257,6 @@ namespace SVLMS.Loaning.Controller
             else
             {
                 view.unStatus();
-                correct++;
-            }
-            //GracePeriod(dropdown)
-            if (model.graceTime == "0")
-            {
-                view.errCboxGracePeriod();
-            }
-            else
-            {
-                view.unCboxGracePeriod();
-                correct++;
-            }
-            //Interval(dropdown)
-            if (model.intervalTime == "0")
-            {
-                view.errCboxInterval();
-            }
-            else
-            {
-                view.unCboxInterval();
                 correct++;
             }
 

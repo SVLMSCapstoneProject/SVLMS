@@ -31,14 +31,6 @@
             this.panelMain = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtControlNo = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cboTransactionType = new System.Windows.Forms.ComboBox();
-            this.txtAmount = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.btnSaveTransaction = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtSavingsType = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -66,10 +58,22 @@
             this.label6 = new System.Windows.Forms.Label();
             this.cboSearchBy = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnPrintVoucher = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtChange = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtAmountTendered = new System.Windows.Forms.TextBox();
+            this.txtControlNo = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cboTransactionType = new System.Windows.Forms.ComboBox();
+            this.txtAmount = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.btnSaveTransaction = new System.Windows.Forms.Button();
             this.panelMain.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -78,6 +82,7 @@
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgAccountHolders)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgSavingsAccount)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMain
@@ -92,7 +97,7 @@
             this.panelMain.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelMain.Location = new System.Drawing.Point(3, 2);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(675, 586);
+            this.panelMain.Size = new System.Drawing.Size(685, 597);
             this.panelMain.TabIndex = 0;
             // 
             // tabControl1
@@ -102,7 +107,7 @@
             this.tabControl1.Location = new System.Drawing.Point(14, 251);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(645, 320);
+            this.tabControl1.Size = new System.Drawing.Size(645, 336);
             this.tabControl1.TabIndex = 155;
             // 
             // tabPage1
@@ -112,90 +117,10 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(637, 291);
+            this.tabPage1.Size = new System.Drawing.Size(637, 307);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Account Transaction";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.txtControlNo);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.cboTransactionType);
-            this.groupBox2.Controls.Add(this.txtAmount);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.btnSaveTransaction);
-            this.groupBox2.Location = new System.Drawing.Point(331, 38);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(297, 179);
-            this.groupBox2.TabIndex = 199;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Transaction Details";
-            // 
-            // txtControlNo
-            // 
-            this.txtControlNo.Location = new System.Drawing.Point(154, 89);
-            this.txtControlNo.Name = "txtControlNo";
-            this.txtControlNo.Size = new System.Drawing.Size(132, 22);
-            this.txtControlNo.TabIndex = 193;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(18, 92);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(99, 16);
-            this.label3.TabIndex = 192;
-            this.label3.Text = "Slip Control No:";
-            // 
-            // cboTransactionType
-            // 
-            this.cboTransactionType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboTransactionType.FormattingEnabled = true;
-            this.cboTransactionType.Items.AddRange(new object[] {
-            "Deposit",
-            "Withdrawal",
-            "Close Account"});
-            this.cboTransactionType.Location = new System.Drawing.Point(154, 22);
-            this.cboTransactionType.Name = "cboTransactionType";
-            this.cboTransactionType.Size = new System.Drawing.Size(132, 24);
-            this.cboTransactionType.TabIndex = 190;
-            // 
-            // txtAmount
-            // 
-            this.txtAmount.Location = new System.Drawing.Point(154, 58);
-            this.txtAmount.Name = "txtAmount";
-            this.txtAmount.Size = new System.Drawing.Size(132, 22);
-            this.txtAmount.TabIndex = 189;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Location = new System.Drawing.Point(18, 58);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(127, 16);
-            this.label7.TabIndex = 188;
-            this.label7.Text = "Transaction Amount:";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(18, 27);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(110, 16);
-            this.label8.TabIndex = 187;
-            this.label8.Text = "Transaction Type:";
-            // 
-            // btnSaveTransaction
-            // 
-            this.btnSaveTransaction.Location = new System.Drawing.Point(59, 126);
-            this.btnSaveTransaction.Name = "btnSaveTransaction";
-            this.btnSaveTransaction.Size = new System.Drawing.Size(176, 23);
-            this.btnSaveTransaction.TabIndex = 191;
-            this.btnSaveTransaction.Text = "Save Transaction";
-            this.btnSaveTransaction.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -305,7 +230,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(637, 291);
+            this.tabPage2.Size = new System.Drawing.Size(637, 307);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Account Holder Signatures";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -484,12 +409,142 @@
             this.label2.TabIndex = 149;
             this.label2.Text = "Savings Transaction:";
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.btnPrintVoucher);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.txtChange);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.txtAmountTendered);
+            this.groupBox2.Controls.Add(this.txtControlNo);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.cboTransactionType);
+            this.groupBox2.Controls.Add(this.txtAmount);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.btnSaveTransaction);
+            this.groupBox2.Location = new System.Drawing.Point(331, 38);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(297, 211);
+            this.groupBox2.TabIndex = 199;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Transaction Details";
+            // 
+            // btnPrintVoucher
+            // 
+            this.btnPrintVoucher.Location = new System.Drawing.Point(172, 142);
+            this.btnPrintVoucher.Name = "btnPrintVoucher";
+            this.btnPrintVoucher.Size = new System.Drawing.Size(114, 23);
+            this.btnPrintVoucher.TabIndex = 198;
+            this.btnPrintVoucher.Text = "Print Voucher";
+            this.btnPrintVoucher.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(20, 112);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(113, 16);
+            this.label4.TabIndex = 195;
+            this.label4.Text = "Amount Tendered:";
+            // 
+            // txtChange
+            // 
+            this.txtChange.BackColor = System.Drawing.Color.White;
+            this.txtChange.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.txtChange.ForeColor = System.Drawing.Color.Black;
+            this.txtChange.Location = new System.Drawing.Point(154, 183);
+            this.txtChange.Name = "txtChange";
+            this.txtChange.ReadOnly = true;
+            this.txtChange.Size = new System.Drawing.Size(132, 22);
+            this.txtChange.TabIndex = 197;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(18, 183);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(56, 16);
+            this.label5.TabIndex = 196;
+            this.label5.Text = "Change:";
+            // 
+            // txtAmountTendered
+            // 
+            this.txtAmountTendered.Location = new System.Drawing.Point(154, 106);
+            this.txtAmountTendered.Name = "txtAmountTendered";
+            this.txtAmountTendered.Size = new System.Drawing.Size(132, 22);
+            this.txtAmountTendered.TabIndex = 194;
+            // 
+            // txtControlNo
+            // 
+            this.txtControlNo.Location = new System.Drawing.Point(154, 79);
+            this.txtControlNo.Name = "txtControlNo";
+            this.txtControlNo.Size = new System.Drawing.Size(132, 22);
+            this.txtControlNo.TabIndex = 193;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(18, 82);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(99, 16);
+            this.label3.TabIndex = 192;
+            this.label3.Text = "Slip Control No:";
+            // 
+            // cboTransactionType
+            // 
+            this.cboTransactionType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboTransactionType.FormattingEnabled = true;
+            this.cboTransactionType.Items.AddRange(new object[] {
+            "Deposit",
+            "Withdrawal",
+            "Close Account"});
+            this.cboTransactionType.Location = new System.Drawing.Point(154, 22);
+            this.cboTransactionType.Name = "cboTransactionType";
+            this.cboTransactionType.Size = new System.Drawing.Size(132, 24);
+            this.cboTransactionType.TabIndex = 190;
+            // 
+            // txtAmount
+            // 
+            this.txtAmount.Location = new System.Drawing.Point(154, 52);
+            this.txtAmount.Name = "txtAmount";
+            this.txtAmount.Size = new System.Drawing.Size(132, 22);
+            this.txtAmount.TabIndex = 189;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Location = new System.Drawing.Point(18, 52);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(127, 16);
+            this.label7.TabIndex = 188;
+            this.label7.Text = "Transaction Amount:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(18, 27);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(110, 16);
+            this.label8.TabIndex = 187;
+            this.label8.Text = "Transaction Type:";
+            // 
+            // btnSaveTransaction
+            // 
+            this.btnSaveTransaction.Location = new System.Drawing.Point(35, 142);
+            this.btnSaveTransaction.Name = "btnSaveTransaction";
+            this.btnSaveTransaction.Size = new System.Drawing.Size(131, 23);
+            this.btnSaveTransaction.TabIndex = 191;
+            this.btnSaveTransaction.Text = "Save Transaction";
+            this.btnSaveTransaction.UseVisualStyleBackColor = true;
+            // 
             // TransactionSavings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.ClientSize = new System.Drawing.Size(680, 590);
+            this.ClientSize = new System.Drawing.Size(690, 600);
             this.Controls.Add(this.panelMain);
             this.Name = "TransactionSavings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -498,8 +553,6 @@
             this.panelMain.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
@@ -511,6 +564,8 @@
             this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgAccountHolders)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgSavingsAccount)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -548,6 +603,11 @@
         private System.Windows.Forms.PictureBox pictureSignature1;
         private System.Windows.Forms.PictureBox pictureSignature2;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btnPrintVoucher;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtChange;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtAmountTendered;
         private System.Windows.Forms.TextBox txtControlNo;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cboTransactionType;

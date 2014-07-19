@@ -16,25 +16,11 @@ namespace SVLMS
 {
     public partial class savings_form : Form
     {
-        MaintenanceSavingsTypeView mstv = new MaintenanceSavingsTypeView();
-        MaintenanceDormancyView mdv = new MaintenanceDormancyView();
-        MaintenanceTimeDeposit mtdv = new MaintenanceTimeDeposit();
-        MaintenanceTimeDepositPenalty mtdpv = new MaintenanceTimeDepositPenalty();
-        TransactionMembership tm = new TransactionMembership();
-        TransactionMembershipTermination tmt = new TransactionMembershipTermination();
-        XXXSavingsWindows sw = new XXXSavingsWindows();
-        TransactionSavings ts = new TransactionSavings();
-        TransactionCreateTimeDeposit tctd = new TransactionCreateTimeDeposit();
-        TransactionTimeDeposit ttd = new TransactionTimeDeposit();
 
         string a;        
         public savings_form()
         {
             InitializeComponent();
-            if (ModelUser.MName.Equals(""))
-                lblUser.Text = ModelUser.FName + " " + ModelUser.LName;
-            else
-                lblUser.Text = ModelUser.FName + " " + ModelUser.MName + " " + ModelUser.LName;
             StartTimer();
             this.ControlBox = false;
         }
@@ -59,148 +45,112 @@ namespace SVLMS
         {
             if (a.Contains("A"))
             {
-                lblDateTime.Text = DateTime.Now.ToString("dd-MMM-yyyy") + " " + (DateTime.Now.ToString("hh:mm")) + "AM";
+                time.Text = "" + (DateTime.Now.ToString("hh:mm")) + "AM";
             }
             else
             {
-                lblDateTime.Text = DateTime.Now.ToString("dd-MMM-yyyy") + " " + (DateTime.Now.ToString("hh:mm") + "PM");
-            }   
+                time.Text = "" + (DateTime.Now.ToString("hh:mm") + "PM");
+            }
+            dates.Text = DateTime.Now.ToString("dd-MMM-yyyy");
         }
 
         private void savingsTypeToolStripMenuItem_Click(object sender, EventArgs e)
-        {  
+        {
+            MaintenanceSavingsTypeView view = new MaintenanceSavingsTypeView();
             if ((Application.OpenForms["MaintenanceSavingsTypeView"] as MaintenanceSavingsTypeView) == null)
             {
-                ControllerSavingsType c = new ControllerSavingsType(new ModelSavingsType(), mstv);
+                ControllerSavingsType c = new ControllerSavingsType(new ModelSavingsType(), view);
             }
             
         }
 
         private void dormancyToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            MaintenanceDormancyView view = new MaintenanceDormancyView();
             if ((Application.OpenForms["MaintenanceDormancyView"] as MaintenanceDormancyView) == null)
             {
-                ControllerDormancy c = new ControllerDormancy(new ModelDormancy(), mdv);
+                ControllerDormancy c = new ControllerDormancy(new ModelDormancy(), view);
             }
         }
 
         private void termsAndRatesToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            MaintenanceTimeDeposit view = new MaintenanceTimeDeposit();
             if ((Application.OpenForms["MaintenanceTimeDeposit"] as MaintenanceTimeDeposit) == null)
             {
-                ControllerTimeDepositRates c = new ControllerTimeDepositRates(new ModelTimeDepositRates(), mtdv);
+                ControllerTimeDepositRates c = new ControllerTimeDepositRates(new ModelTimeDepositRates(), view);
             }
         }
 
         private void preTerminationPenaltyToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            MaintenanceTimeDepositPenalty view = new MaintenanceTimeDepositPenalty();
             if ((Application.OpenForms["MaintenanceTimeDepositPenalty"] as MaintenanceTimeDepositPenalty) == null)
             {
-                ControllerTimeDepositPenalty c = new ControllerTimeDepositPenalty(new ModelTimeDepositPenalty(), mtdpv);
+                ControllerTimeDepositPenalty c = new ControllerTimeDepositPenalty(new ModelTimeDepositPenalty(), view);
             }
         }
 
         private void registrationToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            TransactionMembership view = new TransactionMembership();
             if ((Application.OpenForms["TransactionMembership"] as TransactionMembership) == null)
             {
-                ControllerMember c = new ControllerMember(new ModelMember(), tm);
+                ControllerMember c = new ControllerMember(new ModelMember(), view);
             }
         }
 
         private void terminationToolStripMenuItem_Click(object sender, EventArgs e)
-        {  
+        {
+            TransactionMembershipTermination view = new TransactionMembershipTermination();
             if ((Application.OpenForms["TransactionMembershipTermination"] as TransactionMembershipTermination) == null)
             {
-                ControllerMemberTermination c = new ControllerMemberTermination(new ModelMember(), tmt);
+                ControllerMemberTermination c = new ControllerMemberTermination(new ModelMember(), view);
             }
         }
 
         private void createSavingsAccountToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //TransactionCreateSavingsAccountView view = new TransactionCreateSavingsAccountView();
-            //if ((Application.OpenForms["TransactionCreateSavingsAccountView"] as TransactionCreateSavingsAccountView) == null)
-            //{
-            //    ControllerSavingsAccount c = new ControllerSavingsAccount(new ModelSavingsAccount(), view);
-            //}
-            //XXXSampleCreate c = new XXXSampleCreate();
-            
-            sw.Show();
+            TransactionCreateSavingsAccountView view = new TransactionCreateSavingsAccountView();
+            if ((Application.OpenForms["TransactionCreateSavingsAccountView"] as TransactionCreateSavingsAccountView) == null)
+            {
+                ControllerSavingsAccount c = new ControllerSavingsAccount(new ModelSavingsAccount(), view);
+            }
         }
 
         private void savingsTransactionToolStripMenuItem_Click(object sender, EventArgs e)
-        {  
+        {
+            TransactionSavings view = new TransactionSavings();
             if ((Application.OpenForms["TransactionSavings"] as TransactionSavings) == null)
             {
-                ControllerSavingsTransaction c = new ControllerSavingsTransaction(new ModelSavingsTransaction(), ts);
+                ControllerSavingsTransaction c = new ControllerSavingsTransaction(new ModelSavingsTransaction(), view);
             }
-            //TransactionCreateSavingsAccountView view = new TransactionCreateSavingsAccountView();
-            //if ((Application.OpenForms["TransactionCreateSavingsAccountView"] as TransactionCreateSavingsAccountView) == null)
-            //{
-            //    ControllerSavingsAccount c = new ControllerSavingsAccount(new ModelSavingsAccount(), view);
-            //}
         }
 
         private void createTimeDepositToolStripMenuItem_Click(object sender, EventArgs e)
-        {   
+        {
+            TransactionCreateTimeDeposit view = new TransactionCreateTimeDeposit();
             if ((Application.OpenForms["TransactionCreateTimeDeposit"] as TransactionCreateTimeDeposit) == null)
             {
-                ControllerTimeDepositAccount c = new ControllerTimeDepositAccount(new ModelTimeDepositAccount(), tctd);
+                ControllerTimeDepositAccount c = new ControllerTimeDepositAccount(new ModelTimeDepositAccount(), view);
             }
             
         }
 
         private void closureAndRenewalToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            TransactionTimeDeposit view = new TransactionTimeDeposit();
             if ((Application.OpenForms["TransactionTimeDeposit"] as TransactionTimeDeposit) == null)
             {
-                ControllerTimeDepositTransaction c = new ControllerTimeDepositTransaction(new ModelTimeDepositTransaction(), ttd);
+                ControllerTimeDepositTransaction c = new ControllerTimeDepositTransaction(new ModelTimeDepositTransaction(), view);
             }
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CheckActiveChildForms();   
-        }
-
-        private void CheckActiveChildForms()
-        {
-            if (mstv.Visible || mdv.Visible || mtdpv.Visible || mtdv.Visible || tm.Visible || tmt.Visible || sw.Visible || ttd.Visible || tctd.Visible)
-            {
-                DialogResult strExit = MessageBox.Show("Do you want to continue?.", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Stop);
-
-                if (strExit == DialogResult.Yes)
-                {
-                    mstv.Dispose();
-                    mdv.Dispose();
-                    mtdpv.Dispose();
-                    mtdv.Dispose();
-                    tm.Dispose();
-                    tmt.Dispose();
-                    sw.Dispose();
-                    ttd.Dispose();
-                    tctd.Dispose();
-                    this.Close();
-                    main_form main = new main_form();
-                    main.Show();
-                }
-            }
-            else 
-            {
-                this.Close();
-                main_form main = new main_form();
-                main.Show();
-            }
-        }
-
-        private void btnLogout_MouseHover(object sender, EventArgs e)
-        {
-            btnLogout.BackgroundImage = Properties.Resources.exit_bg_hover;
-        }
-
-        private void btnLogout_MouseLeave(object sender, EventArgs e)
-        {
-            btnLogout.BackgroundImage = Properties.Resources.exit_bg_savings;
+            this.Close();
+            main_form m = new main_form();
+            m.Show();
         }
     }
 }

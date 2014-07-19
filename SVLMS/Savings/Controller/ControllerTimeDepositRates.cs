@@ -65,6 +65,12 @@ namespace SVLMS.Savings.Controller
 
         public void dgClicked(object sender, EventArgs e)
         {
+            view.unInterestRate();
+            view.unMaxBracket();
+            view.unMinBracket();
+            view.unNoDays();
+            view.unStatus();
+
             DataGridView dg = view.getDataGrid();
             int row = dg.CurrentCell.RowIndex;
             model.timeRateID = dg.Rows[row].Cells[0].Value.ToString();
@@ -313,6 +319,14 @@ namespace SVLMS.Savings.Controller
                     view.errMaxBracket();
                 }
             }
+
+            if (Convert.ToDouble(model.numberOfDays) == Convert.ToDouble(model.maximumBracket))
+            {
+                correct--;
+                view.errMaxBracket();
+                view.errMinBracket();
+            }
+
             return correct;
         }
     }

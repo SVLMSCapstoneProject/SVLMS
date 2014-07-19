@@ -307,8 +307,8 @@
             this.cboPaymentInterval.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboPaymentInterval.FormattingEnabled = true;
             this.cboPaymentInterval.Items.AddRange(new object[] {
+            "Daily",
             "Weekly",
-            "Semi-monthly",
             "Monthly"});
             this.cboPaymentInterval.Location = new System.Drawing.Point(182, 126);
             this.cboPaymentInterval.Name = "cboPaymentInterval";

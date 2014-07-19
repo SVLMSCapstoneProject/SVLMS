@@ -48,6 +48,11 @@ namespace SVLMS.Loaning.View
             btnClear.Click += e;
         }
 
+        public void settxtTypeName(EventHandler e)
+        {
+            txtTypeName.Leave += e;
+        }
+
         public void setDataGridEvent(DataGridViewCellEventHandler e)
         {
             dgMemberType.CellDoubleClick += e;
@@ -79,6 +84,25 @@ namespace SVLMS.Loaning.View
             chkHasCertificate.Checked = false;
         }
 
+        public string getTypeID()
+        {
+            return txtTypeID.Text;
+        }
+
+        public string getMemberTypeName()
+        {
+            string result = "";
+            char[] str = txtTypeName.Text.ToCharArray();
+            for (int i = 0; i < str.Length; i++)
+            {
+                if (str[i] == ' ')
+                { }
+                else
+                    result += str[i];
+            }
+            return result.ToLower();            
+        }
+
         public string getTypeName()
         {
             return txtTypeName.Text;
@@ -89,10 +113,10 @@ namespace SVLMS.Loaning.View
             return txtMinimumShare.Text;
         }
 
-        //public void setTypeID(string typeID)
-        //{
-        //    txtTypeID.Text = typeID;
-        //}
+        public void setTypeID(string typeID)
+        {
+            txtTypeID.Text = typeID;
+        }
 
         public void setTypeName(string typeName)
         {
@@ -171,7 +195,7 @@ namespace SVLMS.Loaning.View
         {
             if (saveClicked != null)
             {
-                saveClicked(sender,e);
+                saveClicked(sender, e);
             }
         }
 
@@ -179,7 +203,7 @@ namespace SVLMS.Loaning.View
         {
             if (updateClicked != null)
             {
-                updateClicked(sender,e);
+                updateClicked(sender, e);
             }
         }
 
@@ -187,7 +211,7 @@ namespace SVLMS.Loaning.View
         {
             if (clearClicked != null)
             {
-                clearClicked(sender,e);
+                clearClicked(sender, e);
             }
         }
 
@@ -195,7 +219,7 @@ namespace SVLMS.Loaning.View
         {
             if (cellClicked != null)
             {
-                cellClicked(sender,e);
+                cellClicked(sender, e);
             }
         }
 
@@ -230,25 +254,13 @@ namespace SVLMS.Loaning.View
         }
         //MinimumShare
         public void errMinimumshare()
-        { 
+        {
             txtMinimumShare.BackColor = Color.Salmon;
         }
 
         public void unMinimumShare()
         {
             txtMinimumShare.BackColor = Color.White;
-        }
-
-        private void txtMinimumShare_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
-            {
-                e.Handled = true;
-            }
-            if (e.KeyChar == '.' && (sender as TextBox).Text.IndexOf('.') > -1)
-            {
-                e.Handled = true;
-            }
         }
         //status
         public void errStatus()
@@ -258,7 +270,7 @@ namespace SVLMS.Loaning.View
 
         public void unStatus()
         {
-            statusPanel.BackColor = Color.CornflowerBlue;
+            statusPanel.BackColor = Color.White;
         }
 
         public int status()
@@ -278,7 +290,7 @@ namespace SVLMS.Loaning.View
 
         public void unCertificate()
         {
-            HasCertificatepanel.BackColor = Color.CornflowerBlue;
+            HasCertificatepanel.BackColor = Color.White;
         }
 
         public int certificate()
@@ -289,7 +301,19 @@ namespace SVLMS.Loaning.View
             return i;
         }
 
-        private void txtTypeName_Validating(object sender, CancelEventArgs e)
+        private void txtMinimumShare_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == '.' && (sender as TextBox).Text.IndexOf('.') > -1)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtTypeName_Validating_1(object sender, CancelEventArgs e)
         {
             setTypeName(txtTypeName.Text.Trim());
         }

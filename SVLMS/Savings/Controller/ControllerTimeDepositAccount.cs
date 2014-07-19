@@ -31,35 +31,6 @@ namespace SVLMS.Savings.Controller
             view.setDatagridEvent(dgClicked);
             //view.setCboDepositTypeEvent(CboDepositTypeSelectionChanged);
             view.setCboMaturityInstructionsEvent(CboMaturityInstructionSelectionChanged);
-            view.setTxtInitialDepositEvent(TxtInitialDepositTextChanged);
-            view.setCboDaysEvent(TxtInitialDepositTextChanged);
-        }
-
-        public void TxtInitialDepositTextChanged(object sender, EventArgs e)
-        {
-            double num = 0;
-            if (Double.TryParse(view.getInitialDeposit(), out num))
-            {
-                this.setRates();
-            }
-
-            else
-            {
-                this.setRatesAll();
-            }
-        }
-
-        private void setRates()
-        {
-            model.initialDeposit = view.getInitialDeposit();
-            model.termDays = view.getCboTerm();
-            view.setDataGridRates(model.getApplicableRates());
-        }
-
-        private void setRatesAll()
-        {
-            model.termDays = view.getCboTerm();
-            view.setDataGridRates(model.getAllApplicableRates());
         }
 
         //public void CboDepositTypeSelectionChanged(object sender, EventArgs e)
@@ -198,7 +169,6 @@ namespace SVLMS.Savings.Controller
             view.setDgMembers(model.getMembers());
             //view.disableCboSavings();
             view.disableCboSavingsTransfer();
-            this.setRatesAll();
         }
 
         public void dgClicked(object sender,DataGridViewCellEventArgs e)

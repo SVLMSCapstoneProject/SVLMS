@@ -23,6 +23,9 @@ namespace SVLMS.Savings.Model
         public string status { get; set; }
         public string minimumWithdrawal { get; set; }
         public string maxWithdrawDurationDays { get; set; }
+        public string checkSavingsName { get; set; }
+        public string savingsNameID { get; set; }
+        public string updateSavingsName { get; set; }
 
         public void insertSavingsType()
         {
@@ -126,6 +129,33 @@ namespace SVLMS.Savings.Model
                 noAccountHolders = reader[8].ToString();
                 status = reader[9].ToString();
             }
+        }
+
+        public void searchSavingsName()
+        {
+            DataAccessLayer dal = new DataAccessLayer(ConfigurationManager.ConnectionStrings["coopdbConnectionString"].ConnectionString);
+            string sql = "select COUNT(savingsName) from vw_savingsName where savingsName = @1";
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+            parameters.Add("@1", savingsName);
+            SqlDataReader reader = dal.executeReader(sql, parameters);
+            if (reader.Read())
+            {
+                checkSavingsName = reader[0].ToString();
+            }
+        }
+
+        public void SavingsNameUpdate()
+        {
+            DataAccessLayer dal = new DataAccessLayer(ConfigurationManager.ConnectionStrings["coopdbConnectionString"].ConnectionString);
+            string sql = "select COUNT(savingsTypeID) from vw_savingsName where savingsTypeID = @1 AND savingsName = @2";
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+            parameters.Add("@1", savingsTypeID);
+            parameters.Add("@2", updateSavingsName);
+            SqlDataReader reader = dal.executeReader(sql, parameters);
+            if (reader.Read())
+            {
+                savingsNameID = reader[0].ToString();
+            }            
         }
     }
 }

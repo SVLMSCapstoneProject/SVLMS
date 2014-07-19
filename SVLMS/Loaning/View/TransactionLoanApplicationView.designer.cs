@@ -36,19 +36,17 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.tab = new System.Windows.Forms.TabControl();
             this.tabMemberInformation = new System.Windows.Forms.TabPage();
-            this.lblEligibility = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtMaturityPrevious = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
             this.label37 = new System.Windows.Forms.Label();
-            this.txtCurrentBalancePrevious = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label34 = new System.Windows.Forms.Label();
-            this.txtLoanTypePrevious = new System.Windows.Forms.TextBox();
-            this.txtLoanNoPrevious = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             this.label35 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtShareCapital = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label33 = new System.Windows.Forms.Label();
             this.txtMemberName = new System.Windows.Forms.TextBox();
             this.txtAccountNo = new System.Windows.Forms.TextBox();
@@ -208,8 +206,6 @@
             // 
             // tabMemberInformation
             // 
-            this.tabMemberInformation.Controls.Add(this.lblEligibility);
-            this.tabMemberInformation.Controls.Add(this.label38);
             this.tabMemberInformation.Controls.Add(this.groupBox2);
             this.tabMemberInformation.Controls.Add(this.groupBox1);
             this.tabMemberInformation.Location = new System.Drawing.Point(4, 25);
@@ -220,114 +216,97 @@
             this.tabMemberInformation.Text = "Member and Previous Loan";
             this.tabMemberInformation.UseVisualStyleBackColor = true;
             // 
-            // lblEligibility
-            // 
-            this.lblEligibility.AutoSize = true;
-            this.lblEligibility.Location = new System.Drawing.Point(214, 183);
-            this.lblEligibility.Name = "lblEligibility";
-            this.lblEligibility.Size = new System.Drawing.Size(0, 16);
-            this.lblEligibility.TabIndex = 92;
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(27, 182);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(181, 16);
-            this.label38.TabIndex = 91;
-            this.label38.Text = "Eligibility for Loan Application:";
-            // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.txtMaturityPrevious);
+            this.groupBox2.Controls.Add(this.textBox5);
             this.groupBox2.Controls.Add(this.label37);
-            this.groupBox2.Controls.Add(this.txtCurrentBalancePrevious);
+            this.groupBox2.Controls.Add(this.textBox2);
             this.groupBox2.Controls.Add(this.label34);
-            this.groupBox2.Controls.Add(this.txtLoanTypePrevious);
-            this.groupBox2.Controls.Add(this.txtLoanNoPrevious);
+            this.groupBox2.Controls.Add(this.textBox3);
+            this.groupBox2.Controls.Add(this.textBox4);
             this.groupBox2.Controls.Add(this.label35);
             this.groupBox2.Controls.Add(this.label36);
             this.groupBox2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(306, 10);
+            this.groupBox2.Location = new System.Drawing.Point(305, 6);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(284, 138);
+            this.groupBox2.Size = new System.Drawing.Size(284, 131);
             this.groupBox2.TabIndex = 90;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Previous Loan Information";
             // 
-            // txtMaturityPrevious
+            // textBox5
             // 
-            this.txtMaturityPrevious.BackColor = System.Drawing.Color.White;
-            this.txtMaturityPrevious.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.txtMaturityPrevious.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaturityPrevious.ForeColor = System.Drawing.Color.Black;
-            this.txtMaturityPrevious.Location = new System.Drawing.Point(129, 105);
-            this.txtMaturityPrevious.Name = "txtMaturityPrevious";
-            this.txtMaturityPrevious.ReadOnly = true;
-            this.txtMaturityPrevious.Size = new System.Drawing.Size(140, 22);
-            this.txtMaturityPrevious.TabIndex = 6;
+            this.textBox5.BackColor = System.Drawing.Color.White;
+            this.textBox5.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.textBox5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox5.ForeColor = System.Drawing.Color.Black;
+            this.textBox5.Location = new System.Drawing.Point(124, 100);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.ReadOnly = true;
+            this.textBox5.Size = new System.Drawing.Size(140, 22);
+            this.textBox5.TabIndex = 6;
             // 
             // label37
             // 
             this.label37.AutoSize = true;
             this.label37.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label37.Location = new System.Drawing.Point(27, 108);
+            this.label37.Location = new System.Drawing.Point(22, 103);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(90, 16);
             this.label37.TabIndex = 5;
             this.label37.Text = "Maturity Date:";
             // 
-            // txtCurrentBalancePrevious
+            // textBox2
             // 
-            this.txtCurrentBalancePrevious.BackColor = System.Drawing.Color.White;
-            this.txtCurrentBalancePrevious.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.txtCurrentBalancePrevious.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCurrentBalancePrevious.ForeColor = System.Drawing.Color.Black;
-            this.txtCurrentBalancePrevious.Location = new System.Drawing.Point(129, 77);
-            this.txtCurrentBalancePrevious.Name = "txtCurrentBalancePrevious";
-            this.txtCurrentBalancePrevious.ReadOnly = true;
-            this.txtCurrentBalancePrevious.Size = new System.Drawing.Size(140, 22);
-            this.txtCurrentBalancePrevious.TabIndex = 4;
+            this.textBox2.BackColor = System.Drawing.Color.White;
+            this.textBox2.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.textBox2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.ForeColor = System.Drawing.Color.Black;
+            this.textBox2.Location = new System.Drawing.Point(124, 72);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(140, 22);
+            this.textBox2.TabIndex = 4;
             // 
             // label34
             // 
             this.label34.AutoSize = true;
             this.label34.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label34.Location = new System.Drawing.Point(27, 80);
+            this.label34.Location = new System.Drawing.Point(22, 75);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(105, 16);
             this.label34.TabIndex = 3;
             this.label34.Text = "Current Balance:";
             // 
-            // txtLoanTypePrevious
+            // textBox3
             // 
-            this.txtLoanTypePrevious.BackColor = System.Drawing.Color.White;
-            this.txtLoanTypePrevious.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.txtLoanTypePrevious.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLoanTypePrevious.ForeColor = System.Drawing.Color.Black;
-            this.txtLoanTypePrevious.Location = new System.Drawing.Point(129, 49);
-            this.txtLoanTypePrevious.Name = "txtLoanTypePrevious";
-            this.txtLoanTypePrevious.ReadOnly = true;
-            this.txtLoanTypePrevious.Size = new System.Drawing.Size(140, 22);
-            this.txtLoanTypePrevious.TabIndex = 2;
+            this.textBox3.BackColor = System.Drawing.Color.White;
+            this.textBox3.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.textBox3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.ForeColor = System.Drawing.Color.Black;
+            this.textBox3.Location = new System.Drawing.Point(124, 44);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
+            this.textBox3.Size = new System.Drawing.Size(140, 22);
+            this.textBox3.TabIndex = 2;
             // 
-            // txtLoanNoPrevious
+            // textBox4
             // 
-            this.txtLoanNoPrevious.BackColor = System.Drawing.Color.White;
-            this.txtLoanNoPrevious.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.txtLoanNoPrevious.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLoanNoPrevious.ForeColor = System.Drawing.Color.Black;
-            this.txtLoanNoPrevious.Location = new System.Drawing.Point(129, 21);
-            this.txtLoanNoPrevious.Name = "txtLoanNoPrevious";
-            this.txtLoanNoPrevious.ReadOnly = true;
-            this.txtLoanNoPrevious.Size = new System.Drawing.Size(140, 22);
-            this.txtLoanNoPrevious.TabIndex = 1;
+            this.textBox4.BackColor = System.Drawing.Color.White;
+            this.textBox4.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.textBox4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox4.ForeColor = System.Drawing.Color.Black;
+            this.textBox4.Location = new System.Drawing.Point(124, 18);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
+            this.textBox4.Size = new System.Drawing.Size(140, 22);
+            this.textBox4.TabIndex = 1;
             // 
             // label35
             // 
             this.label35.AutoSize = true;
             this.label35.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.Location = new System.Drawing.Point(27, 24);
+            this.label35.Location = new System.Drawing.Point(22, 21);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(60, 16);
             this.label35.TabIndex = 0;
@@ -337,7 +316,7 @@
             // 
             this.label36.AutoSize = true;
             this.label36.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.Location = new System.Drawing.Point(27, 52);
+            this.label36.Location = new System.Drawing.Point(22, 47);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(71, 16);
             this.label36.TabIndex = 0;
@@ -345,7 +324,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txtShareCapital);
+            this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label33);
             this.groupBox1.Controls.Add(this.txtMemberName);
             this.groupBox1.Controls.Add(this.txtAccountNo);
@@ -354,28 +333,28 @@
             this.groupBox1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(6, 10);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(284, 117);
+            this.groupBox1.Size = new System.Drawing.Size(284, 127);
             this.groupBox1.TabIndex = 89;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Member Information";
             // 
-            // txtShareCapital
+            // textBox1
             // 
-            this.txtShareCapital.BackColor = System.Drawing.Color.White;
-            this.txtShareCapital.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.txtShareCapital.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtShareCapital.ForeColor = System.Drawing.Color.Black;
-            this.txtShareCapital.Location = new System.Drawing.Point(124, 77);
-            this.txtShareCapital.Name = "txtShareCapital";
-            this.txtShareCapital.ReadOnly = true;
-            this.txtShareCapital.Size = new System.Drawing.Size(140, 22);
-            this.txtShareCapital.TabIndex = 4;
+            this.textBox1.BackColor = System.Drawing.Color.White;
+            this.textBox1.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.textBox1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.ForeColor = System.Drawing.Color.Black;
+            this.textBox1.Location = new System.Drawing.Point(124, 83);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(140, 22);
+            this.textBox1.TabIndex = 4;
             // 
             // label33
             // 
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.Location = new System.Drawing.Point(22, 80);
+            this.label33.Location = new System.Drawing.Point(22, 86);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(90, 16);
             this.label33.TabIndex = 3;
@@ -387,7 +366,7 @@
             this.txtMemberName.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.txtMemberName.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMemberName.ForeColor = System.Drawing.Color.Black;
-            this.txtMemberName.Location = new System.Drawing.Point(124, 49);
+            this.txtMemberName.Location = new System.Drawing.Point(124, 55);
             this.txtMemberName.Name = "txtMemberName";
             this.txtMemberName.ReadOnly = true;
             this.txtMemberName.Size = new System.Drawing.Size(140, 22);
@@ -399,7 +378,7 @@
             this.txtAccountNo.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.txtAccountNo.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAccountNo.ForeColor = System.Drawing.Color.Black;
-            this.txtAccountNo.Location = new System.Drawing.Point(124, 21);
+            this.txtAccountNo.Location = new System.Drawing.Point(124, 29);
             this.txtAccountNo.Name = "txtAccountNo";
             this.txtAccountNo.ReadOnly = true;
             this.txtAccountNo.Size = new System.Drawing.Size(140, 22);
@@ -409,7 +388,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(22, 24);
+            this.label5.Location = new System.Drawing.Point(22, 32);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(80, 16);
             this.label5.TabIndex = 0;
@@ -419,7 +398,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(22, 52);
+            this.label4.Location = new System.Drawing.Point(22, 58);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(97, 16);
             this.label4.TabIndex = 0;
@@ -488,7 +467,7 @@
             // txtTermsOfPayment
             // 
             this.txtTermsOfPayment.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTermsOfPayment.Location = new System.Drawing.Point(144, 139);
+            this.txtTermsOfPayment.Location = new System.Drawing.Point(142, 130);
             this.txtTermsOfPayment.Name = "txtTermsOfPayment";
             this.txtTermsOfPayment.Size = new System.Drawing.Size(146, 22);
             this.txtTermsOfPayment.TabIndex = 114;
@@ -496,7 +475,7 @@
             // txtRequestedAmount
             // 
             this.txtRequestedAmount.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRequestedAmount.Location = new System.Drawing.Point(144, 111);
+            this.txtRequestedAmount.Location = new System.Drawing.Point(143, 104);
             this.txtRequestedAmount.Name = "txtRequestedAmount";
             this.txtRequestedAmount.Size = new System.Drawing.Size(146, 22);
             this.txtRequestedAmount.TabIndex = 110;
@@ -555,7 +534,7 @@
             "Weekly",
             "Semi-monthly",
             "Monthly"});
-            this.cboIntervalPayment.Location = new System.Drawing.Point(143, 169);
+            this.cboIntervalPayment.Location = new System.Drawing.Point(142, 159);
             this.cboIntervalPayment.Name = "cboIntervalPayment";
             this.cboIntervalPayment.Size = new System.Drawing.Size(146, 24);
             this.cboIntervalPayment.TabIndex = 119;
@@ -564,7 +543,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(20, 173);
+            this.label12.Location = new System.Drawing.Point(19, 163);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(122, 16);
             this.label12.TabIndex = 118;
@@ -584,7 +563,7 @@
             // 
             this.dtpLoanDate.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpLoanDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpLoanDate.Location = new System.Drawing.Point(144, 51);
+            this.dtpLoanDate.Location = new System.Drawing.Point(143, 47);
             this.dtpLoanDate.Name = "dtpLoanDate";
             this.dtpLoanDate.Size = new System.Drawing.Size(146, 22);
             this.dtpLoanDate.TabIndex = 112;
@@ -593,7 +572,7 @@
             // 
             this.cboApplicableLoans.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboApplicableLoans.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboApplicableLoans.Location = new System.Drawing.Point(144, 81);
+            this.cboApplicableLoans.Location = new System.Drawing.Point(143, 76);
             this.cboApplicableLoans.Name = "cboApplicableLoans";
             this.cboApplicableLoans.Size = new System.Drawing.Size(146, 24);
             this.cboApplicableLoans.TabIndex = 115;
@@ -602,7 +581,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(21, 142);
+            this.label8.Location = new System.Drawing.Point(19, 133);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(102, 16);
             this.label8.TabIndex = 111;
@@ -612,7 +591,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(21, 55);
+            this.label7.Location = new System.Drawing.Point(20, 51);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(123, 16);
             this.label7.TabIndex = 109;
@@ -622,7 +601,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(21, 113);
+            this.label3.Location = new System.Drawing.Point(20, 106);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(122, 16);
             this.label3.TabIndex = 108;
@@ -632,7 +611,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(21, 85);
+            this.label10.Location = new System.Drawing.Point(20, 80);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(111, 16);
             this.label10.TabIndex = 107;
@@ -1156,7 +1135,6 @@
             this.panel1.PerformLayout();
             this.tab.ResumeLayout(false);
             this.tabMemberInformation.ResumeLayout(false);
-            this.tabMemberInformation.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -1231,7 +1209,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TabPage tabLoanInfo;
-        private System.Windows.Forms.TextBox txtShareCapital;
+        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.TextBox txtApprovedAmount;
         private System.Windows.Forms.TextBox txtRemarks;
@@ -1252,10 +1230,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox txtCurrentBalancePrevious;
+        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.TextBox txtLoanTypePrevious;
-        private System.Windows.Forms.TextBox txtLoanNoPrevious;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Label lblTotalAmount;
@@ -1266,10 +1244,8 @@
         private System.Windows.Forms.Label lblShareCapital;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox txtMaturityPrevious;
+        private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.Label label38;
-        private System.Windows.Forms.Label lblEligibility;
 
 
     }
